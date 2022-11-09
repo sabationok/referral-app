@@ -1,0 +1,26 @@
+.childrenContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 4px;
+}
+.children {
+  display: grid;
+  grid-template-columns: 0.5fr 2.5fr 0.8fr 2.5fr 1fr;
+  align-items: center;
+  gap: 8px;
+}
+.level {
+}
+.name {
+}
+.id {
+}
+.phone {
+  font-size: 12px;
+}
+.button {
+}
+.listContainer {
+}

@@ -1,0 +1,19 @@
+import React from 'react';
+import Children from 'components/Children/Children';
+
+import s from './ChildrensList.module.scss';
+
+const ChildrensList = ({ arr, level }) => {
+  if (level === 5) {
+    return <></>;
+  }
+  return (
+    <div>
+      {arr.map(item => (
+        <Children key={item.id} info={item} level={level} />
+      ))}
+    </div>
+  );
+};
+
+export default ChildrensList;

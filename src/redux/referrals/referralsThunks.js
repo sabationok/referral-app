@@ -5,7 +5,7 @@ import { token } from '../../services/userApi';
 
 
 export const getAllRefChildrenThunk = createAsyncThunk(
-  'userAuth/current',
+  'referral/children',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     token.set(state.userAuth.tokens.accessToken);
@@ -19,7 +19,7 @@ export const getAllRefChildrenThunk = createAsyncThunk(
   }
 );
 export const getCountChildrenThunk = createAsyncThunk(
-  'userAuth/current',
+  'referral/count',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     token.set(state.userAuth.tokens.accessToken);

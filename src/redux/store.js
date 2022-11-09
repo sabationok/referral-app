@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
 import { userReducer } from './auth/authSlice';
+import { refsReducer } from './referrals/referralsSlice';
 import {
   persistStore,
   persistReducer,
@@ -23,6 +24,7 @@ const persistedUserReducer = persistReducer(persistConfig, userReducer);
 
 const rootReducer = combineReducers({
   userAuth: persistedUserReducer,
+  referral: refsReducer,
 });
 
 export const store = configureStore({

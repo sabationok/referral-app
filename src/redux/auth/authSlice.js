@@ -17,6 +17,7 @@ const initialState = {
     banned: true,
     banReason: null,
     role: null,
+    children: null,
   },
   tokens: {
     accessToken: null,
@@ -35,8 +36,6 @@ export const userAuthSlice = createSlice({
       state.user = initialState.user;
       state.tokens = initialState.tokens;
       state.isLoggedIn = false;
-      console.log(state);
-      alert('signOut');
     },
     //* РЕЄСТРАЦІЯ
     [userRegisterThunk.fulfilled]: (state, { payload }) => {
@@ -63,7 +62,6 @@ export const userAuthSlice = createSlice({
       state.isLoading = false;
       state.isLoggedIn = false;
       state.error = action.payload.error;
-      console.log(action);
     },
     [userLogInThunk.pending]: (state, { payload }) => {
       state.isLoading = true;
@@ -87,7 +85,7 @@ export const userAuthSlice = createSlice({
       state.isLoading = false;
       state.isLoggedIn = true;
       state.user = { ...payload };
-      console.log('current user data', payload);
+      // console.log('current user data', payload);
     },
     [userCurrentThunk.rejected]: (state, action) => {
       state.isLoading = false;

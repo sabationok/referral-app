@@ -8,10 +8,11 @@ import s from './SignInPage.module.scss';
 //* password: '12345678';
 //* phone: '+380677894561';
 const SignInPage = () => {
-  const [formData, setFormData] = useState({
+  const InititalState = {
     email: '',
     password: '',
-  });
+  };
+  const [formData, setFormData] = useState(InititalState);
   const dispatch = useDispatch();
   function handleChangeInput(ev) {
     let { name, value } = ev.target;
@@ -19,8 +20,8 @@ const SignInPage = () => {
   }
   function handleFormSubmit(ev) {
     ev.preventDefault();
-    // console.log(formData)
     dispatch(userLogInThunk(formData));
+    setFormData(InititalState);
   }
 
   return (

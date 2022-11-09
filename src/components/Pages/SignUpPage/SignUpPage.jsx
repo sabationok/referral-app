@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
+import { nanoid, customAlphabet } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import { userRegisterThunk } from 'redux/auth/authThunks';
 import s from './SignUpPage.module.scss';
-
+const randomPhone = customAlphabet('0123456789', 9);
 const SignUpPage = () => {
-  const [formData, setFormData] = useState({
+  const dispatch = useDispatch();
+  const initialFormData = {
     name: '',
     phone: '',
     email: '',
     password: '',
     parentId: '',
-  });
-  const dispatch = useDispatch();
+  };
+  const [formData, setFormData] = useState(initialFormData);
+
   function handleChangeInput(ev) {
     let { name, value } = ev.target;
     setFormData({ ...formData, [name]: value });
   }
   function handleFormSubmit(ev) {
     ev.preventDefault();
-    console.log(ev);
     const newUser = {
       name: formData.name,
       phone: formData.phone,
@@ -26,9 +28,17 @@ const SignUpPage = () => {
       password: formData.password,
       parentId: Number(formData.parentId),
     };
-    console.log('submit');
-    console.log(newUser);
-    dispatch(userRegisterThunk(newUser))
+    const testUser = {
+      name: nanoid(8),
+      phone: `+380${randomPhone()}`,
+      email: `${nanoid(10)}@mail.com`,
+      password: nanoid(10),
+      parentId: 71,
+    };
+
+    console.log(testUser);
+    dispatch(userRegisterThunk(testUser));
+    setFormData(initialFormData);
   }
 
   return (
@@ -44,7 +54,7 @@ const SignUpPage = () => {
             id="name"
             value={formData.name}
             placeholder={'name'}
-            // required
+            required
             onChange={handleChangeInput}
           />
         </label>
@@ -58,7 +68,7 @@ const SignUpPage = () => {
             defaultValue={`+380${formData.phone}`}
             // value={formData.phone}
             placeholder={'phone'}
-            // required
+            required
             onChange={handleChangeInput}
           />
         </label>
@@ -71,7 +81,7 @@ const SignUpPage = () => {
             id="email"
             value={formData.email}
             placeholder={'email'}
-            // required
+            required
             onChange={handleChangeInput}
           />
         </label>
@@ -84,7 +94,7 @@ const SignUpPage = () => {
             id="password"
             value={formData.password}
             placeholder={'password'}
-            // required
+            required
             onChange={handleChangeInput}
           />
         </label>

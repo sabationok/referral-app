@@ -22,7 +22,7 @@ const MainPage = lazy(() => import('./Pages/MainPage/MainPage'));
 export const App = () => {
   const dispatch = useDispatch();
   const {
-    tokens: { accessToken, refreshToken },
+    tokens: { accessToken },
   } = useSelector(selectUserData);
 
   useEffect(() => {

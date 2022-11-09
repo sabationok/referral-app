@@ -5,8 +5,8 @@ import {
 } from './referralsThunks';
 
 const initialState = {
-  refChildren: [],
-  refsChildrenCount: null,
+  childrensList: [],
+  childrensCount: null,
   error: null,
   errorMessage: null,
   isLoading: false,
@@ -19,30 +19,26 @@ export const userRefsSlice = createSlice({
     //* ОТРИАТИ ВСІХ РЕФЕРАЛІВ
     [getAllRefChildrenThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      console.log(payload, 'отримано всіх дітей');
-      state.refChildren = [...payload];
+      state.childrensList = [...payload.children];
     },
     [getAllRefChildrenThunk.pending]: (state, { payload }) => {
       state.isLoading = true;
     },
     [getAllRefChildrenThunk.rejected]: (state, { payload }) => {
       state.isLoading = false;
-      console.log(payload, 'НЕ отримано всіх дітей');
       state.error = payload.error;
       state.errorMessage = payload.message;
     },
     //* ОТРИАТИ ЗАГАЛЬНУ КУЛЬКІСТЬ ДІТЕЙ
-    [getAllRefChildrenThunk.fulfilled]: (state, { payload }) => {
+    [getCountChildrenThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      console.log(payload, 'отримано кількість всіх дітей');
-      state.refsChildrenCount = payload.count;
+      state.childrensCount = payload;
     },
-    [getAllRefChildrenThunk.pending]: (state, { payload }) => {
+    [getCountChildrenThunk.pending]: (state, { payload }) => {
       state.isLoading = true;
     },
-    [getAllRefChildrenThunk.rejected]: (state, { payload }) => {
+    [getCountChildrenThunk.rejected]: (state, { payload }) => {
       state.isLoading = false;
-      console.log(payload, 'НЕ отримано кількість всіх дітей');
       state.error = payload.error;
       state.errorMessage = payload.message;
     },
