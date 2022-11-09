@@ -1,0 +1,102 @@
+.table {
+
+  &__tittle {
+    text-align: center;
+  }
+  &__subtittle {
+    text-align: center;
+    padding: 4px 0;
+  }
+  
+  & .col {
+    white-space: nowrap;
+  }
+  &.--products,
+  &.--orders {
+    position: relative;
+    & .thead {
+      position: sticky;
+      top: 0;
+      left: 0;
+      // z-index: 5;
+    }
+    & .row {
+      border-bottom: 1px solid var(--table-row-brdr-clr__primary);
+      // border-bottom: 1px solid red;
+      &__th {
+        color: #fff;
+        white-space: nowrap;
+        padding: 4px 0;
+  
+        background-color: rgb(104, 104, 104);
+      }
+      // &:nth-child(even) {}
+      &:nth-child(even) {
+        background-color: var(--tr-bckgrnd_clr__even);
+      }
+      &:focus,
+      &:hover {
+        background-color: var(--tr-bckrnd-clr__hover);
+      }
+      &:active {
+        outline: 2px solid var(--td-outline-clr);
+        border-color: transparent;
+      }
+    }
+    & .col {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
+      padding: 6px 8px;
+      min-width: 90px;
+
+      /* &:nth-child(odd) {
+        background-color: var(--tr-cell-bckgrnd_clr__primary);
+      } */
+      &__th {
+        padding: 6px 8px;
+      }
+      &:focus,
+      &:hover {
+        outline: 2px solid var(--td-outline-clr);
+      }
+      &:active {
+        background-color: var(--td-bckrnd-clr__hover);
+      }
+    }
+  }
+  &.--products {
+    & .col {
+      &.--1 {
+        min-width: 220px;
+        max-width: 230px;
+      }
+      &.--2 {
+        min-width: 250px;
+        max-width: 260px;
+      }
+    }
+  }
+  &.--orders {
+    & .col {
+      &.--3 {
+max-width: 105px;
+      }
+    }
+  }
+  &.--sizes {
+    // border: 1px solid var(--table-row-brdr-clr__primary);
+    // & .thead {}
+    // & .tbody {}
+    // & .row {}
+    & .col {
+      border: 1px solid var(--table-row-brdr-clr__primary);
+    }
+  }
+  &.--stock {
+    & .col {
+      border: 1px solid var(--table-row-brdr-clr__primary);
+    }
+  }
+}

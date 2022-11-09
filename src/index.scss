@@ -1,0 +1,191 @@
+:root {
+  --brand-clr__1: rgba(226, 54, 54, 0.95);
+  --brand_clr__1: rgb(255, 127, 30);
+  --brand_clr__2: #2f303a;
+  --brand_clr__2-active: #4c4d57;
+  --brand_clr__2-hover: #4c4d5798;
+  --background_clr__main: #ffffff;
+  --zone-special_clr: #f1f1f1;
+  --zone-special_clr: rgba(219, 219, 219, 0.2);
+
+  /* TEXT */
+  --text-clr__primary: #1a1a1a;
+  --text-clr__secondary: #6b6b6b;
+  /* ICONS */
+  --icon-clr__primary: #808080;
+  /* BLOCKS */
+  /* TABLES */
+  --tr-cell-bckgrnd_clr__even: #dadada7e;
+  --tr-bckgrnd_clr__even: #dadada7e;
+  --table-row-brdr-clr__primary: #c7c7c781;
+  --tr-bckrnd-clr__hover: rgba(137, 202, 255, 0.4);
+  --td-bckrnd-clr__active: rgba(137, 202, 255, 0.7);
+  --td-outline-clr: rgba(137, 202, 255, 1);
+  --th-font-size__primary: 12px;
+  --th-font-size__secondary: 14px;
+  --th-font-weight: 700;
+  --td-font-size__primary: 12px;
+  --td-font-size__secondary: 14px;
+
+  /* BUTTONS */
+  --btn-deciscon_clr__primary: rgba(219, 219, 219, 0.4);
+  --btn-deciscon_clr__hover: rgba(219, 219, 219, 0.5);
+  --btn-deciscon_clr__active: rgba(219, 219, 219, 1);
+
+  /* OTHERS */
+  --header-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  --block-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  --block-hdr-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  --block-ftr-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  --button-shadow-hover: 0px 1px 9px rgba(0, 0, 0, 0.2);
+  --button-shadow-active: 0px 1px 5px rgba(0, 0, 0, 0.1);
+
+  /* BRAND CARD */
+  --brand-card_shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+
+  --timing-function__main: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  --test-outline_d: 1px dashed tomato;
+  --test-outline_s: 1px solid tomato;
+}
+#root {
+  width: 100%;
+  height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+html {
+  box-sizing: border-box;
+  /* відміняє синій фон при дотику по обєктах на тачскірінах */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #212121;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+
+  background-color: #ffffff;
+  margin: 0;
+}
+.outline {
+  outline: var(--testing-brdr-wght) solid var(--testing-brdr-clr);
+}
+
+
+
+/* ----------------- НОРМАЛІЗАЦІЯ -------------- */
+/*  ЗАГОЛОВКИ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+/* ПАРАГРАФИ  */
+p {
+  margin: 0;
+}
+/* ТАБЛИЦі */
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0;
+}
+th,
+tr {
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  user-select: none;
+}
+/* СПИСКИ */
+ul {
+  list-style: none;
+  padding-inline-start: 0px;
+  margin: 0px;
+}
+/* ПОСИЛАННЯ */
+a {
+  text-decoration: none;
+  color: inherit;
+  &.active{
+    background-color: var(--brand_clr__1);
+  }
+}
+/* АДРЕСИ */
+address {
+  font-style: normal;
+}
+/* ЗОБРАЖЕННЯ */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* КНОПКИ */
+button {
+  user-select: none;
+  cursor: pointer;
+}
+/* ----------------- СКРИТІ ЕЛЕМЕНТИ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+/* ----------------- SCROLLBAR */
+@media screen and (min-width: 1000px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  ::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+/* // bimp
+// --scrollbar-top-offset: 0px;
+// --scrollbar-bottom-offset: 0px;
+// --scrollbar-left-offset: 0px;
+// --scrollbar-right-offset: 0px; */

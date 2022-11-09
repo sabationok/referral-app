@@ -1,0 +1,134 @@
+.product-card {
+  width: 100%;
+  @media screen and (min-width: 481px) {
+    width: calc(100% - 6px);
+    margin: auto;
+  }
+  background-color: #fff;
+  border: 1px solid rgba(216, 216, 216, 0.65);
+  &:hover {
+    box-shadow: var(--brand-card_shadow);
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px;
+  }
+  &__logo {
+    height: 36px;
+    width: 64px;
+
+    border: 1px solid rgba(216, 216, 216, 0.8);
+  }
+  &__name {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 8px;
+  }
+  &__sku {
+    font-size: 14px;
+    padding: 2px 8px;
+  }
+  &__img {
+    &-box {
+      position: relative;
+      overflow: hidden;
+      &--wrapper {
+        display: flex;
+        align-items: flex-end;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &.--overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      overflow: auto;
+      width: 100%;
+      height: calc(100% - 36px);
+
+      padding: 5px 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+
+      transition: all var(--timing-function__main);
+      &.--top {
+        transform: translateY(-100%);
+      }
+      &.--left {
+        transform: translatex(-100%);
+      }
+      &.--right {
+        transform: translatex(100%);
+      }
+    }
+    &.--details {
+      overflow: auto;
+      max-height: 100%;
+
+      font-size: 14px;
+      display: none;
+    }
+    &.--pull {
+      font-size: 15px;
+      font-weight: 600;
+      text-align: start;
+
+      width: 100%;
+      height: 36px;
+      padding: 8px 16px;
+
+      border-style: none;
+      background-color: rgba(255, 255, 255, 0.7);
+
+      cursor: pointer;
+      &:hover {
+        color: var(--brand_clr__1);
+      }
+      &:focus,
+      &:active {
+        color: var(--brand_clr__1);
+        & + .--overlay {
+          &.--top,
+          &.--left,
+          &.--right {
+            transform: translate(0);
+          }
+        }
+      }
+    }
+  }
+  &__price {
+    font-family: 'Comfortaa';
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    padding: 8px 8px;
+  }
+  &__cashback {
+    font-family: 'Comfortaa';
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    padding: 0 8px;
+  }
+  &__bottom {
+    min-height: 100px;
+    padding: 8px;
+  }
+}

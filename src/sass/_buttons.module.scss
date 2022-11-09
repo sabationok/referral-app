@@ -1,0 +1,108 @@
+.button {
+  display: block;
+  border-style: none;
+
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-align: center;
+
+  border: 1px solid transparent;
+
+  transition: all var(--timing-function__main);
+  &.--for_menu {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brand_clr__1);
+
+    padding: 4px 16px;
+    background-color: var(--brand_clr__2);
+
+    &:hover {
+      background-color: var(--brand_clr__2-hover);
+    }
+    &:focus,
+    &:active {
+      background-color: var(--brand_clr__2-active);
+      & +.nav__list {
+        opacity: 1;
+        transform: scaleX(1);
+        visibility: visible;
+        pointer-events: all;
+      }
+    }
+  }
+  &.--decision {
+    padding: 4px 12px 2px;
+    min-width: 100px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    background-color: var(--btn-deciscon_clr__primary);
+
+    border-bottom: 4px solid transparent;
+
+    transition: all var(--timing-function__main);
+    &:hover,
+    &:focus {
+      background-color: var(--btn-deciscon_clr__hover);
+    }
+    &:active {
+      background-color: var(--btn-deciscon_clr__active);
+    }
+    &.--accept {
+      &:hover,
+      &:focus {
+        border-color: rgb(84, 255, 62);
+      }
+    }
+    &.--reset {
+      &:hover,
+      &:focus {
+        border-color: rgb(255, 242, 62);
+      }
+    }
+    &.--decline {
+      &:hover,
+      &:focus {
+        border-color: rgb(255, 62, 62);
+      }
+    }
+  }
+  &.--to-cart {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 16px;
+    color: #fff;
+
+    background-color: rgb(94, 158, 255);
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      background-color: rgb(68, 142, 253);
+    }
+    &:active {
+      background-color: #fff;
+      color: rgb(28, 119, 255);
+      border-color: rgb(28, 119, 255);
+    }
+  }
+  &.--send-feedback {
+    font-weight: 500;
+    padding: 4px 8px;
+
+    color: rgb(94, 158, 255);
+
+    background-color: #fff;
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      color: rgb(68, 142, 253);
+    }
+    &:active {
+      color: #fff;
+      background-color: rgb(28, 119, 255);
+    }
+  }
+}
