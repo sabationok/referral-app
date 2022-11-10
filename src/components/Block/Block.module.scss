@@ -1,20 +1,17 @@
 .block {
   position: relative;
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-  /* resize: both; */
-
-  flex-grow: 1;
-  flex-basis: 300px;
-
-  max-height: 300px;
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px calc(100% - 35px) 5px;
+  
+  max-height: 200px;
+  width: 100%;
 
   box-shadow: var(--block-shadow);
 
   @media screen and (min-width: 768px) {
-    flex-basis: 400px;
+    // flex-basis: 400px;
   }
 }
 .title {
@@ -24,9 +21,7 @@
 
 .blockLink {
   white-space: nowrap;
-
   color: #fff;
-
   color: var(--brand_clr__1);
 }
 .link {
@@ -35,12 +30,7 @@
     outline-style: none;
   }
 }
-.overflow {
-  overflow: auto;
-  width: 100%;
-  /* width: 400px; */
-  max-height: 100%;
-}
+
 .header {
   display: flex;
   align-items: center;
@@ -59,17 +49,22 @@
   background-color: var(--brand_clr__2);
 }
 .content {
+  // display: flex;
+  // flex-direction: column;
+  // overflow: auto;
   position: relative;
 
-  display: flex;
-  flex-direction: column;
+  // max-height: calc(100% - 35px);
+}
+.overflow {
   overflow: auto;
-  max-height: calc(100% - 35px);
+  width: 100%;
+  height: 100%;
 }
 .footer {
   display: block;
-  position: sticky;
-  top: 100%;
+  position: absolute;
+  bottom: 0;
   left: 0;
   z-index: 5;
 

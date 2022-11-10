@@ -10,7 +10,6 @@ import s from './ChildrensBlock.module.scss';
 const ChildrensBlock = () => {
   const { childrensList, childrensCount } = useSelector(selectChildrensInfo);
 
-  console.log(childrensList);
   return (
     <div className={s.childrensBlock}>
       <ChildrensList arr={childrensList} level={1} />

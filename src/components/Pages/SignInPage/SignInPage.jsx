@@ -21,7 +21,7 @@ const SignInPage = () => {
   function handleFormSubmit(ev) {
     ev.preventDefault();
     dispatch(userLogInThunk(formData));
-    setFormData(InititalState);
+    // setFormData(InititalState);
   }
 
   return (

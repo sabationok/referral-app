@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userCurrentThunk } from 'redux/auth/authThunks';
@@ -42,6 +42,7 @@ export const App = () => {
               <Route path="signUp" element={<SignUpPage />} />
             </Route>
             <Route path="/" element={<PrivateRoute redirectTo="signIn" />}>
+              <Route index element={<MainPage />} />
               <Route path="main" element={<MainPage />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />

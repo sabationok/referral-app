@@ -4,11 +4,12 @@ import Children from 'components/Children/Children';
 import s from './ChildrensList.module.scss';
 
 const ChildrensList = ({ arr, level }) => {
-  if (level === 5) {
+
+  if (level > 5) {
     return <></>;
   }
   return (
-    <div>
+    <div className={s.ChildrensList}>
       {arr.map(item => (
         <Children key={item.id} info={item} level={level} />
       ))}
