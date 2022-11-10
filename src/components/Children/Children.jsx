@@ -15,7 +15,12 @@ const Children = ({ info, level }) => {
 
   return (
     <div className={s.childrenContainer}>
-      <div className={[s.children, s[`level_${level}`]].join(' ')}>
+      <button
+        className={[s.children, s[`level_${level}`]].join(' ')}
+        type="button"
+        disabled={!childrenCount}
+        onClick={handleShowBtnClick}
+      >
         <div className={s.info}>
           <span className={s.level}>{level}</span>
           <span className={s.name}>{info.name}</span>
@@ -23,15 +28,8 @@ const Children = ({ info, level }) => {
           <span className={s.childrenCount}>{`(${childrenCount})`}</span>
           <span className={s.phone}>{info.phone}</span>
         </div>
-        <button
-          className={s.button}
-          type="button"
-          disabled={!childrenCount}
-          onClick={handleShowBtnClick}
-        >
-          {isShow ? 'Hide' : 'Show'}
-        </button>
-      </div>
+        <span className={s.svg}>{isShow ? 'H' : 'S'}</span>
+      </button>
 
       {render && (
         <div className={s.listContainer}>

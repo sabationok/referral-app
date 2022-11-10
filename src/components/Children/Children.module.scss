@@ -8,7 +8,27 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 4px;
+  padding: 6px 16px;
+
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: sans-serif;
+
+  opacity: 0.8;
+  border-style: none;
+  border-radius: 4px;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(122, 122, 122, 0.5);
+  }
+  &:active {
+    box-shadow: 0 0 3px rgba(122, 122, 122, 0.5);
+  }
+
   &.level_1 {
     background-color: coral;
   }
@@ -17,6 +37,15 @@
   }
   &.level_3 {
     background-color: rgb(87, 255, 233);
+  }
+  &.level_4 {
+    background-color: rgb(193, 113, 255);
+  }
+  &.level_5 {
+    background-color: rgb(87, 168, 255);
+  }
+  &:disabled {
+    pointer-events: none;
   }
 }
 .info {
@@ -36,7 +65,9 @@
 .phone {
   font-size: 12px;
 }
-.button {
+.svg {
+  width: 18px;
+  height: 18px;
 }
 .listContainer {
 }
