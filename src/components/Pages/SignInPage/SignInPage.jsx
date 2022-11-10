@@ -52,7 +52,7 @@ const SignInPage = () => {
             <input
               className={s.input}
               name="password"
-              type="text"
+              type="password"
               id="password"
               value={formData.password}
               placeholder={'password'}

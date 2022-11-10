@@ -19,7 +19,11 @@
   color: #fff;
   padding: 4px;
 }
-.BlockedBonuses{
+.admin {
+  text-transform: uppercase;
+  color: var(--brand_clr__1);
+}
+.BlockedBonuses {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -27,13 +31,13 @@
 
   color: rgb(255, 116, 116);
   padding: 4px;
-  & .item{
+  & .item {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
 }
-.ActiveBonuses{
+.ActiveBonuses {
   color: rgb(122, 255, 140);
   padding: 4px;
 }

@@ -38,6 +38,24 @@
     color: #fff;
   }
 }
+.userName {
+  color: #fff;
+  & .name {
+    color: inherit;
+  }
+  .userId {
+    color: inherit;
+  }
+}
+.adminName {
+  color: var(--brand_clr__1);
+  & .name {
+    color: inherit;
+  }
+  .userId {
+    color: inherit;
+  }
+}
 .menu {
   &Box {
     display: block;

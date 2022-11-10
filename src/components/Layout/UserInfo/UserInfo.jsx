@@ -4,12 +4,18 @@ import { selectUserData, selectTransactions } from 'redux/selectors';
 
 import s from './UserInfo.module.scss';
 const UserInfo = () => {
-  const { user } = useSelector(selectUserData);
+  const { user, admin } = useSelector(selectUserData);
   const { bonuses } = useSelector(selectTransactions);
   const { activeBonuses, blockedBonuses } = bonuses;
   return (
     <ul className={s.userInfoList}>
-      <li className={s.item}>{`User id: ${user.id}`}</li>
+      <li className={s.item}>
+        {admin.isAdmin ? (
+          <span className={s.admin}>{`Admin id: ${user.id}`}</span>
+        ) : (
+          <span>{`User id: ${user.id}`}</span>
+        )}
+      </li>
       {user.parentId && (
         <li className={s.item}>{`ParentId: ${user.parentId}`}</li>
       )}

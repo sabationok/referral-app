@@ -28,7 +28,7 @@ const Header = () => {
       </Link>
       {isLoggedIn && (
         <div className={css.userInfo}>
-          <span className={css.userName}>
+          <span className={admin.isAdmin ? css.adminName : css.userName}>
             Wellcome! {user?.name}{' '}
             <span className={css.userId}>{`(id: ${user?.id})`}</span>
           </span>
