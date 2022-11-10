@@ -2,13 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectChildrensInfo } from 'redux/selectors';
 
-import Children from 'components/Children/Children';
 import ChildrensList from 'components/ChildrensList/ChildrensList';
 
 import s from './ChildrensBlock.module.scss';
 
 const ChildrensBlock = () => {
-  const { childrensList, childrensCount } = useSelector(selectChildrensInfo);
+  const { childrensList } = useSelector(selectChildrensInfo);
 
   return (
     <div className={s.childrensBlock}>

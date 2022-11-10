@@ -13,7 +13,9 @@ const SignInPage = () => {
     password: '',
   };
   const [formData, setFormData] = useState(InititalState);
+
   const dispatch = useDispatch();
+  
   function handleChangeInput(ev) {
     let { name, value } = ev.target;
     setFormData({ ...formData, [name]: value });
@@ -21,7 +23,7 @@ const SignInPage = () => {
   function handleFormSubmit(ev) {
     ev.preventDefault();
     dispatch(userLogInThunk(formData));
-    // setFormData(InititalState);
+    setFormData(InititalState);
   }
 
   return (

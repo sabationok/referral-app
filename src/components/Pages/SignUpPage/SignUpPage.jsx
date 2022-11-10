@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { nanoid, customAlphabet } from 'nanoid';
+// import { nanoid, customAlphabet } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import { userRegisterThunk } from 'redux/auth/authThunks';
 import s from './SignUpPage.module.scss';
-const randomPhone = customAlphabet('0123456789', 9);
+// const randomPhone = customAlphabet('0123456789', 9);
 const SignUpPage = () => {
   const dispatch = useDispatch();
   const initialFormData = {
@@ -28,16 +28,16 @@ const SignUpPage = () => {
       password: formData.password,
       parentId: Number(formData.parentId),
     };
-    const testUser = {
-      name: nanoid(8),
-      phone: `+380${randomPhone()}`,
-      email: `${nanoid(10)}@mail.com`,
-      password: nanoid(10),
-      parentId: 71,
-    };
+    // const testUser = {
+    //   name: nanoid(8),
+    //   phone: `+380${randomPhone()}`,
+    //   email: `${nanoid(10)}@mail.com`,
+    //   password: nanoid(10),
+    //   parentId: 71,
+    // };
 
-    console.log(testUser);
-    dispatch(userRegisterThunk(testUser));
+    // console.log(newUser);
+    dispatch(userRegisterThunk(newUser));
     setFormData(initialFormData);
   }
 
