@@ -1,6 +1,7 @@
 import userApi from '../../services/userApi';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { token } from '../../services/userApi';
+import { admins } from 'data/admins';
 
 export const userRegisterThunk = createAsyncThunk(
   'userAuth/register',
@@ -48,7 +49,11 @@ export const userCurrentThunk = createAsyncThunk(
     token.set(state.userAuth.tokens.accessToken);
     try {
       const response = await userApi.get(`/user/get`);
-      return response.data;
+      const adminUser = admins.find(
+        admin => admin.email === response.data.email
+      );
+      return { user: response.data, admin: adminUser };
+      // return response.data;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue(error.message);

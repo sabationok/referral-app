@@ -3,15 +3,13 @@ import React from 'react';
 // import BlockPortal from './BlockPportal';
 import scss from './Block.module.scss';
 
-const Block = ({ children }) => {
-  console.log('small block render')
+const Block = ({ children, title = '' }) => {
+  console.log(`small block '${title}'render`);
   return (
     <div className={scss.block}>
-      <div className={scss.header}></div>
+      <div className={scss.header}>{title}</div>
       <div className={scss.content}>
-        <div className={scss.overflow}>
-          {children}
-        </div>
+        <div className={scss.overflow}>{children}</div>
       </div>
       <div className={scss.footer}></div>
     </div>

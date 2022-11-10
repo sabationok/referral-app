@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectChildrensInfo } from 'redux/selectors';
 
-import ChildrensList from 'components/ChildrensList/ChildrensList';
+import ChildrensList from 'components/ChildrensBlock/ChildrensList/ChildrensList';
 
 import s from './ChildrensBlock.module.scss';
 

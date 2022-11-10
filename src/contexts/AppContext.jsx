@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { users } from 'data/users';
+import { users } from 'data/admins';
 
 const AppContext = createContext();
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import AppLoader from 'components/AppLoader/AppLoader';
+import { useDispatch, useSelector } from 'react-redux';
 import { userLogInThunk } from 'redux/auth/authThunks';
+import { selectUserData } from 'redux/selectors';
 import s from './SignInPage.module.scss';
 //* email: 'tester3@mail.com';
 //* name: 'tester';
@@ -8,6 +10,7 @@ import s from './SignInPage.module.scss';
 //* password: '12345678';
 //* phone: '+380677894561';
 const SignInPage = () => {
+  const { isLoading } = useSelector(selectUserData);
   const InititalState = {
     email: '',
     password: '',
@@ -15,7 +18,7 @@ const SignInPage = () => {
   const [formData, setFormData] = useState(InititalState);
 
   const dispatch = useDispatch();
-  
+
   function handleChangeInput(ev) {
     let { name, value } = ev.target;
     setFormData({ ...formData, [name]: value });
@@ -27,40 +30,43 @@ const SignInPage = () => {
   }
 
   return (
-    <div className={s.page}>
-      <form className={s.form} onSubmit={handleFormSubmit}>
-        <p>Sign In</p>
-        <label className={s.label} htmlFor="email">
-          <span className={s.span}>Email</span>
-          <input
-            className={s.input}
-            name="email"
-            type="email"
-            id="email"
-            value={formData.email}
-            placeholder={'email'}
-            required
-            onChange={handleChangeInput}
-          />
-        </label>
-        <label className={s.label} htmlFor="password">
-          <span className={s.span}>Password</span>
-          <input
-            className={s.input}
-            name="password"
-            type="text"
-            id="password"
-            value={formData.password}
-            placeholder={'password'}
-            required
-            onChange={handleChangeInput}
-          />
-        </label>
-        <button className={s.button} type="submit">
-          SignIn
-        </button>
-      </form>
-    </div>
+    <>
+      <div className={s.page}>
+        <form className={s.form} onSubmit={handleFormSubmit}>
+          <p>Sign In</p>
+          <label className={s.label} htmlFor="email">
+            <span className={s.span}>Email</span>
+            <input
+              className={s.input}
+              name="email"
+              type="email"
+              id="email"
+              value={formData.email}
+              placeholder={'email'}
+              required
+              onChange={handleChangeInput}
+            />
+          </label>
+          <label className={s.label} htmlFor="password">
+            <span className={s.span}>Password</span>
+            <input
+              className={s.input}
+              name="password"
+              type="text"
+              id="password"
+              value={formData.password}
+              placeholder={'password'}
+              required
+              onChange={handleChangeInput}
+            />
+          </label>
+          <button className={s.button} type="submit">
+            SignIn
+          </button>
+        </form>
+      </div>
+      <AppLoader isLoading={isLoading} />
+    </>
   );
 };
 

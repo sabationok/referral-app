@@ -5,8 +5,8 @@ import {
   userLogOutThunk,
   userRegisterThunk,
 } from './authThunks';
-import { authSignOutAction } from './authAction';
 
+import { authSignOutAction, authSetAdminAction } from './authAction';
 const initialState = {
   user: {
     name: null,
@@ -18,6 +18,13 @@ const initialState = {
     banReason: null,
     role: null,
     children: null,
+  },
+  admin: {
+    name: null,
+    rolle: null,
+    nickName: null,
+    email: null,
+    isAdmin: null,
   },
   tokens: {
     accessToken: null,
@@ -32,9 +39,15 @@ export const userAuthSlice = createSlice({
   name: 'userAuth',
   initialState,
   extraReducers: {
+    [authSetAdminAction]: (state, action) => {
+      state.user = initialState.user;
+      state.tokens = initialState.tokens;
+      state.admin = { ...action.payload };
+    },
     [authSignOutAction]: (state, action) => {
       state.user = initialState.user;
       state.tokens = initialState.tokens;
+      state.admin = initialState.admin;
       state.isLoggedIn = false;
     },
     //* РЕЄСТРАЦІЯ
@@ -84,12 +97,14 @@ export const userAuthSlice = createSlice({
     [userCurrentThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.isLoggedIn = true;
-      state.user = { ...payload };
-      // console.log('current user data', payload);
+      state.user = { ...payload.user };
+      state.admin = payload.admin?.email
+        ? { ...payload.admin }
+        : { ...initialState.admin };
     },
     [userCurrentThunk.rejected]: (state, action) => {
       state.isLoading = false;
-      state.error = action.payload.error;
+      state.error = action.payload.data.error;
     },
     [userCurrentThunk.pending]: (state, action) => {
       state.isLoading = true;

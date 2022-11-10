@@ -1,0 +1,39 @@
+.userInfo {
+}
+.userName {
+  color: #fff;
+}
+.userId {
+}
+.userInfoList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+  padding: 4px;
+
+  background-color: rgba(254, 254, 254, 0.1);
+}
+.item {
+  color: #fff;
+  padding: 4px;
+}
+.BlockedBonuses{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+  color: rgb(255, 116, 116);
+  padding: 4px;
+  & .item{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+.ActiveBonuses{
+  color: rgb(122, 255, 140);
+  padding: 4px;
+}

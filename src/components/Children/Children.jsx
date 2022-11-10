@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChildrensList from 'components/ChildrensList/ChildrensList';
+import ChildrensList from 'components/ChildrensBlock/ChildrensList/ChildrensList';
 
 import s from './Children.module.scss';
 
