@@ -9,10 +9,6 @@
   width: 100%;
 
   box-shadow: var(--block-shadow);
-
-  @media screen and (min-width: 768px) {
-    // flex-basis: 400px;
-  }
 }
 .title {
   line-height: 1.3;

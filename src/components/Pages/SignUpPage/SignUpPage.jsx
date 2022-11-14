@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-// import { nanoid, customAlphabet } from 'nanoid';
-import { useDispatch } from 'react-redux';
+// import { customAlphabet } from 'nanoid';
+import { useDispatch,useSelector } from 'react-redux';
 import { userRegisterThunk } from 'redux/auth/authThunks';
+import { selectUserData } from 'redux/selectors';
+
+import AppLoader from 'components/AppLoader/AppLoader';
+
 import s from './SignUpPage.module.scss';
 // const randomPhone = customAlphabet('0123456789', 9);
 const SignUpPage = () => {
+  const { isLoading } = useSelector(selectUserData);
   const dispatch = useDispatch();
   const initialFormData = {
     name: '',
@@ -33,15 +38,16 @@ const SignUpPage = () => {
     //   phone: `+380${randomPhone()}`,
     //   email: `${nanoid(10)}@mail.com`,
     //   password: nanoid(10),
-    //   parentId: 71,
+    //   parentId: 27,
     // };
 
-    // console.log(newUser);
+    console.log(newUser);
     dispatch(userRegisterThunk(newUser));
     setFormData(initialFormData);
   }
 
   return (
+    <>
     <div className={s.page}>
       <form className={s.form} onSubmit={handleFormSubmit}>
         <p>Register</p>
@@ -54,7 +60,7 @@ const SignUpPage = () => {
             id="name"
             value={formData.name}
             placeholder={'name'}
-            required
+            // required
             onChange={handleChangeInput}
           />
         </label>
@@ -68,7 +74,7 @@ const SignUpPage = () => {
             defaultValue={`+380${formData.phone}`}
             // value={formData.phone}
             placeholder={'phone'}
-            required
+            // required
             onChange={handleChangeInput}
           />
         </label>
@@ -81,7 +87,7 @@ const SignUpPage = () => {
             id="email"
             value={formData.email}
             placeholder={'email'}
-            required
+            // required
             onChange={handleChangeInput}
           />
         </label>
@@ -94,7 +100,7 @@ const SignUpPage = () => {
             id="password"
             value={formData.password}
             placeholder={'password'}
-            required
+            // required
             onChange={handleChangeInput}
           />
         </label>
@@ -115,6 +121,8 @@ const SignUpPage = () => {
         </button>
       </form>
     </div>
+    <AppLoader isLoading={isLoading} />
+    </>
   );
 };
 

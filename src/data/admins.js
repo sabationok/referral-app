@@ -11,6 +11,6 @@ export const admins = [
     rolle: 'admin',
     nickName: 'tester3',
     email: 'tester3@mail.com',
-    isAdmin: false,
+    isAdmin: true,
   },
 ];

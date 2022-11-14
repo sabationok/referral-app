@@ -9,10 +9,10 @@ import {
 import { getAllTransactionsThunk } from 'redux/transactions/transactionsThunks';
 import { selectChildrensInfo } from 'redux/selectors';
 
-
 import ChildrensBlock from 'components/ChildrensBlock/ChildrensBlock';
-// import TransactionsList from 'components/TransactionsList/TransactionsList';
-import scss from './MainPage.module.scss';
+
+import BonusesBlock from 'components/BonusesBlock/BonusesBlock';
+import s from './MainPage.module.scss';
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -25,13 +25,22 @@ const MainPage = () => {
 
   return (
     <>
-      <div className={scss.MainPage}>
-        <Block title="Referrals">
-          <ChildrensBlock />
-        </Block>
-        {/* <Block title="Create accrual bonuses form">
-          <TransactionsList/>
-        </Block> */}
+      <div className={s.MainPage}>
+        <section className={s.section}>
+          <Block title="My bonuses">
+            <BonusesBlock />
+          </Block>
+        </section>
+        <section className={s.section}>
+          <Block title="Invite link"></Block>
+          <Block title="Transfer bonuses"></Block>
+          <Block title="Feeback"></Block>
+        </section>
+        <section className={s.section}>
+          <Block title="Referrals">
+            <ChildrensBlock />
+          </Block>
+        </section>
       </div>
       <AppLoader isLoading={isLoading} />
     </>

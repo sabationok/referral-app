@@ -21,10 +21,8 @@ const Header = () => {
   return (
     <header className={css.header}>
       <Link className={css.logoLink} to="main">
-        <span className={css.logoText}>L</span>
-        <span className={css.logoText}>O</span>
-        <span className={css.logoText}>G</span>
-        <span className={css.logoText}>O</span>
+        <span className={css.logoText}>LO</span>
+        <span className={css.logoText}>GO</span>
       </Link>
       {isLoggedIn && (
         <div className={css.userInfo}>

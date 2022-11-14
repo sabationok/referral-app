@@ -7,7 +7,7 @@ import { getAllTransactionsThunk } from 'redux/transactions/transactionsThunks';
 import { selectChildrensInfo } from 'redux/selectors';
 
 // import ChildrensBlock from 'components/ChildrensBlock/ChildrensBlock';
-import TransactionsList from 'components/TransactionsList/TransactionsList';
+import TransactionsList from 'components/CreateBonusesBlock/CreateBonusesBlock';
 import scss from './AdminPage.module.scss';
 
 const AdminPage = () => {

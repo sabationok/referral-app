@@ -1,8 +1,8 @@
 .app {
   width: 100%;
   color: #010101;
-  min-height:100vh;
-  @media screen and (min-height: 480px) {
-    height: 100vh;
-  }
+
+  max-height: 100vh;
+  overflow: auto;
+
 }

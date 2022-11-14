@@ -1,5 +1,5 @@
 import React from 'react';
-import Children from 'components/Children/Children';
+import Children from 'components/ChildrensBlock/Children/Children';
 
 import s from './ChildrensList.module.scss';
 
