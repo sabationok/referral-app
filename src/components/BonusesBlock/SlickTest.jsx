@@ -5,7 +5,6 @@ import Slider from 'react-slick';
 import ActiveBonusesCard from './BonusesCards/Cards/ActiveBonusesCard';
 import BlockedBonusesCard from './BonusesCards/Cards/BlockedBonusesCard';
 
-
 import s from './SlickTest.module.scss';
 
 export default class SlickTest extends Component {
@@ -40,8 +39,9 @@ export default class SlickTest extends Component {
       slidesToScroll: 1,
     };
     return (
-      <div className={s.slickContainer}>
-        <div className={s.sliderTop}>
+      <>
+      {/* // <div className={s.slickContainer}> */}
+         {/* <div className={s.sliderTop}> */}
           <Slider
             asNavFor={this.state.nav2}
             ref={slider => (this.slider1 = slider)}
@@ -54,8 +54,8 @@ export default class SlickTest extends Component {
               <BlockedBonusesCard />
             </div>
           </Slider>
-        </div>
-        <div className={s.sliderBottom}>
+         {/* </div> */}
+         {/* <div className={s.sliderBottom}> */}
           <Slider
             asNavFor={this.state.nav1}
             ref={slider => (this.slider2 = slider)}
@@ -71,8 +71,10 @@ export default class SlickTest extends Component {
               <h3>2</h3>
             </div>
           </Slider>
-        </div>
-      </div>
+        {/* </div> */}
+       {/* </div> */}
+      </>
+
     );
   }
 }

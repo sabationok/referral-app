@@ -7,7 +7,7 @@ const BonusesBlock = () => {
   return (
     <>
       <div className={s.BonusesBlock}>
-        <div className={s.clickContainer}>
+        <div className={s.slickContainer}>
           <SlickTest />
         </div>
       </div>
