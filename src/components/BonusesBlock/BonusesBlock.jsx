@@ -1,16 +1,17 @@
 import React from 'react';
 
-import BonusCards from 'components/BonusesBlock/BonusesCards/BonusCards';
-import TransactionsList from 'components/TransactionsList/TransactionsList';
-
+import SlickTest from './SlickTest';
 import s from './BonusesBlock.module.scss';
 
 const BonusesBlock = () => {
   return (
-    <div className={s.BonusesBlock}>
-      <BonusCards />
-      <TransactionsList />
-    </div>
+    <>
+      <div className={s.BonusesBlock}>
+        <div className={s.clickContainer}>
+          <SlickTest />
+        </div>
+      </div>
+    </>
   );
 };
 

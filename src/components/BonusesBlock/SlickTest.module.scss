@@ -1,0 +1,19 @@
+.slickContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  // margin: 0 auto;
+ min-width: 270px;
+ width: 100%;
+  max-width: 300px;
+ margin: 0 auto;
+}
+.sliderTop {
+  // height: 180px;
+  width: 270px;
+}
+.sliderBottom {
+  width: 100%;
+}

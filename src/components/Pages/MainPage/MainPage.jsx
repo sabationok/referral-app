@@ -34,7 +34,7 @@ const MainPage = () => {
         <section className={s.section}>
           <Block title="Invite link"></Block>
           <Block title="Transfer bonuses"></Block>
-          <Block title="Feeback"></Block>
+          <Block title="Feedback"></Block>
         </section>
         <section className={s.section}>
           <Block title="Referrals">

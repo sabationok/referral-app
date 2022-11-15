@@ -2,11 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-
   padding: 8px;
 
-  // width: 100%;
   height: 100%;
+}
+.clickContainer{
+  width: 100%;
 }

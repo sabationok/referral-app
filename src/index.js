@@ -9,6 +9,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.scss';
 import './index.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
