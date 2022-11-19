@@ -29,24 +29,34 @@ const UserInfo = () => {
         </>
       )}
 
-      <li className={s.ActiveBonuses}>{`Active Bonuses: ${
-        activeBonuses || '0'
-      }`}</li>
+      <li className={s.ActiveBonuses}>
+        <span>Active Bonuses:</span>
+        <span>{activeBonuses || '0'}</span>
+      </li>
       <li className={s.BlockedBonuses}>
         {`Blocked Bonuses`}
 
-        <ul className="">
-          <li className={s.item}>{`Total: ${blockedBonuses?.total || '0'}`}</li>
-          <li className={s.item}>{`Transfer: ${
-            blockedBonuses?.personal || '0'
-          }`}</li>
-          <li className={s.item}>{`Cashback: ${
-            blockedBonuses?.cashback || '0'
-          }`}</li>
-          <li className={s.item}>{`Referral: ${
-            blockedBonuses?.referral || '0'
-          }`}</li>
-          <li className={s.item}>{`Extra: ${blockedBonuses?.extra || '0'}`}</li>
+        <ul className={s.list}>
+          <li className={s.item}>
+            <span>Total:</span>
+            <span>{blockedBonuses?.total || '0'}</span>
+          </li>
+          <li className={s.item}>
+            <span>Personal:</span>
+            <span>{blockedBonuses?.personal || '0'}</span>
+          </li>
+          <li className={s.item}>
+            <span>Cashback:</span>
+            <span>{blockedBonuses?.cashback || '0'}</span>
+          </li>
+          <li className={s.item}>
+            <span>Referral:</span>
+            <span>{blockedBonuses?.referral || '0'}</span>
+          </li>
+          <li className={s.item}>
+            <span>Extra:</span>
+            <span>{blockedBonuses?.extra || '0'}</span>
+          </li>
         </ul>
       </li>
     </ul>

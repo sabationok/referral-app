@@ -1,18 +1,20 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import ActiveBonusesCard from './Cards/ActiveBonusesCard';
-import BlockedBonusesCard from './Cards/BlockedBonusesCard';
+import ActiveBonusesCard from '../Cards/ActiveBonusesCard';
+import BlockedBonusesCard from '../Cards/BlockedBonusesCard';
 
-import 'swiper/css';
+// import 'swiper/css';
+import 'swiper/css/bundle';
 
 import s from './BonusCards.module.scss';
 const BonusCards = () => {
   return (
     <div className={s.bonusCards}>
+
       <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
+        // spaceBetween={50}
+        slidesPerView={1}
         onSlideChange={() => console.log('slide change')}
         onSwiper={swiper => console.log(swiper)}
       >
@@ -23,6 +25,7 @@ const BonusCards = () => {
           <BlockedBonusesCard />
         </SwiperSlide>
       </Swiper>
+
     </div>
   );
 };

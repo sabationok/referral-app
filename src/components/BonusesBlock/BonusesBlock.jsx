@@ -1,18 +1,23 @@
 import React from 'react';
 
-import SlickTest from './SlickTest';
+import BonusesCards from './BonusesCardsSlick/BonusesCards';
+// import BonusCards from './BonusesCardsSwiper/BonusCards';
+
+
+
 import s from './BonusesBlock.module.scss';
 
 const BonusesBlock = () => {
+
+
   return (
     <>
       <div className={s.BonusesBlock}>
-        <div className={s.slickContainer}>
-          <SlickTest />
-        </div>
+        <BonusesCards />
       </div>
     </>
   );
 };
 
 export default BonusesBlock;
+

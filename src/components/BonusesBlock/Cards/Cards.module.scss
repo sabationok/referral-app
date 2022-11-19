@@ -1,5 +1,7 @@
-.cardBackground{
-  padding: 8px;
+.cardContainer {
+  margin: 8px;
+  overflow: hidden;
+  width: fit-content;
 }
 .cardActive,
 .cardBlocked {
@@ -9,22 +11,19 @@
   justify-content: center;
 
   padding: 16px;
-  
-  min-width: 270px;
+
+  width: 270px;
   height: 150px;
 
   color: #fff;
   font-size: 12px;
 
-
   border-radius: 14px;
   overflow: hidden;
 }
 .cardActive {
-  // background-color: rgb(66, 62, 255);
   background: linear-gradient(177.23deg, #9c2cf3 -13.49%, #3a49f9 109.75%);
 }
 .cardBlocked {
-  // background-color: rgb(255, 35, 35);
   background: linear-gradient(177.23deg, #e42c66 -13.49%, #f55b46 109.75%);
 }

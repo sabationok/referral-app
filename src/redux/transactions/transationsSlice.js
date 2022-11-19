@@ -99,7 +99,6 @@ export const transactionsSlice = createSlice({
       state.isLoading = false;
       state.lastCreatedBonus = { ...payload };
       console.log(payload);
-      alert(payload);
     },
     [postBonusAccrualThunk.pending]: (state, { payload }) => {
       state.isLoading = true;

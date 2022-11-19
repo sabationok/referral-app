@@ -1,12 +1,15 @@
 .block {
   position: relative;
-  
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 30px calc(100% - 35px) 5px;
-  
+
   height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  // max-width: 100%;
+  // width: 300px;
 
   box-shadow: var(--block-shadow);
 }
@@ -46,6 +49,8 @@
 }
 .content {
   position: relative;
+  // overflow: auto;
+  // height: calc(100% - 35px);
 }
 .overflow {
   overflow: auto;

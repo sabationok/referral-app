@@ -31,7 +31,7 @@ const MainPage = () => {
             <BonusesBlock />
           </Block>
         </section>
-        <section className={s.section}>
+        <section className={s.sectionGrid}>
           <Block title="Invite link"></Block>
           <Block title="Transfer bonuses"></Block>
           <Block title="Feedback"></Block>
