@@ -67,7 +67,6 @@ export const transactionsSlice = createSlice({
       state.isLoading = false;
       state.lastTransaction = { ...payload };
       console.log(payload);
-      alert(payload);
     },
     [postBonusTransferThunk.pending]: (state, { payload }) => {
       state.isLoading = true;

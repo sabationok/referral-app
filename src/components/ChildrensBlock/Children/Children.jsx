@@ -13,7 +13,6 @@ const Children = ({ info, level }) => {
   const childrenClassList = [s.childrenContainer, isShow && ''].join(' ');
   const childrenBtnClassList = [s.ChildrenBtn, isShow && s.isShow].join(' ');
 
-  console.log(info);
   function handleShowBtnClick() {
     setIsShow(!isShow);
   }
