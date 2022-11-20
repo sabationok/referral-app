@@ -1,6 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
-import s from './StatisticsBlock.module.scss';
+// import s from './StatisticsBlock.module.scss';
 const StatisticsBlock = () => {
   return (
     <Block

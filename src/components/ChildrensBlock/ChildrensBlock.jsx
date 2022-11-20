@@ -10,7 +10,7 @@ import s from './ChildrensBlock.module.scss';
 
 const ChildrensBlock = () => {
   const dispatch = useDispatch();
-  const { childrensList, isLoading } = useSelector(selectChildrensInfo);
+  const { childrensList } = useSelector(selectChildrensInfo);
 
   useEffect(() => {
     dispatch(getAllRefChildrenThunk());

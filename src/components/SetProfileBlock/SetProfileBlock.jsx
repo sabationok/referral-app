@@ -1,7 +1,7 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-import s from './SetProfileBlock.module.scss'
+// import s from './SetProfileBlock.module.scss'
 const SetProfileBlock = () => {
   return (
     <Block
