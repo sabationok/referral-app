@@ -48,7 +48,7 @@ export const App = () => {
             <Route path="/" element={<PublicRoute redirectTo="main" />}>
               <Route index element={<SignInPage />} />
               <Route path="signIn" element={<SignInPage />} />
-              <Route path="signUp">
+              <Route path="signUp/*">
                 <Route index element={<SignUpPage />}></Route>
                 <Route path=":referrerId" element={<SignUpPage />}></Route>
               </Route>

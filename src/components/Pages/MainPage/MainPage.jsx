@@ -7,7 +7,7 @@ import {
   getCountChildrenThunk,
 } from 'redux/referrals/referralsThunks';
 import { getAllTransactionsThunk } from 'redux/transactions/transactionsThunks';
-import { selectChildrensInfo } from 'redux/selectors';
+import { selectChildrensInfo, selectUserData } from 'redux/selectors';
 
 import ChildrensBlock from 'components/ChildrensBlock/ChildrensBlock';
 import CreateTransferBlock from 'components/CreateTransferBlock/CreateTransferBlock';
@@ -21,6 +21,7 @@ import s from './MainPage.module.scss';
 const MainPage = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector(selectChildrensInfo);
+  const { user } = useSelector(selectUserData);
   useEffect(() => {
     dispatch(getCountChildrenThunk());
     dispatch(getAllRefChildrenThunk());
@@ -49,6 +50,15 @@ const MainPage = () => {
             iconStartId="icon-share"
           >
             <span className={s.inWork}>In work ...</span>
+            <span className={s.inWork}>
+              My ref link:{' '}
+              <a
+                className={s.refLink}
+                href={`https://sabationok.github.io/referral-app/signUp/${user.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >{`https://sabationok.github.io/referral-app/signUp/${user.id}`}</a>
+            </span>
           </Block>
           <Block
             title="Поділитись бонусами"

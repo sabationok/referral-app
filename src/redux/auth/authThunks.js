@@ -9,10 +9,13 @@ export const userRegisterThunk = createAsyncThunk(
   async (newUser, thunkAPI) => {
     try {
       const response = await userApi.post(`/auth/registration`, newUser);
+      Notiflix.Notify.success(
+        `Ви зареєстровані під іменем ${newUser?.name}`
+      );
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      Notiflix.Notify.failure(error.response.data?.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
