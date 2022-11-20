@@ -14,22 +14,22 @@
 
   background-color: var(--background_clr__secondary);
 }
-.title {
-  line-height: 1.3;
-  color: #fff;
-}
+// .title {
+//   line-height: 1.3;
+//   color: #fff;
+// }
 
-.blockLink {
-  white-space: nowrap;
-  color: #fff;
-  color: var(--brand_clr__1);
-}
-.link {
-  &:hover,
-  &:focus {
-    outline-style: none;
-  }
-}
+// .blockLink {
+//   white-space: nowrap;
+//   color: #fff;
+//   // color: var(--brand_clr__1);
+// }
+// .link {
+//   &:hover,
+//   &:focus {
+//     outline-style: none;
+//   }
+// }
 
 .header {
   display: grid;
@@ -48,7 +48,7 @@
   color: #f0f0f0;
 
   background-color: var(--brand_clr__2);
-  & .iconStart {
+  .iconStart {
     display: flex;
     align-items: center;
     justify-content: center;

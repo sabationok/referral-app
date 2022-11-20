@@ -6,9 +6,9 @@ import { getCountChildrenThunk } from 'redux/referrals/referralsThunks';
 import { getAllTransactionsThunk } from 'redux/transactions/transactionsThunks';
 import { selectChildrensInfo } from 'redux/selectors';
 
-// import ChildrensBlock from 'components/ChildrensBlock/ChildrensBlock';
-import TransactionsList from 'components/CreateBonusesBlock/CreateBonusesBlock';
-import scss from './AdminPage.module.scss';
+import CreateBonusesBlock from 'components/CreateBonusesBlock/CreateBonusesBlock';
+import sprite from 'img/sprite';
+import s from './AdminPage.module.scss';
 
 const AdminPage = () => {
   const dispatch = useDispatch();
@@ -20,12 +20,15 @@ const AdminPage = () => {
   }, [dispatch]);
   return (
     <>
-      <div className={scss.MainPage}>
-        {/* <Block title="Referrals">
-          <ChildrensBlock />
-        </Block> */}
-        <Block title="Create accrual bonuses form">
-          <TransactionsList />
+      <div className={s.MainPage}>
+        <Block
+          title="Створення бонусів"
+          subTitle={'Тут адмін може створити бонуси для будь-якого користувача'}
+          sprite={sprite}
+          iconStartId='icon-settings'
+          className={s.block}
+        >
+          <CreateBonusesBlock />
         </Block>
       </div>
       <AppLoader isLoading={isLoading} />

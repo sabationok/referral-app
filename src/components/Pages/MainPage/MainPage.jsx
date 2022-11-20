@@ -40,6 +40,7 @@ const MainPage = () => {
             <BonusesBlock />
           </Block>
         </section>
+
         <section className={s.sectionGrid}>
           <Block
             title="Запрошення"
@@ -58,6 +59,7 @@ const MainPage = () => {
             <CreateTransferBlock />
           </Block>
         </section>
+
         <section className={s.section}>
           <Block
             title="Реферальна мережа"
@@ -68,7 +70,7 @@ const MainPage = () => {
             <ChildrensBlock />
           </Block>
         </section>
-        {/* <section className={s.section}></section> */}
+
         <section className={s.sectionGrid}>
           <Block
             title="Подати заявку на виплату"
@@ -98,12 +100,23 @@ const MainPage = () => {
             <span className={s.inWork}>In work ...</span>
           </Block>
         </section>
+
         <section className={s.section}>
           <Block
             title="Наші партнери"
             subTitle="Will be in future ..."
             sprite={sprite}
             iconStartId="icon-partners"
+          >
+            <span className={s.inWork}>In work ...</span>
+          </Block>
+        </section>
+        <section className={s.section}>
+          <Block
+            title="Налаштування профілю"
+            subTitle="Will be in future ..."
+            sprite={sprite}
+            iconStartId="icon-settings"
           >
             <span className={s.inWork}>In work ...</span>
           </Block>
