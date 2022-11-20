@@ -10,7 +10,7 @@ const AccrulaBonusForm = () => {
     type: 'personal',
     amount: null,
     notes: '',
-    toUser: 33,
+    toUser: '27',
   };
   const [accrualData, setAccrualData] = useState(accrulaInitialSate);
 

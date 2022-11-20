@@ -5,7 +5,8 @@ import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignOutAction } from 'redux/auth/authAction';
 import { selectUserData } from 'redux/selectors';
-import PrivacyPolicy from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock';
+import PrivacyPolicyBlock from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock';
+import RullesBlock from 'components/RullesBlock/RullesBlock';
 
 import UserInfo from '../UserInfo/UserInfo';
 
@@ -80,9 +81,15 @@ const Header = () => {
                 )}
                 <ModalOpenButton
                   className={css.navLink}
-                  modalChildren={<PrivacyPolicy />}
+                  modalChildren={<PrivacyPolicyBlock />}
                 >
-                  Правила та умови
+                  Політика конфіденційності
+                </ModalOpenButton>
+                <ModalOpenButton
+                  className={css.navLink}
+                  modalChildren={<RullesBlock />}
+                >
+                  Правила сервісу
                 </ModalOpenButton>
 
                 <button className={css.navLink} onClick={handleSignOut}>

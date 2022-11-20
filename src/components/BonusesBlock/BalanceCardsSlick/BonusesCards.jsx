@@ -6,6 +6,8 @@ import ActiveBonusesCard from '../Cards/ActiveBalaceCard';
 import BlockedBonusesCard from '../Cards/BlockedBalanceCard';
 import TransactionsList from '../TransactionsList/TransactionsList';
 
+
+
 import s from './BonusesCards.module.scss';
 
 export default class BonusesCards extends Component {

@@ -1,15 +1,15 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-import s from './PrivacyPolicyBlock.module.scss';
+import s from './RullesBlock.module.scss';
 
-const PrivacyPolicy = () => {
+const RullesBlock = () => {
   return (
     <Block
-      title="Політика конфіденційності"
-      subTitle="Тут ви можете преглянути нашу політику конфіденційності"
+      title="Правила користування сервісом"
+      subTitle="Тут ви можете ознайомитись із правилами користування сервісом"
       className={s.modalBlock}
-      iconStartId="icon-assignmentIn"
+      iconStartId="icon-assignment"
     >
       <div className={s.text}>
         Privacy Policy Text Lorem ipsum dolor sit amet consectetur adipisicing
@@ -55,4 +55,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default RullesBlock;

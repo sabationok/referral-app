@@ -11,8 +11,8 @@ const initialState = {
   lastTransaction: {},
   lastCreatedBonus: {},
   bonuses: {
-    activeBonuses: null,
-    blockedBonuses: null,
+    activeBonuses: 0,
+    blockedBonuses: { total: 0, cashback: 0, referral: 0, extra: 0 },
   },
   error: null,
   errorMessage: null,
@@ -66,7 +66,6 @@ export const transactionsSlice = createSlice({
     [postBonusTransferThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.lastTransaction = { ...payload };
-      console.log(payload);
     },
     [postBonusTransferThunk.pending]: (state, { payload }) => {
       state.isLoading = true;

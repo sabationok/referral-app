@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import BlockPortal from './BlockPportal';
 import scss from './Block.module.scss';
+import sprite from 'img/sprite';
 
 const Block = ({
   children,
@@ -11,10 +12,10 @@ const Block = ({
   header = true,
   style = null,
   className = '',
-  sprite = null,
   iconStartId = null,
+  inWork = false,
 }) => {
-  console.log(`small block '${title}'render`);
+  // console.log(`small block '${title}'render`);
   const blockClassName = [scss.block, className].join(' ');
 
   return (
@@ -37,7 +38,11 @@ const Block = ({
         </div>
       )}
       <div className={scss.content}>
-        <div className={scss.overflow}>{children}</div>
+        <div className={scss.overflow}>
+          {children}
+
+          {inWork && <span className={scss.inWork}>In work ...</span>}
+        </div>
       </div>
       {footer && <div className={scss.footer}></div>}
     </div>

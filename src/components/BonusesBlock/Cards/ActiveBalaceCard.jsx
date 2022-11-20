@@ -1,23 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectTransactions } from 'redux/selectors';
-
-import numberWithSpaces from './numberWithSpaces';
+import { getActiveBalance } from 'redux/selectors';
 
 import s from './Cards.module.scss';
+
 const ActiveBalanceCard = () => {
-  const {
-    bonuses: { activeBonuses = 0 },
-  } = useSelector(selectTransactions);
-  console.log(activeBonuses);
+  const activeBalance = useSelector(getActiveBalance);
   return (
     <div className={s.cardContainer}>
       <div className={s.cardActive}>
         <div className={s.card}>
           <span>Active Bonuses</span>
           <div className={s.totalBalance}>
-            <span>{numberWithSpaces(activeBonuses)}</span>
-            <span></span>
+            <span>{activeBalance}</span>
           </div>
         </div>
       </div>
