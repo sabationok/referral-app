@@ -4,7 +4,6 @@ import Slider from 'react-slick';
 
 import ActiveBonusesCard from '../Cards/ActiveBalaceCard';
 import BlockedBonusesCard from '../Cards/BlockedBalanceCard';
-import Transaction from '../TransactionsList/Transaction/Transaction';
 import TransactionsList from '../TransactionsList/TransactionsList';
 
 import s from './BonusesCards.module.scss';
@@ -33,13 +32,13 @@ export default class BonusesCards extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     };
-    const settingsBottom = {
-      dots: false,
-      infinite: true,
-      arrows: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
+    // const settingsBottom = {
+    //   dots: false,
+    //   infinite: true,
+    //   arrows: false,
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    // };
     return (
       <div className={s.slickContainer}>
         <Slider

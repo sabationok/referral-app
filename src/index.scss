@@ -1,12 +1,12 @@
 :root {
   --brand-clr__1: rgba(226, 54, 54, 0.95);
-  --brand_clr__1: rgb(255, 146, 73);
-  --brand_clr__2: #2f303a;
+  // --brand_clr__1: rgb(255, 146, 73);
+  --brand_clr__1: #fec400;
+  --brand_clr__2: #31362f;
   --brand_clr__2-active: #4c4d57;
   --brand_clr__2-hover: #4c4d5798;
-  --background_clr__main: #ffffff;
-  --zone-special_clr: #f1f1f1;
-  --zone-special_clr: rgba(219, 219, 219, 0.2);
+  --background_clr__main: #1e2124;
+  --background_clr__secondary: #292e33;
 
   /* TEXT */
   --text-clr__primary: #1a1a1a;
@@ -14,18 +14,6 @@
   /* ICONS */
   --icon-clr__primary: #808080;
   /* BLOCKS */
-  /* TABLES */
-  --tr-cell-bckgrnd_clr__even: #dadada7e;
-  --tr-bckgrnd_clr__even: #dadada7e;
-  --table-row-brdr-clr__primary: #c7c7c781;
-  --tr-bckrnd-clr__hover: rgba(137, 202, 255, 0.4);
-  --td-bckrnd-clr__active: rgba(137, 202, 255, 0.7);
-  --td-outline-clr: rgba(137, 202, 255, 1);
-  --th-font-size__primary: 12px;
-  --th-font-size__secondary: 14px;
-  --th-font-weight: 700;
-  --td-font-size__primary: 12px;
-  --td-font-size__secondary: 14px;
 
   /* BUTTONS */
   --btn-deciscon_clr__primary: rgba(219, 219, 219, 0.4);
@@ -86,7 +74,6 @@ body {
   margin: 0;
 }
 
-
 /* ----------------- НОРМАЛІЗАЦІЯ -------------- */
 /*  ЗАГОЛОВКИ */
 h1,
@@ -146,7 +133,21 @@ button {
 .slick-slider {
   width: 100%;
   max-width: calc(270px + 2 * 8px);
-  // max-width: fit-content;
+
+  & .slick-dots {
+    & li {
+      margin: 0;
+      button::before {
+        font-size: 10px;
+        color: #fff;
+      }
+      &.slick-active {
+        button::before {
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 /* ----------------- СКРИТІ ЕЛЕМЕНТИ */
 .visually-hidden {

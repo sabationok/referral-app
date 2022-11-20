@@ -39,6 +39,7 @@
 .time {
 }
 .amountStatus {
+  text-transform: capitalize;
 }
 .note {
   width: 100%;
@@ -53,6 +54,8 @@
 }
 
 .type {
+  text-transform: capitalize;
 }
 .transactionStatus {
+  text-transform: capitalize;
 }

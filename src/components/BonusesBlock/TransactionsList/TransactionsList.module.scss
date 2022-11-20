@@ -2,8 +2,17 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  
+
   height: 100%;
   width: 100%;
   overflow: auto;
+}
+.ListEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+
+  font-size: 14px;
 }

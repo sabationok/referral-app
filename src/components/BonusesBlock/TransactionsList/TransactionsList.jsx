@@ -6,15 +6,22 @@ import Transaction from './Transaction/Transaction';
 
 import s from './TransactionsList.module.scss';
 
-const TransactionsList = ({filterParam}) => {
+const TransactionsList = ({ filterParam }) => {
   const { transactions } = useSelector(selectTransactions);
-  const transactionsFiltered = transactions.filter(transaction => transaction.type === filterParam)
+  const transactionsLength = transactions.length;
+  // const transactionsFiltered = transactions.filter(
+  //   transaction => transaction.type === filterParam
+  // );
 
   return (
     <div className={s.TransactionsList}>
-      {transactions.map(transaction => (
-        <Transaction key={transaction.id} transaction={transaction} />
-      ))}
+      {transactionsLength !== 0 ? (
+        transactions.map(transaction => (
+          <Transaction key={transaction.id} transaction={transaction} />
+        ))
+      ) : (
+        <span className={s.ListEmpty}>List is empty</span>
+      )}
     </div>
   );
 };

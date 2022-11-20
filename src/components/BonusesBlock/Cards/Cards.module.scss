@@ -1,10 +1,9 @@
 .cardContainer {
   padding: 8px;
-  overflow: hidden;
-  width: fit-content;
+  // overflow: hidden;
+  // width: fit-content;
 }
-.cardActive,
-.cardBlocked {
+.card {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 4fr 2fr;
@@ -18,18 +17,25 @@
 
   color: #fff;
   font-size: 12px;
-
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../../../img/CardBackground.png');
+}
+.cardActive,
+.cardBlocked {
   border-radius: 14px;
   overflow: hidden;
-
-  box-shadow: 0 0 10px rgba(254, 254, 254, 0.3);
 }
 .cardActive {
   background: linear-gradient(177.23deg, #9c2cf3 -13.49%, #3a49f9 109.75%);
+  box-shadow: 0 0 8px #3a49f9;
 }
 .cardBlocked {
   background: linear-gradient(177.23deg, #e42c66 -13.49%, #f55b46 109.75%);
+  box-shadow: 0 0 8px #f55b46;
 }
+
 .totalBalance {
   display: flex;
   align-items: center;

@@ -1,0 +1,26 @@
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+
+  padding: 8px 29px;
+
+  background-color: #41484f;
+
+  border-style: none;
+  border-radius: 16px;
+  border: 1px solid transparent;
+
+  transition: all var(--timing-function__main);
+  &:hover {
+    background-color: #4a5159;
+  }
+  &:active {
+    background-color: #3e444b;
+  }
+}

@@ -6,16 +6,19 @@ import numberWithSpaces from './numberWithSpaces';
 
 import s from './Cards.module.scss';
 const ActiveBalanceCard = () => {
-  const { bonuses } = useSelector(selectTransactions);
-  console.log(bonuses);
+  const {
+    bonuses: { activeBonuses = 0 },
+  } = useSelector(selectTransactions);
 
   return (
     <div className={s.cardContainer}>
       <div className={s.cardActive}>
-        <span>Active Bonuses</span>
-        <div className={s.totalBalance}>
-          <span>{numberWithSpaces(bonuses.activeBonuses)}</span>
-          <span></span>
+        <div className={s.card}>
+          <span>Active Bonuses</span>
+          <div className={s.totalBalance}>
+            <span>{numberWithSpaces(activeBonuses)}</span>
+            <span></span>
+          </div>
         </div>
       </div>
     </div>

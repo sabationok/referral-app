@@ -17,6 +17,12 @@ const Transaction = ({ transaction }) => {
   function numberPadStart(n) {
     return n.toString().padStart(2, '0');
   }
+  function numberWithSpaces(x) {
+    return x
+      .toFixed(2)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
   let date = new Date(createdAt);
   let day = numberPadStart(date.getDate());
   let month = numberPadStart(date.getMonth() + 1);
@@ -27,15 +33,15 @@ const Transaction = ({ transaction }) => {
 
   return (
     <div className={transactionStyleClass}>
-      <span className={[s.col1, s.title].join(' ')}>Amount</span>
-      <span className={[s.col2, s.amount].join(' ')}>
-        <span>{amount > 0 ? '+' : '-'}</span>
-        <span>{amount}</span>
-      </span>
       <span className={[s.col1, s.title].join(' ')}>Date/Time</span>
       <span className={[s.col2, s.createdAt].join(' ')}>
         <span className={s.date}>{`${day}.${month}.${year}`}</span>{' '}
         <span className={s.time}>{`${hours}:${minutes}:${seconds}`}</span>
+      </span>
+      <span className={[s.col1, s.title].join(' ')}>Amount</span>
+      <span className={[s.col2, s.amount].join(' ')}>
+        <span>{amount > 0 ? '+' : '-'}</span>
+        <span>{numberWithSpaces(amount)}</span>
       </span>
       <span className={[s.col1, s.title].join(' ')}>Status</span>
       <span className={[s.col2, s.amountStatus].join(' ')}>{amountStatus}</span>
