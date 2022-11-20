@@ -1,15 +1,16 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ModalPortal from './ModalPortal/ModalPortal';
-import css from './modal.module.css';
+import css from './Modal.module.css';
 
 //* ""handleToggle"" функція яка тоглить стейт модалки
 //* ""defaultBtn"" BOOLEAN чи потрібна дефолтна кнопка закриття
 //* ""children"" вміст модалки
 export const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
+
 const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   window.addEventListener('keydown', handleToggleModalByEsc);
 

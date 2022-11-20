@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalButton from 'components/ModalButton/ModalButton';
 
 import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -76,6 +77,10 @@ const Header = () => {
                     Адмін
                   </NavLink>
                 )}
+                <ModalButton className={css.navLink}>
+                  Правила та умови
+                </ModalButton>
+
                 <button className={css.navLink} onClick={handleSignOut}>
                   Вихід
                 </button>

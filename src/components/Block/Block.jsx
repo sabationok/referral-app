@@ -7,25 +7,35 @@ const Block = ({
   children,
   title = null,
   subTitle = null,
-  sprite,
-  iconStartId,
   footer = true,
   header = true,
+  style = null,
+  className = '',
+  sprite,
+  iconStartId,
+  iconClassName = '',
 }) => {
+  const blockClassName = [scss.block, className].join(' ');
+  const headericonClassName = [scss.iconStart, iconClassName].join(' ');
   console.log(`small block '${title}'render`);
+
   return (
-    <div className={scss.block}>
+    <div className={blockClassName} style={style}>
       {header && (
         <div className={scss.header}>
           {sprite && sprite && (
-            <span className={scss.iconStart}>
+            <span className={headericonClassName}>
               <svg className={scss.iconSvg}>
                 <use href={`${sprite}#${iconStartId}`}></use>
               </svg>
             </span>
           )}
           {title && <span className={scss.title}>{title}</span>}
-          {subTitle && <span className={scss.subTitle} title={subTitle}>{subTitle}</span>}
+          {subTitle && (
+            <span className={scss.subTitle} title={subTitle}>
+              {subTitle}
+            </span>
+          )}
         </div>
       )}
       <div className={scss.content}>

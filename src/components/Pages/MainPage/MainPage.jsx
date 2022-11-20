@@ -74,7 +74,7 @@ const MainPage = () => {
             title="Подати заявку на виплату"
             subTitle="Will be in future ..."
             sprite={sprite}
-            iconStartId="icon-assignment"
+            iconStartId="icon-cardOk"
           >
             <span className={s.inWork}>In work ...</span>
           </Block>

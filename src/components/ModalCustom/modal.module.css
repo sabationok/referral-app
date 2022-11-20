@@ -1,40 +1,56 @@
 .Backdrop {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1300;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-
 .Modal {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 
-  max-width: calc(100% - 48px);
-  min-width: 200px;
-  max-height: calc(100vh - 24px);
-  min-height: 150px;
+  min-width: 250px;
+
+  min-height: 250px;
 
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+@media screen and (max-width: 768px) {
+  .Modal {
+    max-width: 98%;
+    max-height: 98%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .Modal {
+    max-width: 700px;
+    max-height: 98%;
+  }
 }
 
 .closeModal {
   position: absolute;
   top: 8px;
   right: 8px;
+  z-index: 15;
 
   font-size: 16px;
   color: #fff;
