@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
-// import { customAlphabet } from 'nanoid';
-import { useDispatch,useSelector } from 'react-redux';
+import Block from 'components/Block/Block';
+import ButtonText from 'components/ButtonText/ButtonText';
+import AppLoader from 'components/AppLoader/AppLoader';
+import Notiflix from 'notiflix';
+import { useDispatch, useSelector } from 'react-redux';
 import { userRegisterThunk } from 'redux/auth/authThunks';
 import { selectUserData } from 'redux/selectors';
+import { useParams } from 'react-router-dom';
 
-import AppLoader from 'components/AppLoader/AppLoader';
-
+import sprite from 'img/sprite';
 import s from './SignUpPage.module.scss';
-// const randomPhone = customAlphabet('0123456789', 9);
 const SignUpPage = () => {
   const { isLoading } = useSelector(selectUserData);
   const dispatch = useDispatch();
+  const { referrerId } = useParams();
+
   const initialFormData = {
     name: '',
     phone: '',
     email: '',
     password: '',
-    parentId: '',
+    secondPassword: '',
+    parentId: referrerId,
   };
   const [formData, setFormData] = useState(initialFormData);
 
@@ -26,6 +31,10 @@ const SignUpPage = () => {
   }
   function handleFormSubmit(ev) {
     ev.preventDefault();
+    if (formData.secondPassword !== formData.password) {
+      Notiflix.Notify.failure('Паролі не збігаються');
+      return;
+    }
     const newUser = {
       name: formData.name,
       phone: formData.phone,
@@ -33,95 +42,107 @@ const SignUpPage = () => {
       password: formData.password,
       parentId: Number(formData.parentId),
     };
-    // const testUser = {
-    //   name: nanoid(8),
-    //   phone: `+380${randomPhone()}`,
-    //   email: `${nanoid(10)}@mail.com`,
-    //   password: nanoid(10),
-    //   parentId: 27,
-    // };
-
-    console.log(newUser);
     dispatch(userRegisterThunk(newUser));
     setFormData(initialFormData);
   }
 
   return (
     <>
-    <div className={s.page}>
-      <form className={s.form} onSubmit={handleFormSubmit}>
-        <p>Register</p>
-        <label className={s.label} htmlFor="name">
-          <span className={s.span}>Name</span>
-          <input
-            className={s.input}
-            name="name"
-            type="text"
-            id="name"
-            value={formData.name}
-            placeholder={'name'}
-            // required
-            onChange={handleChangeInput}
-          />
-        </label>
-        <label className={s.label} htmlFor="phone">
-          <span className={s.span}>Phone</span>
-          <input
-            className={s.input}
-            name="phone"
-            type="text"
-            id="phone"
-            defaultValue={`+380${formData.phone}`}
-            // value={formData.phone}
-            placeholder={'phone'}
-            // required
-            onChange={handleChangeInput}
-          />
-        </label>
-        <label className={s.label} htmlFor="email">
-          <span className={s.span}>Email</span>
-          <input
-            className={s.input}
-            name="email"
-            type="email"
-            id="email"
-            value={formData.email}
-            placeholder={'email'}
-            // required
-            onChange={handleChangeInput}
-          />
-        </label>
-        <label className={s.label} htmlFor="password">
-          <span className={s.span}>Password</span>
-          <input
-            className={s.input}
-            name="password"
-            type="password"
-            id="password"
-            value={formData.password}
-            placeholder={'password'}
-            // required
-            onChange={handleChangeInput}
-          />
-        </label>
-        <label className={s.label} htmlFor="parentId">
-          <span className={s.span}>Referer</span>
-          <input
-            className={s.input}
-            name="parentId"
-            type="text"
-            id="parentId"
-            value={formData.parentId}
-            placeholder={'parentId'}
-            onChange={handleChangeInput}
-          />
-        </label>
-        <button className={s.button} type="submit">
-          SignUp
-        </button>
-      </form>
-    </div>
-    <AppLoader isLoading={isLoading} />
+      <div className={s.SignUpPage}>
+        <Block
+          title="Реєстрація"
+          subTitle={
+            referrerId
+              ? `Реєстрація нового користувача (Запрошення від користувача ID:${referrerId})`
+              : `Реєстрація нового користувача`
+          }
+          sprite={sprite}
+          iconStartId="icon-signUp"
+        >
+          <form className={s.form} onSubmit={handleFormSubmit}>
+            <label className={s.label} htmlFor="name">
+              <span className={s.span}>І'мя</span>
+              <input
+                className={s.input}
+                name="name"
+                type="text"
+                id="name"
+                value={formData.name}
+                placeholder={'name'}
+                required
+                onChange={handleChangeInput}
+              />
+            </label>
+            <label className={s.label} htmlFor="phone">
+              <span className={s.span}>Телефон</span>
+              <input
+                className={s.input}
+                name="phone"
+                type="text"
+                id="phone"
+                value={formData.phone}
+                placeholder={'+380'}
+                required
+                onChange={handleChangeInput}
+              />
+            </label>
+            <label className={s.label} htmlFor="email">
+              <span className={s.span}>Електронна адреса</span>
+              <input
+                className={s.input}
+                name="email"
+                type="email"
+                id="email"
+                value={formData.email}
+                placeholder={'example@mail.com'}
+                required
+                onChange={handleChangeInput}
+              />
+            </label>
+            <label className={s.label} htmlFor="password">
+              <span className={s.span}>Пароль</span>
+              <input
+                className={s.input}
+                name="password"
+                type="password"
+                id="password"
+                value={formData.password}
+                placeholder={'password'}
+                required
+                onChange={handleChangeInput}
+              />
+            </label>
+            <label className={s.label} htmlFor="secondPassword">
+              <span className={s.span}>Повторіть пароль</span>
+              <input
+                className={s.input}
+                name="secondPassword"
+                type="password"
+                id="secondPassword"
+                value={formData.secondPassword}
+                placeholder={'secondPassword'}
+                required
+                onChange={handleChangeInput}
+              />
+            </label>
+            <label className={s.label} htmlFor="parentId">
+              <span className={s.span}>{'Хто запросив (ID)'}</span>
+              <input
+                className={s.input}
+                name="parentId"
+                type="text"
+                id="parentId"
+                value={formData.parentId}
+                placeholder={'parentId'}
+                disabled={referrerId}
+                onChange={handleChangeInput}
+              />
+            </label>
+            <ButtonText type="submit">SignUp</ButtonText>
+          </form>
+        </Block>
+      </div>
+      <AppLoader isLoading={isLoading} />
     </>
   );
 };

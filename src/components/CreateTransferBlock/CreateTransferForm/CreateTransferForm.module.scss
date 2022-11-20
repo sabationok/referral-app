@@ -48,6 +48,12 @@
   border-radius: 4px;
 
   resize: none;
+
+  color: #fff;
+  background-color: rgba(254, 254, 254, 0.2);
+
+  outline-style: none;
+  border-style: none;
   &:invalid {
     outline: 2px solid var(--inputClr_invalid);
   }

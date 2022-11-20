@@ -1,21 +1,44 @@
-.page {
-  display: flex;
+.SignInPage {
+  display: grid;
+  grid-template-columns: minmax(280px, 480px);
+  grid-auto-rows: 400px;
+
   align-items: center;
   justify-content: center;
-  margin: 100px auto;
-  max-width: 60%;
-  height: 60%;
+  gap: 16px;
 
-  box-shadow: 0 0 8px rgba(122, 122, 122, 0.5);
+  max-width: 480px;
+  width: 100%;
+
+  padding: 8px 0;
+  margin: 0 auto;
+
+  line-height: 1.2;
+  letter-spacing: 0.07em;
+
+  @media screen and (min-width: 480px) {
+    padding: 8px 15px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1100px) {
+    max-width: 768px;
+  }
+  @media screen and (min-width: 1100px) {
+    max-width: 1300px;
+  }
+  @media screen and (min-width: 1500px) {
+    max-width: 1600px;
+  }
 }
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 36px;
+  align-content: center;
   text-align: center;
   gap: 16px;
 
   padding: 16px;
+  margin: 0 auto;
 
   height: 90%;
   width: 90%;
@@ -26,12 +49,44 @@
   gap: 16px;
 
   text-align: start;
-  font-size: 18px;
+  font-size: 14px;
+}
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 50px 1fr;
+  gap: 8px;
+
+  padding-bottom: 8px;
 }
 .input {
-  font-size: 18px;
   width: 100%;
+  height: 100%;
 }
-.button {
-  font-size: 18px;
+.input {
+  width: 100%;
+  height: 100%;
+
+  padding: 2px 6px;
+  border-radius: 4px;
+
+  resize: none;
+
+  color: #fff;
+  background-color: rgba(254, 254, 254, 0.2);
+
+  outline-style: none;
+  border-style: none;
+  &:invalid {
+    outline: 2px solid var(--inputClr_invalid);
+  }
+  &:valid {
+    outline: 2px solid var(--inputClr_valid);
+  }
+  &:placeholder-shown {
+    &:focus {
+      outline: 2px solid var(--brand_clr__1);
+    }
+    outline-style: none;
+  }
 }

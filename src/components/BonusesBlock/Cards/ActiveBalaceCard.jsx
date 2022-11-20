@@ -9,7 +9,7 @@ const ActiveBalanceCard = () => {
   const {
     bonuses: { activeBonuses = 0 },
   } = useSelector(selectTransactions);
-
+  console.log(activeBonuses);
   return (
     <div className={s.cardContainer}>
       <div className={s.cardActive}>

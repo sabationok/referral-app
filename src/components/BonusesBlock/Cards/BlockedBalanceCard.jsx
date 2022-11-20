@@ -5,7 +5,9 @@ import numberWithSpaces from './numberWithSpaces';
 
 import s from './Cards.module.scss';
 const BlockedBalanceCard = () => {
-  const { bonuses = {} } = useSelector(selectTransactions);
+  const {
+    bonuses: { blockedBonuses },
+  } = useSelector(selectTransactions);
 
   return (
     <div className={s.cardContainer}>
@@ -13,26 +15,26 @@ const BlockedBalanceCard = () => {
         <div className={s.card}>
           <span>Blocked Bonuses</span>
           <div className={s.totalBalance}>
-            <span>{numberWithSpaces(bonuses?.blockedBonuses?.total)}</span>
+            <span>{numberWithSpaces(blockedBonuses?.total)}</span>
             <span></span>
           </div>
           <div className={s.balanceStat}>
             <div className={s.wrapper}>
               <span className={s.title}>{'cashback'}</span>
               <span className={s.value}>
-                {numberWithSpaces(bonuses?.blockedBonuses?.cashback)}
+                {numberWithSpaces(blockedBonuses?.cashback)}
               </span>
             </div>
             <div className={s.wrapper}>
               <span className={s.title}>{'referral'}</span>
               <span className={s.value}>
-                {numberWithSpaces(bonuses?.blockedBonuses?.referral)}
+                {numberWithSpaces(blockedBonuses?.referral)}
               </span>
             </div>
             <div className={s.wrapper}>
               <span className={s.title}>{'extra'}</span>
               <span className={s.value}>
-                {numberWithSpaces(bonuses?.blockedBonuses?.extra)}
+                {numberWithSpaces(blockedBonuses?.extra)}
               </span>
             </div>
           </div>

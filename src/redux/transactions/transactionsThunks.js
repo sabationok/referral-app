@@ -58,6 +58,7 @@ export const postBonusTransferThunk = createAsyncThunk(
         `/transaction/transfer`,
         transferData
       );
+      Notiflix.Notify.success(`Створено нову транзакцію, ${response.data.amount}`);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -73,6 +74,9 @@ export const postBonusAccrualThunk = createAsyncThunk(
     token.set(state.userAuth.tokens.accessToken);
     try {
       const response = await userApi.post(`/transaction/Accrual`, accrualData);
+      Notiflix.Notify.success(
+        `Створено нову транзакцію ${response.data.amount}`
+      );
       return response.data;
     } catch (error) {
       console.log(error);
