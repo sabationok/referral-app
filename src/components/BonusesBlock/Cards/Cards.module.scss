@@ -1,5 +1,5 @@
 .cardContainer {
-  margin: 8px;
+  padding: 8px;
   overflow: hidden;
   width: fit-content;
 }
@@ -7,6 +7,7 @@
 .cardBlocked {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: 1fr 4fr 2fr;
   align-items: start;
   justify-content: center;
 
@@ -20,10 +21,40 @@
 
   border-radius: 14px;
   overflow: hidden;
+
+  box-shadow: 0 0 10px rgba(254, 254, 254, 0.3);
 }
 .cardActive {
   background: linear-gradient(177.23deg, #9c2cf3 -13.49%, #3a49f9 109.75%);
 }
 .cardBlocked {
   background: linear-gradient(177.23deg, #e42c66 -13.49%, #f55b46 109.75%);
+}
+.totalBalance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+}
+.balanceStat {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  font-size: 12px;
+  text-align: center;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.title {
+  text-transform: capitalize;
+}
+.value {
 }

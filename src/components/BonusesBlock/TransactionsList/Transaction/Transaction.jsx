@@ -3,28 +3,42 @@ import React from 'react';
 import s from './Transaction.module.scss';
 
 const Transaction = ({ transaction }) => {
-  const { amount, amountStatus, notes, type, transactionStatus, createdAt } =
-    transaction;
-
+  const { amount, amountStatus, notes, type, createdAt } = transaction;
+  const transactionStyleClass = [
+    s.transaction,
+    amount > 0 ? s.income : s.expense,
+  ].join(' ');
+  function numberPadStart(n) {
+    return n.toString().padStart(2, '0');
+  }
   let date = new Date(createdAt);
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let seconds = date.getSeconds();
+  let day = numberPadStart(date.getDate());
+  let month = numberPadStart(date.getMonth() + 1);
+  let year = date.getFullYear().toString();
+  let hours = numberPadStart(date.getHours());
+  let minutes = numberPadStart(date.getMinutes());
+  let seconds = numberPadStart(date.getSeconds());
 
   return (
-    <div className={s.transaction}>
-      <span className={s.amount}>{amount}</span>
-      <span className={s.createdAt}>
-        <span className={s.date}>{`${day}.${month}.${year}`}</span>
+    <div className={transactionStyleClass}>
+      <span className={[s.col1, s.title].join(' ')}>Amount</span>
+      <span className={[s.col2, s.amount].join(' ')}>
+        <span>{amount > 0 ? '+' : '-'}</span>
+        <span>{amount}</span>
+      </span>
+      <span className={[s.col1, s.title].join(' ')}>Date/Time</span>
+      <span className={[s.col2, s.createdAt].join(' ')}>
+        <span className={s.date}>{`${day}.${month}.${year}`}</span>{' '}
         <span className={s.time}>{`${hours}:${minutes}:${seconds}`}</span>
       </span>
-      <span className={s.amountStatus}>{amountStatus}</span>
-      <span className={s.type}>{type}</span>
-      {/* <span className={s.transactionStatus}>{transactionStatus}</span> */}
-      <span className={s.notes}>{notes}</span>
+      <span className={[s.col1, s.title].join(' ')}>Status</span>
+      <span className={[s.col2, s.amountStatus].join(' ')}>{amountStatus}</span>
+      <span className={[s.col1, s.title].join(' ')}>Type</span>
+      <span className={[s.col2, s.type].join(' ')}>{type}</span>
+      <span className={[s.col1, s.title].join(' ')}>Note</span>
+      <span className={[s.col2, s.note].join(' ')}>
+        <span className={s.noteInner}>{notes}</span>
+      </span>
     </div>
   );
 };

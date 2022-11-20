@@ -3,15 +3,35 @@ import React from 'react';
 // import BlockPortal from './BlockPportal';
 import scss from './Block.module.scss';
 
-const Block = ({ children, title = '' }) => {
+const Block = ({
+  children,
+  title = null,
+  subTitle = null,
+  sprite,
+  iconStartId,
+  footer = true,
+  header = true,
+}) => {
   console.log(`small block '${title}'render`);
   return (
     <div className={scss.block}>
-      <div className={scss.header}>{title}</div>
+      {header && (
+        <div className={scss.header}>
+          {sprite && sprite && (
+            <span className={scss.iconStart}>
+              <svg className={scss.iconSvg}>
+                <use href={`${sprite}#${iconStartId}`}></use>
+              </svg>
+            </span>
+          )}
+          {title && <span className={scss.title}>{title}</span>}
+          {subTitle && <span className={scss.subTitle}>{subTitle}</span>}
+        </div>
+      )}
       <div className={scss.content}>
         <div className={scss.overflow}>{children}</div>
       </div>
-      <div className={scss.footer}></div>
+      {footer && <div className={scss.footer}></div>}
     </div>
   );
 };

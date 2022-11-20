@@ -1,7 +1,7 @@
 .slickContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 180px 1fr;
   align-items: start;
   justify-items: center;
   gap: 30px;
@@ -9,18 +9,4 @@
   width: 100%;
   height: 100%;
 }
-.sliderTop {
-  max-width: 270px;
-}
-.sliderBottom {
-  overflow: auto;
-  // width: 100%;
-}
-.transactionsList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 
-  max-height: 100%;
-  overflow: auto;
-}

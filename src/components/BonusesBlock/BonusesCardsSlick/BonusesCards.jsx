@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import Slider from 'react-slick';
 
-import ActiveBonusesCard from '../Cards/ActiveBonusesCard';
-import BlockedBonusesCard from '../Cards/BlockedBonusesCard';
+import ActiveBonusesCard from '../Cards/ActiveBalaceCard';
+import BlockedBonusesCard from '../Cards/BlockedBalanceCard';
 import Transaction from '../TransactionsList/Transaction/Transaction';
 import TransactionsList from '../TransactionsList/TransactionsList';
 

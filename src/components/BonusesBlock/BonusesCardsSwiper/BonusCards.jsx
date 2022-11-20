@@ -1,8 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import ActiveBonusesCard from '../Cards/ActiveBonusesCard';
-import BlockedBonusesCard from '../Cards/BlockedBonusesCard';
+import ActiveBonusesCard from '../Cards/ActiveBalaceCard';
+import BlockedBonusesCard from '../Cards/BlockedBalanceCard';
 
 // import 'swiper/css';
 import 'swiper/css/bundle';

@@ -6,7 +6,7 @@ import s from './Children.module.scss';
 const Children = ({ info, level }) => {
   const [isShow, setIsShow] = useState();
   const childrenCount = info.children.length;
-  const render = isShow && childrenCount;
+  const renderList = isShow && childrenCount;
   const nextLevel = level + 1;
 
   function handleShowBtnClick() {
@@ -21,17 +21,17 @@ const Children = ({ info, level }) => {
         disabled={!childrenCount}
         onClick={handleShowBtnClick}
       >
+        <span className={s.level}>{level}</span>
         <div className={s.info}>
-          <span className={s.level}>{level}</span>
-          <span className={s.name}>{info.name}</span>
-          <span className={s.id}>{`id${info.id}`}</span>
-          <span className={s.childrenCount}>{`(${childrenCount})`}</span>
-          <span className={s.phone}>{info.phone}</span>
+          <span className={s.name}>Name: {info.name}</span>
+          <span className={s.id}>{`ID: ${info.id}`}</span>
+          <span className={s.phone}>Phone: {info.phone}</span>
+          <span className={s.childrenCount}>{`Referrals: ${childrenCount}`}</span>
         </div>
         <span className={s.svg}>{isShow ? 'H' : 'S'}</span>
       </button>
 
-      {render && (
+      {renderList && (
         <div className={s.listContainer}>
           <ChildrensList arr={info.children} level={nextLevel} />
         </div>

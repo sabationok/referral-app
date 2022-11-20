@@ -1,15 +1,51 @@
-.transaction{
-  display: flex;
-  flex-direction: column;
+.transaction {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   gap: 4px;
   width: 100%;
-  
+  padding: 4px;
+
+  color: #fff;
+  font-size: 12px;
+
+  border-bottom: 1px solid #59616b;
 }
-.amount{}
-.createdAt{}
-.date{}
-.time{}
-.amountStatus{}
-.notes{}
-.type{}
-.transactionStatus{}
+.income {
+  .amount {
+    color: rgb(122, 255, 140);
+  }
+}
+.expense {
+  .amount {
+    color: rgb(255, 116, 116);
+  }
+}
+.col1,
+.col2 {
+  padding: 0 4px;
+}
+.col1 {
+  text-align: left;
+}
+.col2 {
+  text-align: right;
+}
+.amount {
+}
+.createdAt {
+}
+.date {
+}
+.time {
+}
+.amountStatus {
+}
+.note {
+  & .noteInner {
+  }
+}
+
+.type {
+}
+.transactionStatus {
+}
