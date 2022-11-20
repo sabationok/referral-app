@@ -1,19 +1,13 @@
-import React from 'react'
-import ButtonText from 'components/ButtonText/ButtonText';
+import React from 'react';
+import CreateFeedbackForm from './CreateFeedbackForm/CreateFeedbackForm';
 
-import s from './CreateFeedbackBlock.module.scss'
+import s from './CreateFeedbackBlock.module.scss';
 const CreateFeedbackBlock = () => {
   return (
-    <div>
-      <form className={s.form}>
-        
-        <div className={s.buttons}>
-          <ButtonText>Надіслати</ButtonText>
-          <ButtonText>Скасувати</ButtonText>
-        </div>
-      </form>
+    <div className={s.FeedbackBlock}>
+      <CreateFeedbackForm />
     </div>
-  )
-}
+  );
+};
 
-export default CreateFeedbackBlock
+export default CreateFeedbackBlock;
