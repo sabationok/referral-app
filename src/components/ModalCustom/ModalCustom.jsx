@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ModalPortal from './ModalPortal/ModalPortal';
-import css from './Modal.module.css';
+import s from './ModalCustom.module.scss';
 
 //* ""handleToggle"" функція яка тоглить стейт модалки
 //* ""defaultBtn"" BOOLEAN чи потрібна дефолтна кнопка закриття
@@ -47,10 +47,10 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
   return (
     <ModalPortal>
       <ModalContext.Provider value={{ isOpen, handleToggleModal }}>
-        <div className={css.Backdrop} onClick={handleToggleModalBackdrop}>
-          <div className={css.Modal}>
+        <div className={s.Backdrop} onClick={handleToggleModalBackdrop}>
+          <div className={s.Modal}>
             {defaultBtn && (
-              <button className={css.closeModal} onClick={handleToggleModal}>
+              <button className={s.closeModal} onClick={handleToggleModal}>
                 Close
               </button>
             )}
