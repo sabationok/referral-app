@@ -13,6 +13,7 @@ const Children = ({ info, level }) => {
   const childrenClassList = [s.childrenContainer, isShow && ''].join(' ');
   const childrenBtnClassList = [s.ChildrenBtn, isShow && s.isShow].join(' ');
 
+  console.log(info);
   function handleShowBtnClick() {
     setIsShow(!isShow);
   }
@@ -27,12 +28,12 @@ const Children = ({ info, level }) => {
       >
         <span className={s.level}>{level}</span>
         <div className={s.info}>
-          <span className={s.name}>Name: {info.name}</span>
+          <span className={s.name}>Ім'я: {info.name}</span>
           <span className={s.id}>{`ID: ${info.id}`}</span>
-          <span className={s.phone}>Phone: {info.phone}</span>
+          <span className={s.phone}>Телефон: {info.phone}</span>
           <span
             className={s.childrenCount}
-          >{`Referrals: ${childrenCount}`}</span>
+          >{`Запрошено: ${childrenCount}`}</span>
         </div>
 
         <span className={s.icon}>
