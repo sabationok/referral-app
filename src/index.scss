@@ -3,8 +3,8 @@
   // --brand_clr__1: rgb(255, 146, 73);
   --brand_clr__1: #fec400;
   --brand_clr__2: #31362f;
-  --brand_clr__2-active: #4c4d57;
-  --brand_clr__2-hover: #4c4d5798;
+  --brand_clr__2-active: #3b4238;
+  --brand_clr__2-hover: #3b4138;
   --background_clr__main: #1e2124;
   --background_clr__secondary: #292e33;
 
@@ -175,7 +175,7 @@ button {
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background-color: rgba(254, 254, 254, 0.1);
+    background-color: rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar-button {
     height: 0;
@@ -183,14 +183,14 @@ button {
     overflow: hidden;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(254, 254, 254, 0.3);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:active {
-    background-color: rgba(254, 254, 254, 0.5);
+    background-color: var(--brand_clr__1);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(254, 254, 254, 0.6);
+    background-color: var(--brand_clr__1);
   }
 }
 /* // bimp

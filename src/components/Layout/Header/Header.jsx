@@ -1,10 +1,11 @@
 import React from 'react';
-import ModalButton from 'components/ModalButton/ModalButton';
+import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton';
 
 import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignOutAction } from 'redux/auth/authAction';
 import { selectUserData } from 'redux/selectors';
+import PrivacyPolicy from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock';
 
 import UserInfo from '../UserInfo/UserInfo';
 
@@ -77,9 +78,12 @@ const Header = () => {
                     Адмін
                   </NavLink>
                 )}
-                <ModalButton className={css.navLink}>
+                <ModalOpenButton
+                  className={css.navLink}
+                  modalChildren={<PrivacyPolicy />}
+                >
                   Правила та умови
-                </ModalButton>
+                </ModalOpenButton>
 
                 <button className={css.navLink} onClick={handleSignOut}>
                   Вихід
