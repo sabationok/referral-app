@@ -41,7 +41,7 @@ const MainPage = () => {
         <section className={s.sectionGrid}>
           <Block
             title="Invite link"
-            subTitle="Ваш персональний лінк для запрошення та QR Code який можна відсканувати"
+            subTitle="Ваш персональний лінк для запрошення та QR Code який можна відсканувати "
             sprite={sprite}
             iconStartId="icon-share"
           >
@@ -49,7 +49,7 @@ const MainPage = () => {
           </Block>
           <Block
             title="Transfer bonuses"
-            subTitle='Для переказу введіть ID користувача та суму для списання бонусів'
+            subTitle="Для переказу введіть ID користувача та суму для списання бонусів"
             sprite={sprite}
             iconStartId="icon-present"
           >
@@ -65,18 +65,33 @@ const MainPage = () => {
           </Block>
         </section>
         <section className={s.section}>
-          <Block title="Referrals" subTitle='Ваша реферальна мережа' sprite={sprite} iconStartId="icon-persons">
+          <Block
+            title="Referrals"
+            subTitle="Ваша реферальна мережа"
+            sprite={sprite}
+            iconStartId="icon-persons"
+          >
             <ChildrensBlock />
           </Block>
         </section>
 
         <section className={s.section}>
-          <Block title="Statistics" subTitle='Will be in future ...' sprite={sprite} iconStartId="icon-stat">
+          <Block
+            title="Statistics"
+            subTitle="Will be in future ..."
+            sprite={sprite}
+            iconStartId="icon-stat"
+          >
             <span className={s.inWork}>In work ...</span>
           </Block>
         </section>
         <section className={s.section}>
-          <Block title="Partners" subTitle='Will be in future ...' sprite={sprite} iconStartId="icon-partners">
+          <Block
+            title="Partners"
+            subTitle="Will be in future ..."
+            sprite={sprite}
+            iconStartId="icon-partners"
+          >
             <span className={s.inWork}>In work ...</span>
           </Block>
         </section>

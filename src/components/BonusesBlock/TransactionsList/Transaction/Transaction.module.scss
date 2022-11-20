@@ -41,8 +41,15 @@
 .amountStatus {
 }
 .note {
-  & .noteInner {
-  }
+  width: 100%;
+  text-align: start;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .type {

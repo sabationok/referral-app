@@ -3,7 +3,13 @@ import React from 'react';
 import s from './Transaction.module.scss';
 
 const Transaction = ({ transaction }) => {
-  const { amount, amountStatus, notes, type, createdAt } = transaction;
+  const {
+    amount = null,
+    amountStatus = null,
+    notes = null,
+    type = null,
+    createdAt = null,
+  } = transaction;
   const transactionStyleClass = [
     s.transaction,
     amount > 0 ? s.income : s.expense,
@@ -36,8 +42,8 @@ const Transaction = ({ transaction }) => {
       <span className={[s.col1, s.title].join(' ')}>Type</span>
       <span className={[s.col2, s.type].join(' ')}>{type}</span>
       <span className={[s.col1, s.title].join(' ')}>Note</span>
-      <span className={[s.col2, s.note].join(' ')}>
-        <span className={s.noteInner}>{notes}</span>
+      <span className={[s.col2, s.note].join(' ')} title={notes}>
+        {notes}
       </span>
     </div>
   );

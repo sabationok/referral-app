@@ -32,20 +32,17 @@
 }
 
 .header {
-
   display: grid;
   grid-template-columns: 24px repeat(4, 1fr);
-  grid-auto-rows: 24px;
-  
-  gap: 8px;
+  grid-auto-rows: auto;
 
-  position: sticky;
-  top: 0;
-  left: 0;
+  gap: 4px;
+
+  position: relative;
   z-index: 6;
 
   width: 100%;
-  min-height: 30px;
+  height: 60px;
   padding: 4px 8px;
 
   color: #f0f0f0;
@@ -56,7 +53,7 @@
     align-items: center;
     justify-content: center;
 
-    height: 100%;
+    height: 24px;
     max-width: 24px;
     & .iconSvg {
       width: 100%;
@@ -74,15 +71,22 @@
   .subTitle {
     grid-column-start: 1;
     grid-column-end: 6;
-    grid-row-start: 2;
-    grid-row-end: 3;
+
     font-size: 10px;
+
+    text-align: start;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 }
+
 .content {
   position: relative;
-  // overflow: auto;
-  // height: calc(100% - 35px);
 }
 .overflow {
   overflow: auto;

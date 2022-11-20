@@ -25,7 +25,7 @@ const Block = ({
             </span>
           )}
           {title && <span className={scss.title}>{title}</span>}
-          {subTitle && <span className={scss.subTitle}>{subTitle}</span>}
+          {subTitle && <span className={scss.subTitle} title={subTitle}>{subTitle}</span>}
         </div>
       )}
       <div className={scss.content}>
