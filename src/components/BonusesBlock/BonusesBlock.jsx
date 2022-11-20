@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BonusesCards from './BonusesCardsSlick/BonusesCards';
+import BonusesCards from './BalanceCardsSlick/BonusesCards';
 
 import s from './BonusesBlock.module.scss';
 

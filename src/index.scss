@@ -13,8 +13,10 @@
   --text-clr__secondary: #6b6b6b;
   /* ICONS */
   --icon-clr__primary: #808080;
-  /* BLOCKS */
+  /* INPUTS */
 
+  --inputClr_valid:rgb(122, 255, 140);
+  --inputClr_invalid:rgb(255, 116, 116);
   /* BUTTONS */
   --btn-deciscon_clr__primary: rgba(219, 219, 219, 0.4);
   --btn-deciscon_clr__hover: rgba(219, 219, 219, 0.5);

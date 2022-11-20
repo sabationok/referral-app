@@ -5,13 +5,13 @@ import numberWithSpaces from './numberWithSpaces';
 
 import s from './Cards.module.scss';
 const BlockedBalanceCard = () => {
-  const { bonuses } = useSelector(selectTransactions);
+  const { bonuses = {} } = useSelector(selectTransactions);
   const {
     total = 0,
     cashback = 0,
     referral = 0,
     extra = 0,
-  } = bonuses.blockedBonuses;
+  } = bonuses?.blockedBonuses;
 
   return (
     <div className={s.cardContainer}>
