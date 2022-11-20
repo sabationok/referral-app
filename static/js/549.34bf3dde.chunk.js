@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreferral_app=self.webpackChunkreferral_app||[]).push([[549],{3549:function(e,n,r){r.r(n),r.d(n,{default:function(){return s}});var a="NotFoundPage_NotFoundPage__mBFvs",u=r(184),s=function(e){return(0,u.jsx)("div",{className:a,children:(0,u.jsx)("span",{children:"NotFoundPage"})})}}}]);
+//# sourceMappingURL=549.34bf3dde.chunk.js.map
