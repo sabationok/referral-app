@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import ButtonText from 'components/ButtonText/ButtonText';
 import AppLoader from 'components/AppLoader/AppLoader';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUserData, selectTransactions } from 'redux/selectors';
+import {
+  selectUserData,
+  selectTransactions,
+} from 'redux/selectors';
+
 import { postBonusTransferThunk } from 'redux/transactions/transactionsThunks';
 
 import s from './CreateTransferForm.module.scss';
@@ -10,7 +14,10 @@ import s from './CreateTransferForm.module.scss';
 const CreateTransferForm = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(selectUserData);
-  const { isLoading } = useSelector(selectTransactions);
+  const {
+    isLoading,
+    bonuses: { activeBonuses },
+  } = useSelector(selectTransactions);
   const initialState = {
     fromUser: user.id,
     amount: '',
@@ -57,21 +64,25 @@ const CreateTransferForm = () => {
                 id="toUser"
                 placeholder="ID користувача"
                 required
+                disabled={!activeBonuses}
                 value={formData?.toUser}
                 onChange={handleInputChange}
               />
             </span>
           </label>
           <label htmlFor="amount" className={s.labelAmount}>
-            <span className={s.title}>Кількість</span>
+            <span className={s.title}>{`Кількість (${activeBonuses})`}</span>
             <span className={s.customInput}>
               <input
                 className={s.input}
-                type="text"
+                type="number"
                 name="amount"
+                min={50}
+                step={5}
                 id="amount"
                 placeholder="Кількість"
                 required
+                disabled={!activeBonuses}
                 value={formData?.amount}
                 onChange={handleInputChange}
               />
@@ -80,16 +91,6 @@ const CreateTransferForm = () => {
           <label htmlFor="notes" className={s.labelNotes}>
             <span className={s.title}>Призначення переказу</span>
             <span className={s.customInput}>
-              {/* <input
-                className={s.input}
-                type="text"
-                name="notes"
-                id="notes"
-                placeholder="Призначення переказу"
-                required
-                value={formData?.notes}
-                onChange={handleInputChange}
-              /> */}
               <textarea
                 className={s.input}
                 type="text"
@@ -98,6 +99,7 @@ const CreateTransferForm = () => {
                 placeholder="Призначення переказу"
                 rows="2"
                 required
+                disabled={!activeBonuses}
                 value={formData?.notes}
                 onChange={handleInputChange}
               ></textarea>
@@ -105,8 +107,8 @@ const CreateTransferForm = () => {
           </label>
         </div>
         <div className={s.buttons}>
-          <ButtonText type="submit">Надіслати</ButtonText>
-          <ButtonText type="reset">Скасувати</ButtonText>
+          <ButtonText disabled={!activeBonuses} type="submit">Надіслати</ButtonText>
+          <ButtonText disabled={!activeBonuses} type="reset">Скасувати</ButtonText>
         </div>
       </form>
       <AppLoader isLoading={isLoading} />

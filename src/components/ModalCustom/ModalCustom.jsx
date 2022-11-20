@@ -9,7 +9,7 @@ import s from './ModalCustom.module.scss';
 export const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
 
-const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
+const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   window.addEventListener('keydown', handleToggleModalByEsc);

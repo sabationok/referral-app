@@ -3,7 +3,7 @@ import Block from 'components/Block/Block';
 
 import s from './PrivacyPolicyBlock.module.scss';
 
-const PrivacyPolicy = () => {
+const PrivacyPolicyBlock = () => {
   return (
     <Block
       title="Політика конфіденційності"
@@ -55,4 +55,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default PrivacyPolicyBlock;

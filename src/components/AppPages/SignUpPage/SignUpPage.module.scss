@@ -1,7 +1,7 @@
 .SignUpPage {
   display: grid;
   grid-template-columns: minmax(280px, 480px);
-  grid-auto-rows: 500px;
+  grid-auto-rows: min-content;
 
   align-items: center;
   justify-content: center;
@@ -32,24 +32,34 @@
 .form {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 36px;
-  align-content: center;
+  grid-template-rows: repeat(6, 60px) 38px 38px 38px;
+  align-content: start;
   text-align: center;
-  gap: 16px;
+  gap: 12px;
 
   padding: 16px;
   margin: 0 auto;
 
-  height: 90%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    grid-template-rows: repeat(9, 38px);
+  }
 }
 .label {
-  display: grid;
-  grid-template-columns: 30% 3fr;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
   text-align: start;
-  font-size: 14px;
+  font-size: 12px;
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 35% 3fr;
+  }
+}
+.span {
+  padding: 2px 4px;
 }
 .inputs {
   display: grid;
@@ -58,10 +68,6 @@
   gap: 8px;
 
   padding-bottom: 8px;
-}
-.input {
-  width: 100%;
-  height: 100%;
 }
 .input {
   width: 100%;
@@ -77,6 +83,7 @@
 
   outline-style: none;
   border-style: none;
+  transition: var(--timing-function__main);
   &:invalid {
     outline: 2px solid var(--inputClr_invalid);
   }
@@ -88,5 +95,18 @@
       outline: 2px solid var(--brand_clr__1);
     }
     outline-style: none;
+  }
+}
+.agreament,
+.noProfile {
+  font-size: 12px;
+}
+.link {
+  text-decoration: underline;
+
+  cursor: pointer;
+  transition: var(--timing-function__main);
+  &:hover {
+    color: var(--brand_clr__1);
   }
 }

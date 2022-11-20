@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Block from 'components/Block/Block';
 import ButtonText from 'components/ButtonText/ButtonText';
+import PrivacyPolicyBlock from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock';
+import RullesBlock from 'components/RullesBlock/RullesBlock';
+import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import AppLoader from 'components/AppLoader/AppLoader';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import { userRegisterThunk } from 'redux/auth/authThunks';
 import { selectUserData } from 'redux/selectors';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import sprite from 'img/sprite';
 import s from './SignUpPage.module.scss';
@@ -20,8 +23,8 @@ const SignUpPage = () => {
     phone: '',
     email: '',
     password: '',
-    secondPassword: '',
-    parentId: referrerId,
+    repeatPassword: '',
+    parentId: referrerId || '',
   };
   const [formData, setFormData] = useState(initialFormData);
 
@@ -31,7 +34,7 @@ const SignUpPage = () => {
   }
   function handleFormSubmit(ev) {
     ev.preventDefault();
-    if (formData.secondPassword !== formData.password) {
+    if (formData.repeatPassword !== formData.password) {
       Notiflix.Notify.failure('Паролі не збігаються');
       return;
     }
@@ -40,7 +43,7 @@ const SignUpPage = () => {
       phone: formData.phone,
       email: formData.email,
       password: formData.password,
-      parentId: Number(formData.parentId),
+      parentId: Number(referrerId) || Number(formData.parentId),
     };
     dispatch(userRegisterThunk(newUser));
     setFormData(initialFormData);
@@ -112,21 +115,21 @@ const SignUpPage = () => {
                 onChange={handleChangeInput}
               />
             </label>
-            <label className={s.label} htmlFor="secondPassword">
+            <label className={s.label} htmlFor="repeatPassword">
               <span className={s.span}>Повторіть пароль</span>
               <input
                 className={s.input}
-                name="secondPassword"
+                name="repeatPassword"
                 type="password"
-                id="secondPassword"
-                value={formData.secondPassword}
-                placeholder={'secondPassword'}
+                id="repeatPassword"
+                value={formData.repeatPassword}
+                placeholder={'repeat password'}
                 required
                 onChange={handleChangeInput}
               />
             </label>
             <label className={s.label} htmlFor="parentId">
-              <span className={s.span}>{'Хто запросив (ID)'}</span>
+              <span className={s.span}>{'Хто запросив? (ID)'}</span>
               <input
                 className={s.input}
                 name="parentId"
@@ -136,9 +139,35 @@ const SignUpPage = () => {
                 placeholder={'parentId'}
                 disabled={referrerId}
                 onChange={handleChangeInput}
+                required
               />
             </label>
+            <p className={s.agreament}>
+              <span>
+                Настискаю кнопку реєстрації, Ви погоджуєтесь із нашою{' '}
+                <ModalOpenLink
+                  className={s.link}
+                  modalContent={<PrivacyPolicyBlock />}
+                >
+                  Політикою конфіденційності
+                </ModalOpenLink>{' '}
+                та{' '}
+                <ModalOpenLink
+                  className={s.link}
+                  modalContent={<RullesBlock />}
+                >
+                  Правилами сервісу
+                </ModalOpenLink>
+              </span>
+            </p>
             <ButtonText type="submit">SignUp</ButtonText>
+            <p className={s.noProfile}>
+              <span>У Вас уже є профіль? Тоді скористуйтесь</span>
+              <br />
+              <Link to="/signIn" className={s.link}>
+                "Формою авторизації"
+              </Link>
+            </p>
           </form>
         </Block>
       </div>

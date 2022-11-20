@@ -1,5 +1,4 @@
 import React from 'react';
-import AppLoader from 'components/AppLoader/AppLoader';
 
 import ChildrensBlock from 'components/ChildrensBlock/ChildrensBlock';
 import CreateTransferBlock from 'components/CreateTransferBlock/CreateTransferBlock';
@@ -48,7 +47,6 @@ const MainPage = () => {
           <SetProfileBlock />
         </section>
       </div>
-      {/* <AppLoader isLoading={isLoading} /> */}
     </>
   );
 };

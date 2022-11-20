@@ -5,6 +5,7 @@ import AppLoader from 'components/AppLoader/AppLoader';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogInThunk } from 'redux/auth/authThunks';
 import { selectUserData } from 'redux/selectors';
+import { Link } from 'react-router-dom';
 
 import sprite from 'img/sprite';
 
@@ -71,6 +72,13 @@ const SignInPage = () => {
               />
             </label>
             <ButtonText type="submit">SignIn</ButtonText>
+            <p className={s.noProfile}>
+              <span>У Вас ще немає профілю? Тоді скористуйтесь</span>
+              <br />
+              <Link to="/signUp" className={s.link}>
+                "Формою реєстрації"
+              </Link>
+            </p>
           </form>
         </Block>
       </div>

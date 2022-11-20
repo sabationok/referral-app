@@ -23,4 +23,8 @@
   &:active {
     background-color: #3e444b;
   }
+  &:disabled{
+    pointer-events: none;
+    opacity: 0.7;
+  }
 }

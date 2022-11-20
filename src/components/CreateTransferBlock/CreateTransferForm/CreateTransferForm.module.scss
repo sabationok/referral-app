@@ -21,6 +21,8 @@
   grid-template-rows: 14px 1fr;
   gap: 6px;
   height: 100%;
+
+
 }
 .labelId {
   grid-column: 1/4;
@@ -35,6 +37,7 @@
 .title {
   font-size: 12px;
   font-weight: 700;
+  padding: 2px 6px;
 }
 .custominput {
   width: 100%;
