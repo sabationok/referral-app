@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreferral_app=self.webpackChunkreferral_app||[]).push([[49],{4049:function(e,r,t){t.r(r),t.d(r,{default:function(){return s}});var n=t(5987),a=t(7689),u=t(9434),c=t(8031),f=t(184),p=["redirectTo"];function s(e){var r=e.redirectTo;(0,n.Z)(e,p);return(0,u.v9)(c.tT).isLoggedIn?(0,f.jsx)(a.j3,{}):(0,f.jsx)(a.Fg,{to:r,replace:!0})}}}]);
+//# sourceMappingURL=49.feaa0b8f.chunk.js.map
