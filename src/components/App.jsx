@@ -10,8 +10,8 @@ import Layout from './Layout/Layout';
 
 import AppLoader from './AppLoader/AppLoader';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
 import scss from './App.module.scss';
@@ -26,7 +26,6 @@ const AdminPage = lazy(() => import('./AppPages/AdminPage/AdminPage'));
 const NotFoundPage = lazy(() => import('./AppPages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  const notify = () => toast('Wow so easy!');
   // const location = useLocation()
   const dispatch = useDispatch();
   const {
@@ -71,7 +70,6 @@ export const App = () => {
         </Layout>
       </div>
       <DeviceTypeInformer />
-      <button onClick={notify}>Notify!</button>
       <ToastContainer
         position="bottom-left"
         autoClose={5000}

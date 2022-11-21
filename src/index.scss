@@ -3,7 +3,8 @@
   --brand-clr__1: rgba(226, 54, 54, 0.95);
   // --brand_clr__1: rgb(255, 146, 73);
   --brand_clr__1: #fec400;
-  --brand_clr__2: #31362f;
+  --brand_clr__2: #3a3d54;
+  --text_clr__secondary: #828282;
   --brand_clr__2-active: #3b4238;
   --brand_clr__2-hover: #3b4138;
   --background_clr__main: #1e2124;
@@ -16,8 +17,8 @@
   --icon-clr__primary: #808080;
   /* INPUTS */
 
-  --inputClr_valid:rgb(122, 255, 140);
-  --inputClr_invalid:rgb(255, 116, 116);
+  --inputClr_valid: rgb(122, 255, 140);
+  --inputClr_invalid: rgb(255, 116, 116);
   /* BUTTONS */
   --btn-deciscon_clr__primary: rgba(219, 219, 219, 0.4);
   --btn-deciscon_clr__hover: rgba(219, 219, 219, 0.5);
@@ -186,7 +187,7 @@ button {
     overflow: hidden;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: var(--brand_clr__2);
     border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:active {

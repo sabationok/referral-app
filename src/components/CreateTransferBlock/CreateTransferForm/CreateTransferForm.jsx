@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import ButtonText from 'components/ButtonText/ButtonText';
 import AppLoader from 'components/AppLoader/AppLoader';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectUserData,
-  selectTransactions,
-} from 'redux/selectors';
+import { selectUserData, selectTransactions } from 'redux/selectors';
 
 import { postBonusTransferThunk } from 'redux/transactions/transactionsThunks';
 
@@ -24,7 +21,8 @@ const CreateTransferForm = () => {
     notes: '',
     toUser: '',
   };
-  const [formData, setFormDAta] = useState(initialState);
+  const [formData, setFormData] = useState(initialState);
+  const formClass = activeBonuses ? s.form : s.notActiveForm;
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
@@ -36,20 +34,20 @@ const CreateTransferForm = () => {
       toUser: Number(formData.toUser),
     };
     dispatch(postBonusTransferThunk(submitData));
-    setFormDAta(initialState);
+    setFormData(initialState);
   }
   function handleFormReset(ev) {
     ev.preventDefault();
-    setFormDAta(initialState);
+    setFormData(initialState);
   }
   function handleInputChange(ev) {
     let { name, value } = ev.target;
-    setFormDAta({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value });
   }
   return (
     <>
       <form
-        className={s.form}
+        className={formClass}
         onSubmit={handleFormSubmit}
         onReset={handleFormReset}
       >
@@ -64,7 +62,6 @@ const CreateTransferForm = () => {
                 id="toUser"
                 placeholder="ID користувача"
                 required
-                disabled={!activeBonuses}
                 value={formData?.toUser}
                 onChange={handleInputChange}
               />
@@ -77,12 +74,10 @@ const CreateTransferForm = () => {
                 className={s.input}
                 type="number"
                 name="amount"
-                min={50}
-                step={5}
+                min={5}
                 id="amount"
                 placeholder="Кількість"
                 required
-                disabled={!activeBonuses}
                 value={formData?.amount}
                 onChange={handleInputChange}
               />
@@ -99,7 +94,6 @@ const CreateTransferForm = () => {
                 placeholder="Призначення переказу"
                 rows="2"
                 required
-                disabled={!activeBonuses}
                 value={formData?.notes}
                 onChange={handleInputChange}
               ></textarea>
@@ -107,8 +101,8 @@ const CreateTransferForm = () => {
           </label>
         </div>
         <div className={s.buttons}>
-          <ButtonText disabled={!activeBonuses} type="submit">Надіслати</ButtonText>
-          <ButtonText disabled={!activeBonuses} type="reset">Скасувати</ButtonText>
+          <ButtonText type="submit">Надіслати</ButtonText>
+          <ButtonText type="reset">Скасувати</ButtonText>
         </div>
       </form>
       <AppLoader isLoading={isLoading} />

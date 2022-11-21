@@ -3,20 +3,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { token } from '../../services/userApi';
 import { admins } from 'data/admins';
 
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const userRegisterThunk = createAsyncThunk(
   'userAuth/register',
   async (newUser, thunkAPI) => {
     try {
       const response = await userApi.post(`/auth/registration`, newUser);
-      toast(
-        `Ви зареєстровані під іменем ${newUser?.name}`
-      );
+      toast.success(`Ви зареєстровані під іменем "${newUser?.name}".`);
+      toast.info(`Тепер Ви моеже увійти до системи.".`);
       return response.data;
     } catch (error) {
       console.log(error);
-      toast(error.response.data?.message);
+      toast.error(error.response.data?.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -27,10 +26,11 @@ export const userLogInThunk = createAsyncThunk(
     try {
       const response = await userApi.post(`/auth/login`, loginData);
       token.set(response.data.accessToken);
+      toast.success(`Вітаємо у системі.`);
       return response.data;
     } catch (error) {
       console.log(error);
-      toast(error.response.data.message);
+      toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -40,11 +40,13 @@ export const userLogOutThunk = createAsyncThunk(
   'userAuth/logout',
   async (_, thunkAPI) => {
     try {
-      await userApi.post(`/users/logout`);
+      // await userApi.post(`/users/logout`);
       token.unset();
+      toast.success(`Вдалого дня.`);
+      return { isLoggedIn: false };
     } catch (error) {
       console.log(error);
-      toast(error.response.data.message);
+      toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -60,13 +62,13 @@ export const userCurrentThunk = createAsyncThunk(
       const adminUser = admins.find(
         admin => admin.email === response.data.email
       );
-      toast(
-        `Ви аутентифіковані під іменем ${response.data?.name.toUpperCase()}`
-      );
+      // toast.success(
+      //   `Ви аутентифіковані під іменем ${response.data?.name.toUpperCase()}`
+      // );
       return { user: response.data, admin: adminUser };
     } catch (error) {
       console.log(error);
-      toast(error.response.data.message);
+      toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

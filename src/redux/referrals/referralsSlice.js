@@ -15,6 +15,7 @@ const initialState = {
 export const userRefsSlice = createSlice({
   name: 'referrals',
   initialState,
+  reducers: {},
   extraReducers: {
     //* ОТРИАТИ ВСІХ РЕФЕРАЛІВ
     [getAllRefChildrenThunk.fulfilled]: (state, { payload }) => {

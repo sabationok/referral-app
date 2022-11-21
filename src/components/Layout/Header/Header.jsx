@@ -3,7 +3,7 @@ import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenBut
 
 import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { authSignOutAction } from 'redux/auth/authAction';
+import { userLogOutThunk } from 'redux/auth/authThunks';
 import { selectUserData } from 'redux/selectors';
 import PrivacyPolicyBlock from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock';
 import RullesBlock from 'components/RullesBlock/RullesBlock';
@@ -18,7 +18,7 @@ const Header = () => {
 
   function handleSignOut() {
     let isSignOut = window.confirm('Are you realy want to signOut?');
-    isSignOut && dispatch(authSignOutAction());
+    isSignOut && dispatch(userLogOutThunk());
   }
 
   return (

@@ -6,7 +6,6 @@ import {
   userRegisterThunk,
 } from './authThunks';
 
-import { authSignOutAction, authSetAdminAction } from './authAction';
 const initialState = {
   user: {
     name: null,
@@ -38,18 +37,8 @@ const initialState = {
 export const userAuthSlice = createSlice({
   name: 'userAuth',
   initialState,
+  reducers: {},
   extraReducers: {
-    [authSetAdminAction]: (state, action) => {
-      state.user = initialState.user;
-      state.tokens = initialState.tokens;
-      state.admin = { ...action.payload };
-    },
-    [authSignOutAction]: (state, action) => {
-      state.user = initialState.user;
-      state.tokens = initialState.tokens;
-      state.admin = initialState.admin;
-      state.isLoggedIn = false;
-    },
     //* РЕЄСТРАЦІЯ
     [userRegisterThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
@@ -80,11 +69,13 @@ export const userAuthSlice = createSlice({
       state.isLoading = true;
     },
     //* ВИХІД
-    [userLogOutThunk.fulfilled]: (state, action) => {
+    [userLogOutThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.isLoggedIn = false;
       state.user = initialState.user;
-      state.token = null;
+      state.tokens = initialState.tokens;
+      state.admin = initialState.admin;
+      state.isLoggedIn = payload.isLoggedIn;
+      console.log(payload);
     },
     [userLogOutThunk.rejected]: (state, action) => {
       state.isLoading = true;

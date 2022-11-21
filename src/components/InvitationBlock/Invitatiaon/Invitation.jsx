@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserData } from 'redux/selectors';
-import Notiflix from 'notiflix';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { toast } from 'react-toastify';
@@ -15,7 +14,7 @@ const Invitation = () => {
 
   function handleCopieBtnClick() {
     navigator.clipboard.writeText(myRefLink);
-    Notiflix.Notify.info('Посилання скопійовано до буферу обміну');
+    toast.info('Посилання скопійовано до буферу обміну');
   }
   async function handleShareBtnClick() {
     const shareData = {
@@ -33,10 +32,10 @@ const Invitation = () => {
     try {
       navigator.share(shareData);
       console.log(navigator)
-      toast(`Link shared successfully`);
+      toast.success(`Link shared successfully`);
       // Notiflix.Notify.success(`Link shared successfully`);
     } catch (err) {
-      toast(`Error: ${err}`);
+      toast.error(`Error: ${err}`);
       // Notiflix.Notify.failure(`Error: ${err}`);
     }
   }

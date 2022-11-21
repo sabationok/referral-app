@@ -22,6 +22,7 @@ const initialState = {
 export const transactionsSlice = createSlice({
   name: 'referrals',
   initialState,
+  reducers: {},
   extraReducers: {
     //* ОТРИАТИ ВСІ ТРАНЗАКЦІЇ
     [getAllTransactionsThunk.fulfilled]: (state, { payload }) => {
