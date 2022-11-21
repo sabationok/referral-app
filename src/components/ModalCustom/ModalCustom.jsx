@@ -21,7 +21,6 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
   function handleToggleModalBackdrop(evt) {
     let { target, currentTarget } = evt;
     if (target === currentTarget) {
-      console.log('backdrop close modal');
       handleToggle();
       setIsOpen(!isOpen);
     }

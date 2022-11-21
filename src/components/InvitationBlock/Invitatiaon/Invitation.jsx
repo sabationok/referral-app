@@ -3,40 +3,38 @@ import { useSelector } from 'react-redux';
 import { selectUserData } from 'redux/selectors';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import MyQrCode from '../MyQrCode/MyQrCode';
 import { toast } from 'react-toastify';
-// import ShareButtons from '../SharedButtons';
 
 import s from './Invitation.module.scss';
 
 const Invitation = () => {
   const { user } = useSelector(selectUserData);
-  let myRefLink = `https://sabationok.github.io/referral-app/signUp/${user.id}`;
+  let MY_REF_LINK = `${window.location.origin}/referral-app/signUp/${user.id}`;
 
   function handleCopieBtnClick() {
-    navigator.clipboard.writeText(myRefLink);
+    navigator.clipboard.writeText(MY_REF_LINK);
     toast.info('Посилання скопійовано до буферу обміну');
   }
   async function handleShareBtnClick() {
     const shareData = {
-      title: 'Поділитись посиланням',
-      text: 'Поділитись посиланням',
-      url: myRefLink,
+      title:
+        'Привіт. Запрошую тебе у новий кешбек сервіс. Купуй товари у партнерів сервісу та збирай кешбеки. Також ти можеш запрошувати друзів та отримувати за це додаткову винагороду. Не гай часу.',
+      text: 'Привіт. Запрошую тебе у новий кешбек сервіс. Купуй товари у партнерів сервісу та збирай кешбеки. Також ти можеш запрошувати друзів та отримувати за це додаткову винагороду. Не гай часу.',
+      url: MY_REF_LINK,
     };
 
-    // try {
-    //   const batteryInfo = await navigator.getBattery();
-    //   Notiflix.Notify.success(`Battery level ${batteryInfo.level * 100}%`);
-    // } catch (err) {
-    //   Notiflix.Notify.failure(`Error: ${err}`);
-    // }
     try {
-      navigator.share(shareData);
-      console.log(navigator)
-      toast.success(`Link shared successfully`);
-      // Notiflix.Notify.success(`Link shared successfully`);
+      const batteryInfo = await navigator.getBattery();
+      toast.success(`Battery level ${batteryInfo.level * 100}%`);
     } catch (err) {
       toast.error(`Error: ${err}`);
-      // Notiflix.Notify.failure(`Error: ${err}`);
+    }
+    try {
+      navigator.share(shareData);
+      toast.success(`Link shared successfully`);
+    } catch (err) {
+      toast.error(`Error: ${err}`);
     }
   }
   return (
@@ -49,31 +47,29 @@ const Invitation = () => {
         <div className={s.linkBox}>
           <a
             className={s.refLink}
-            href={myRefLink}
+            href={MY_REF_LINK}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className={s.refLinkText}>{myRefLink}</span>
+            <span className={s.refLinkText}>{MY_REF_LINK}</span>
           </a>
         </div>
         <div className={s.QRCode}>
+          <MyQrCode text={MY_REF_LINK} size={80} />
+        </div>
+        <div className={s.buttonsWrapper}>
           <ModalOpenLink
             modalContent={
               <div className={s.QRCodeBig}>
-                <img
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${myRefLink}`}
-                  alt="myQrCode"
-                />
+                <MyQrCode text={MY_REF_LINK} size={150} />
               </div>
             }
           >
-            <img
-              src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${myRefLink}`}
-              alt="myQrCode"
-            />
+            <ButtonIcon
+              onClick={handleCopieBtnClick}
+              iconId={'icon-zoomPlus'}
+            ></ButtonIcon>
           </ModalOpenLink>
-        </div>
-        <div className={s.buttonsWrapper}>
           <ButtonIcon
             onClick={handleCopieBtnClick}
             iconId={'icon-copy'}
@@ -82,9 +78,7 @@ const Invitation = () => {
             onClick={handleShareBtnClick}
             iconId={'icon-send'}
           ></ButtonIcon>
-          {/* <ShareButtons /> */}
         </div>
-        
       </div>
     </>
   );
@@ -93,7 +87,7 @@ const Invitation = () => {
 export default Invitation;
 // <div className={s.QRCode}>
 //   <img
-//     src={`https://qrickit.com/api/qr.php?d=${myRefLink}&qrsize=150&e=m`}
+//     src={`https://qrickit.com/api/qr.php?d=${MY_REF_LINK}&qrsize=150&e=m`}
 //     alt="myQrCode"
 //   />
 // </div>

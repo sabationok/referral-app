@@ -9,10 +9,12 @@ const DeviceTypeInformer = () => {
   const isDesktop = useMediaQuery({ minWidth: 1000 });
   return (
     <div className={css.device}>
-      <p>Mobile</p> <p>{isMobile ? 'YES' : 'NO'}</p>
-      <p>Tablet</p> <p>{isTablet ? 'YES' : 'NO'}</p>
-      <p>TabletXL</p> <p>{isTabletXL ? 'YES' : 'NO'}</p>
-      <p>Desktop</p> <p>{isDesktop ? 'YES' : 'NO'}</p>
+      <div className={css.type}>
+        {isMobile && <p>Mobile</p>}
+        {isTablet && <p>Tablet</p>}
+        {isTabletXL && <p>TabletXL</p>}
+        {isDesktop && <p>Desktop</p>}
+      </div>
     </div>
   );
 };

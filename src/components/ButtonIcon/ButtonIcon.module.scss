@@ -10,9 +10,9 @@
 
   fill: #fff;
 
-  height: 28px;
-  min-width: 28px;
-  width: 28px;
+  height: 34px;
+  min-width: 34px;
+  width: 34px;
 
   background-color: #41484f;
 
@@ -34,6 +34,11 @@
     pointer-events: none;
     opacity: 0.7;
   }
+  // @media screen and (max-width: 768px) {
+  //   height: 40px;
+  //   min-width: 40px;
+  //   width: 40px;
+  // }
 }
 .iconSvg {
   width: 100%;
