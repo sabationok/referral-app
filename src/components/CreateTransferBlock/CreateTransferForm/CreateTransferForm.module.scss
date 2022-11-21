@@ -21,8 +21,6 @@
   grid-template-rows: 14px 1fr;
   gap: 6px;
   height: 100%;
-
-
 }
 .labelId {
   grid-column: 1/4;
@@ -53,10 +51,11 @@
   resize: none;
 
   color: #fff;
-  background-color: rgba(254, 254, 254, 0.2);
+  background-color: rgba(254, 254, 254, 0.05);
 
   outline-style: none;
   border-style: none;
+  border: 1px solid rgba(254, 254, 254, 0.5);
   &:invalid {
     outline: 2px solid var(--inputClr_invalid);
   }
@@ -68,6 +67,10 @@
       outline: 2px solid var(--brand_clr__1);
     }
     outline-style: none;
+  }
+  &:disabled {
+    background-color: rgba(254, 254, 254, 0);
+    border: 1px solid rgba(254, 254, 254, 0.3);
   }
 }
 

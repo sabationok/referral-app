@@ -1,12 +1,13 @@
 import React from 'react';
+import sprite from 'img/sprite';
+import s from './ButtonIcon.module.scss';
 
-import s from './ButtonText.module.scss';
-
-const ButtonText = ({
+const ButtonIcon = ({
   children,
   type = 'button',
   disabled = false,
   onClick = null,
+  iconId = '',
 }) => {
   function handleBtnClick() {
     if (onClick) {
@@ -22,9 +23,11 @@ const ButtonText = ({
       disabled={disabled}
       onClick={handleBtnClick}
     >
-      {children}
+      <svg className={s.iconSvg}>
+        <use href={`${sprite}#${iconId}`}></use>
+      </svg>
     </button>
   );
 };
 
-export default ButtonText;
+export default ButtonIcon;

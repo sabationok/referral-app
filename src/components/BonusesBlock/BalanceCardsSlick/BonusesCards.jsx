@@ -7,7 +7,6 @@ import BlockedBonusesCard from '../Cards/BlockedBalanceCard';
 import TransactionsList from '../TransactionsList/TransactionsList';
 
 
-
 import s from './BonusesCards.module.scss';
 
 export default class BonusesCards extends Component {
@@ -48,18 +47,14 @@ export default class BonusesCards extends Component {
           ref={slider => (this.slider1 = slider)}
           {...settingsTop}
         >
-          <div>
-            <ActiveBonusesCard />
-          </div>
-          <div>
-            <BlockedBonusesCard />
-          </div>
-        </Slider>
+          <ActiveBonusesCard />
 
-        {/* <Slider
+          <BlockedBonusesCard />
+        </Slider>
+{/* 
+        <Slider
           asNavFor={this.state.nav1}
           ref={slider => (this.slider2 = slider)}
-          slidesToShow={1}
           swipeToSlide={true}
           focusOnSelect={true}
           {...settingsBottom}

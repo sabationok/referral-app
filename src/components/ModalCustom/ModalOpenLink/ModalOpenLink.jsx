@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import ModalCustom from '../ModalCustom';
 
-const ModalOpenLink = ({ children, className, modalContent }) => {
+const ModalOpenLink = ({
+  children,
+  className,
+  modalContent,
+  defaultBtn = true,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   function toggleModalByLink(ev) {
     ev.preventDefault();
@@ -16,7 +21,7 @@ const ModalOpenLink = ({ children, className, modalContent }) => {
         {children}
       </a>
       {isModalOpen && (
-        <ModalCustom handleToggle={toggleModal} defaultBtn={true}>
+        <ModalCustom handleToggle={toggleModal} defaultBtn={defaultBtn}>
           {modalContent}
         </ModalCustom>
       )}
