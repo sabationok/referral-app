@@ -4,6 +4,7 @@ import { selectUserData } from 'redux/selectors';
 import Notiflix from 'notiflix';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import { ToastContainer, toast } from 'react-toastify';
 // import ShareButtons from '../SharedButtons';
 
 import s from './Invitation.module.scss';
@@ -23,17 +24,19 @@ const Invitation = () => {
       url: myRefLink,
     };
 
-    try {
-      const batteryInfo = await navigator.getBattery();
-      Notiflix.Notify.success(`Battery level ${batteryInfo.level * 100}%`);
-    } catch (err) {
-      Notiflix.Notify.failure(`Error: ${err}`);
-    }
+    // try {
+    //   const batteryInfo = await navigator.getBattery();
+    //   Notiflix.Notify.success(`Battery level ${batteryInfo.level * 100}%`);
+    // } catch (err) {
+    //   Notiflix.Notify.failure(`Error: ${err}`);
+    // }
     try {
       navigator.share(shareData);
-      Notiflix.Notify.success(`Link shared successfully`);
+      toast(`Link shared successfully`);
+      // Notiflix.Notify.success(`Link shared successfully`);
     } catch (err) {
-      Notiflix.Notify.failure(`Error: ${err}`);
+      toast(`Error: ${err}`);
+      // Notiflix.Notify.failure(`Error: ${err}`);
     }
   }
   return (

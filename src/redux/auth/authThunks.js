@@ -2,20 +2,21 @@ import userApi from '../../services/userApi';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { token } from '../../services/userApi';
 import { admins } from 'data/admins';
-import Notiflix from 'notiflix';
+
+import {  toast } from 'react-toastify';
 
 export const userRegisterThunk = createAsyncThunk(
   'userAuth/register',
   async (newUser, thunkAPI) => {
     try {
       const response = await userApi.post(`/auth/registration`, newUser);
-      Notiflix.Notify.success(
+      toast(
         `Ви зареєстровані під іменем ${newUser?.name}`
       );
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data?.message);
+      toast(error.response.data?.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -29,7 +30,7 @@ export const userLogInThunk = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,7 +44,7 @@ export const userLogOutThunk = createAsyncThunk(
       token.unset();
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -59,13 +60,13 @@ export const userCurrentThunk = createAsyncThunk(
       const adminUser = admins.find(
         admin => admin.email === response.data.email
       );
-      Notiflix.Notify.success(
+      toast(
         `Ви аутентифіковані під іменем ${response.data?.name.toUpperCase()}`
       );
       return { user: response.data, admin: adminUser };
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

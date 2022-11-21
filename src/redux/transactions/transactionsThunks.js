@@ -1,7 +1,8 @@
 import userApi from '../../services/userApi';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { token } from '../../services/userApi';
-import Notiflix from 'notiflix';
+
+import {  toast } from 'react-toastify';
 
 export const getAllTransactionsThunk = createAsyncThunk(
   'transactions/all',
@@ -13,7 +14,7 @@ export const getAllTransactionsThunk = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -28,7 +29,7 @@ export const getBlockedBonusesThunk = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,7 +44,7 @@ export const getActiveBonusesThunk = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -58,11 +59,11 @@ export const postBonusTransferThunk = createAsyncThunk(
         `/transaction/transfer`,
         transferData
       );
-      Notiflix.Notify.success(`Створено нову транзакцію, ${response.data.amount}`);
+      toast(`Створено нову транзакцію, ${response.data.amount}`);
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -74,13 +75,13 @@ export const postBonusAccrualThunk = createAsyncThunk(
     token.set(state.userAuth.tokens.accessToken);
     try {
       const response = await userApi.post(`/transaction/Accrual`, accrualData);
-      Notiflix.Notify.success(
+      toast(
         `Створено нову транзакцію ${response.data.amount}`
       );
       return response.data;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.failure(error.response.data.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

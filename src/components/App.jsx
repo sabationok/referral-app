@@ -72,7 +72,18 @@ export const App = () => {
       </div>
       <DeviceTypeInformer />
       <button onClick={notify}>Notify!</button>
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 };
