@@ -10,6 +10,8 @@ import Layout from './Layout/Layout';
 
 import AppLoader from './AppLoader/AppLoader';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
 import scss from './App.module.scss';
@@ -24,6 +26,7 @@ const AdminPage = lazy(() => import('./AppPages/AdminPage/AdminPage'));
 const NotFoundPage = lazy(() => import('./AppPages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
+  const notify = () => toast('Wow so easy!');
   // const location = useLocation()
   const dispatch = useDispatch();
   const {
@@ -38,34 +41,38 @@ export const App = () => {
   }, [dispatch, accessToken]);
 
   return (
-    <div className={scss.app}>
-      <Layout>
-        <Suspense fallback={<AppLoader isLoading={true} />}>
-          <Routes>
-            <Route path="/" element={<PrivateRoute redirectTo="signIn" />}>
-              <Route index element={<MainPage />} />
-              <Route path="main" element={<MainPage />} />
-            </Route>
-            
-            <Route path="/" element={<PublicRoute redirectTo="main" />}>
-              <Route index element={<SignInPage />} />
-              <Route path="signIn" element={<SignInPage />} />
-              <Route path="signUp">
-                <Route index element={<SignUpPage />} />
-                <Route path=":referrerId" element={<SignUpPage />} />
+    <>
+      <div className={scss.app}>
+        <Layout>
+          <Suspense fallback={<AppLoader isLoading={true} />}>
+            <Routes>
+              <Route path="/" element={<PrivateRoute redirectTo="signIn" />}>
+                <Route index element={<MainPage />} />
+                <Route path="main" element={<MainPage />} />
               </Route>
-            </Route>
 
-            <Route path="/" element={<AdminRoute redirectTo="main" />}>
-              <Route index element={<AdminPage />} />
-              <Route path="admin" element={<AdminPage />} />
-            </Route>
+              <Route path="/" element={<PublicRoute redirectTo="main" />}>
+                <Route index element={<SignInPage />} />
+                <Route path="signIn" element={<SignInPage />} />
+                <Route path="signUp">
+                  <Route index element={<SignUpPage />} />
+                  <Route path=":referrerId" element={<SignUpPage />} />
+                </Route>
+              </Route>
 
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
-      </Layout>
+              <Route path="/" element={<AdminRoute redirectTo="main" />}>
+                <Route index element={<AdminPage />} />
+                <Route path="admin" element={<AdminPage />} />
+              </Route>
+
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </Layout>
+      </div>
       <DeviceTypeInformer />
-    </div>
+      <button onClick={notify}>Notify!</button>
+      <ToastContainer />
+    </>
   );
 };

@@ -4,6 +4,7 @@ import { selectUserData } from 'redux/selectors';
 import Notiflix from 'notiflix';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+// import ShareButtons from '../SharedButtons';
 
 import s from './Invitation.module.scss';
 
@@ -14,6 +15,26 @@ const Invitation = () => {
   function handleCopieBtnClick() {
     navigator.clipboard.writeText(myRefLink);
     Notiflix.Notify.info('Посилання скопійовано до буферу обміну');
+  }
+  async function handleShareBtnClick() {
+    const shareData = {
+      title: 'Поділитись посиланням',
+      text: 'Поділитись посиланням',
+      url: myRefLink,
+    };
+
+    try {
+      const batteryInfo = await navigator.getBattery();
+      Notiflix.Notify.success(`Battery level ${batteryInfo.level * 100}%`);
+    } catch (err) {
+      Notiflix.Notify.failure(`Error: ${err}`);
+    }
+    try {
+      navigator.share(shareData);
+      Notiflix.Notify.success(`Link shared successfully`);
+    } catch (err) {
+      Notiflix.Notify.failure(`Error: ${err}`);
+    }
   }
   return (
     <>
@@ -29,13 +50,19 @@ const Invitation = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>{myRefLink}</span>
+            <span className={s.refLinkText}>{myRefLink}</span>
           </a>
-
+        </div>
+        <div className={s.buttonsWrapper}>
           <ButtonIcon
             onClick={handleCopieBtnClick}
             iconId={'icon-copy'}
           ></ButtonIcon>
+          <ButtonIcon
+            onClick={handleShareBtnClick}
+            iconId={'icon-send'}
+          ></ButtonIcon>
+          {/* <ShareButtons /> */}
         </div>
         <div className={s.QRCode}>
           <ModalOpenLink

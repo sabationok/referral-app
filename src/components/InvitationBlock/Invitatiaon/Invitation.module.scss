@@ -1,10 +1,9 @@
 .Invitation {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 30px 30px 1fr;
+  grid-template-rows: repeat(3, min-content) 1fr;
 
   gap: 8px;
-
 
   width: 100%;
   height: 100%;
@@ -16,32 +15,48 @@
   color: #828282;
 }
 .gridWrapper {
-  display: grid;
-  grid-template-columns: 1fr min-content;
-  grid-auto-rows: 28px;
+  display: flex;
+  align-items: center;
+
   gap: 16px;
 
-  align-content: center;
+  width: 100%;
+}
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  width: 100%;
 }
 .refLink {
   display: flex;
   align-items: center;
-  padding: 4px 8px;
-  height: 100%;
-  width: 100%;
 
-  font-size: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  height: fit-content;
+  flex-grow: 5;
+  flex-basis: 100px;
+
+  height: 30px;
+
+  font-size: 14px;
+
 
   border-radius: 4px;
   background-color: rgba(254, 254, 254, 0.05);
 
   transition: var(--timing-function__main);
+
+  pointer-events: none;
   &:hover {
     color: var(--brand_clr__1);
   }
+}
+.refLinkText {
+  padding: 8px;
+  width: 100%;
 }
 .QRCode {
   width: 80px;
@@ -51,7 +66,7 @@
 
   background-color: #fff;
 
-margin: auto;
+  margin: auto;
 }
 .QRCodeBig {
   display: flex;
