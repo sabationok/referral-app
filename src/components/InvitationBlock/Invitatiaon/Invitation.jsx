@@ -57,17 +57,6 @@ const Invitation = () => {
             <span className={s.refLinkText}>{myRefLink}</span>
           </a>
         </div>
-        <div className={s.buttonsWrapper}>
-          <ButtonIcon
-            onClick={handleCopieBtnClick}
-            iconId={'icon-copy'}
-          ></ButtonIcon>
-          <ButtonIcon
-            onClick={handleShareBtnClick}
-            iconId={'icon-send'}
-          ></ButtonIcon>
-          {/* <ShareButtons /> */}
-        </div>
         <div className={s.QRCode}>
           <ModalOpenLink
             modalContent={
@@ -85,6 +74,18 @@ const Invitation = () => {
             />
           </ModalOpenLink>
         </div>
+        <div className={s.buttonsWrapper}>
+          <ButtonIcon
+            onClick={handleCopieBtnClick}
+            iconId={'icon-copy'}
+          ></ButtonIcon>
+          <ButtonIcon
+            onClick={handleShareBtnClick}
+            iconId={'icon-send'}
+          ></ButtonIcon>
+          {/* <ShareButtons /> */}
+        </div>
+        
       </div>
     </>
   );
