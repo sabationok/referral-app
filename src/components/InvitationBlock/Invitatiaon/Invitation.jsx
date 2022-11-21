@@ -4,7 +4,7 @@ import { selectUserData } from 'redux/selectors';
 import Notiflix from 'notiflix';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 // import ShareButtons from '../SharedButtons';
 
 import s from './Invitation.module.scss';
@@ -32,6 +32,7 @@ const Invitation = () => {
     // }
     try {
       navigator.share(shareData);
+      console.log(navigator)
       toast(`Link shared successfully`);
       // Notiflix.Notify.success(`Link shared successfully`);
     } catch (err) {
@@ -41,12 +42,12 @@ const Invitation = () => {
   }
   return (
     <>
-      <div className={s.Invitation}>
+      <div className={s.InvitationGrid}>
         <span className={s.text}>
           Для реєстрації нового користувача поділіться із ним посиланням або
           дайте зісканувати QR-code :{' '}
         </span>
-        <div className={s.gridWrapper}>
+        <div className={s.linkBox}>
           <a
             className={s.refLink}
             href={myRefLink}

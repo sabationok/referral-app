@@ -1,7 +1,7 @@
-.Invitation {
+.InvitationGrid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, min-content) 1fr;
+  grid-auto-rows:  1fr;
 
   gap: 8px;
 
@@ -14,23 +14,9 @@
   font-size: 10px;
   color: #828282;
 }
-.gridWrapper {
-  display: flex;
-  align-items: center;
-
-  gap: 16px;
-
-  width: 100%;
+.linkBox {
 }
-.buttonsWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  gap: 16px;
-
-  width: 100%;
-}
 .refLink {
   display: flex;
   align-items: center;
@@ -39,7 +25,7 @@
   flex-grow: 5;
   flex-basis: 100px;
 
-  height: 30px;
+  // height: 30px
 
   font-size: 14px;
 
@@ -58,9 +44,18 @@
   padding: 8px;
   width: 100%;
 }
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  width: 100%;
+}
 .QRCode {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 
   padding: 6px;
 

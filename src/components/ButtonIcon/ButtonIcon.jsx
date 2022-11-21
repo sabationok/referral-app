@@ -8,6 +8,7 @@ const ButtonIcon = ({
   disabled = false,
   onClick = null,
   iconId = '',
+  style = {},
 }) => {
   function handleBtnClick() {
     if (onClick) {
@@ -21,6 +22,7 @@ const ButtonIcon = ({
       type={type}
       className={s.Button}
       disabled={disabled}
+      style={style}
       onClick={handleBtnClick}
     >
       <svg className={s.iconSvg}>
