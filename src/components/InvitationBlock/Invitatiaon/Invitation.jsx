@@ -23,13 +23,6 @@ const Invitation = () => {
       text: 'Привіт. Запрошую тебе у новий кешбек сервіс. Купуй товари у партнерів сервісу та збирай кешбеки. Також ти можеш запрошувати друзів та отримувати за це додаткову винагороду. Не гай часу.',
       url: MY_REF_LINK,
     };
-
-    try {
-      const batteryInfo = await navigator.getBattery();
-      toast.success(`Battery level ${batteryInfo.level * 100}%`);
-    } catch (err) {
-      toast.error(`Error: ${err}`);
-    }
     try {
       navigator.share(shareData);
       toast.success(`Link shared successfully`);
