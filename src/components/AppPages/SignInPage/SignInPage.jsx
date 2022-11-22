@@ -73,10 +73,11 @@ const SignInPage = () => {
             </label>
             <ButtonText type="submit">SignIn</ButtonText>
             <p className={s.noProfile}>
-              <span>У Вас ще немає профілю? Тоді скористуйтесь</span>
+              <span>У Вас ще немає профілю?</span>
               <br />
+              <span>Тоді скористуйтесь</span>{' '}
               <Link to="/signUp" className={s.link}>
-                "Формою реєстрації"
+                Формою реєстрації
               </Link>
             </p>
           </form>

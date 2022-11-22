@@ -163,9 +163,9 @@ const SignUpPage = () => {
             <p className={s.noProfile}>
               <span>У Вас уже є профіль? </span>
               <br />
-              <span>Тоді скористуйтесь</span>
+              <span>Тоді скористуйтесь</span>{' '}
               <Link to="/signIn" className={s.link}>
-                "Формою авторизації"
+                Формою авторизації
               </Link>
             </p>
           </form>
