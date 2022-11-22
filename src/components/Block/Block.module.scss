@@ -31,10 +31,19 @@
   color: #f0f0f0;
 
   background-color: var(--brand_clr__2);
-  .iconStart {
+  .iconCircle {
     display: flex;
     align-items: center;
     justify-content: center;
+
+
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    background-color: var(--background_clr__primary);
   }
   .title {
     grid-column: 2/6;

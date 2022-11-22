@@ -19,8 +19,9 @@ const UserInfo = () => {
       {user.parentId && (
         <li className={s.item}>{`ParentId: ${user.parentId}`}</li>
       )}
+      <li className={s.item}>{`І'мя: ${user.name}`}</li>
       <li className={s.item}>{`Email: ${user.email}`}</li>
-      <li className={s.item}>{`Phone: ${user.phone}`}</li>
+      <li className={s.item}>{`Телефон: ${user.phone}`}</li>
 
       {user.banned && (
         <>
@@ -28,37 +29,40 @@ const UserInfo = () => {
           <li className={s.item}>{`Ban Reason: ${user.banned}`}</li>
         </>
       )}
+      {false && (
+        <>
+          <li className={s.ActiveBonuses}>
+            <span>Active Bonuses:</span>
+            <span>{activeBonuses || '0'}</span>
+          </li>
+          <li className={s.BlockedBonuses}>
+            {`Blocked Bonuses`}
 
-      <li className={s.ActiveBonuses}>
-        <span>Active Bonuses:</span>
-        <span>{activeBonuses || '0'}</span>
-      </li>
-      <li className={s.BlockedBonuses}>
-        {`Blocked Bonuses`}
-
-        <ul className={s.list}>
-          <li className={s.item}>
-            <span>Total:</span>
-            <span>{blockedBonuses?.total || '0'}</span>
+            <ul className={s.list}>
+              <li className={s.item}>
+                <span>Total:</span>
+                <span>{blockedBonuses?.total || '0'}</span>
+              </li>
+              <li className={s.item}>
+                <span>Personal:</span>
+                <span>{blockedBonuses?.personal || '0'}</span>
+              </li>
+              <li className={s.item}>
+                <span>Cashback:</span>
+                <span>{blockedBonuses?.cashback || '0'}</span>
+              </li>
+              <li className={s.item}>
+                <span>Referral:</span>
+                <span>{blockedBonuses?.referral || '0'}</span>
+              </li>
+              <li className={s.item}>
+                <span>Extra:</span>
+                <span>{blockedBonuses?.extra || '0'}</span>
+              </li>
+            </ul>
           </li>
-          <li className={s.item}>
-            <span>Personal:</span>
-            <span>{blockedBonuses?.personal || '0'}</span>
-          </li>
-          <li className={s.item}>
-            <span>Cashback:</span>
-            <span>{blockedBonuses?.cashback || '0'}</span>
-          </li>
-          <li className={s.item}>
-            <span>Referral:</span>
-            <span>{blockedBonuses?.referral || '0'}</span>
-          </li>
-          <li className={s.item}>
-            <span>Extra:</span>
-            <span>{blockedBonuses?.extra || '0'}</span>
-          </li>
-        </ul>
-      </li>
+        </>
+      )}
     </ul>
   );
 };

@@ -1,14 +1,14 @@
 import React from 'react';
-import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton';
-
+import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
+import PrivacyPolicyBlock from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock';
+import RullesBlock from 'components/RullesBlock/RullesBlock';
+import UserInfo from '../UserInfo/UserInfo';
+import SvgIcon from 'components/SvgIcon/SvgIcon';
 import { NavLink } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogOutThunk } from 'redux/auth/authThunks';
 import { selectUserData } from 'redux/selectors';
-import PrivacyPolicyBlock from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock';
-import RullesBlock from 'components/RullesBlock/RullesBlock';
-
-import UserInfo from '../UserInfo/UserInfo';
 
 import s from './Header.module.scss';
 const Header = () => {
@@ -25,8 +25,7 @@ const Header = () => {
     <header className={s.header}>
       <div className={s.menuBox}>
         <div className={s.logoLink}>
-          <span className={s.logoText}>LO</span>
-          <span className={s.logoText}>GO</span>
+          <span className={s.logoText}>LOGO</span>
         </div>
         <ul className={s.navList}>
           {isLoggedIn && <UserInfo />}
@@ -68,18 +67,18 @@ const Header = () => {
                     Адмін
                   </NavLink>
                 )}
-                <ModalOpenButton
+                <ModalOpenLink
                   className={s.navLink}
-                  modalChildren={<PrivacyPolicyBlock />}
+                  modalContent={<PrivacyPolicyBlock />}
                 >
                   Політика конфіденційності
-                </ModalOpenButton>
-                <ModalOpenButton
+                </ModalOpenLink>
+                <ModalOpenLink
                   className={s.navLink}
-                  modalChildren={<RullesBlock />}
+                  modalContent={<RullesBlock />}
                 >
                   Правила сервісу
-                </ModalOpenButton>
+                </ModalOpenLink>
 
                 <button className={s.navLink} onClick={handleSignOut}>
                   Вихід
@@ -88,6 +87,7 @@ const Header = () => {
             )}
           </li>
         </ul>
+        
       </div>
       {isLoggedIn && (
         <div className={s.userInfo}>
@@ -97,6 +97,7 @@ const Header = () => {
           </span>
         </div>
       )}
+      <SvgIcon iconId={'icon-person'} size={'32px'}/>
     </header>
   );
 };
