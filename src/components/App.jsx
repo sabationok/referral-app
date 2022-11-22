@@ -72,7 +72,8 @@ export const App = () => {
       <DeviceTypeInformer />
       <ToastContainer
         position="bottom-left"
-        autoClose={5000}
+        autoClose={3000}
+        limit={3}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

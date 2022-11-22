@@ -40,7 +40,7 @@ const SignInPage = () => {
       <div className={s.SignInPage}>
         <Block
           title="Авторизація"
-          subTitle="Увійдіть до обліковго запису використовуюси емейл та пароль"
+          subTitle="Увійдіть до обліковго запису використовуючи емейл та пароль"
           sprite={sprite}
           iconStartId="icon-signIn"
         >

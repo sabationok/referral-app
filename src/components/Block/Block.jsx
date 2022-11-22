@@ -1,8 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import BlockPortal from './BlockPportal';
+import SvgIcon from 'components/SvgIcon/SvgIcon';
 import scss from './Block.module.scss';
-import sprite from 'img/sprite';
 
 const Block = ({
   children,
@@ -15,20 +15,21 @@ const Block = ({
   iconStartId = null,
   inWork = false,
 }) => {
-  // console.log(`small block '${title}'render`);
+  console.log(`small block '${title}'render`);
   const blockClassName = [scss.block, className].join(' ');
 
   return (
     <div className={blockClassName} style={style}>
       {header && (
         <div className={scss.header}>
-          {sprite && sprite && (
+          <SvgIcon iconId={iconStartId}/>
+          {/* {sprite && sprite && (
             <span className={scss.iconStart}>
               <svg className={scss.iconSvg}>
                 <use href={`${sprite}#${iconStartId}`}></use>
               </svg>
             </span>
-          )}
+          )} */}
           {title && <span className={scss.title}>{title}</span>}
           {subTitle && (
             <span className={scss.subTitle} title={subTitle}>

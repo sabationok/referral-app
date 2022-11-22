@@ -8,7 +8,7 @@ const CreateFeedbackBlock = () => {
     <Block
       title="Зворотній зв'язок"
       subTitle="Надішліть повідомлення і наш менеджер з Вами звʼяжеться"
-      iconStartId="icon-mail"
+      iconStartId="icon-feadback"
     >
       <div className={s.FeedbackBlock}>
         <CreateFeedbackForm />

@@ -5,7 +5,7 @@ import PrivacyPolicyBlock from 'components/PrivacyPolicyBlock/PrivacyPolicyBlock
 import RullesBlock from 'components/RullesBlock/RullesBlock';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import AppLoader from 'components/AppLoader/AppLoader';
-import Notiflix from 'notiflix';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { userRegisterThunk } from 'redux/auth/authThunks';
 import { selectUserData } from 'redux/selectors';
@@ -35,7 +35,6 @@ const SignUpPage = () => {
   function handleFormSubmit(ev) {
     ev.preventDefault();
     if (formData.repeatPassword !== formData.password) {
-      Notiflix.Notify.failure('Паролі не збігаються');
       return;
     }
     const newUser = {

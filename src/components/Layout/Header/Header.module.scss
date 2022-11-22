@@ -28,6 +28,7 @@
     height: 28px;
     width: 28px;
     min-width: 28px;
+    cursor: pointer;
   }
   &Text {
     text-align: center;
@@ -37,6 +38,8 @@
     line-height: 0.9;
     letter-spacing: 0.06em;
     color: #fff;
+
+    cursor: pointer;
   }
 }
 .userName {
@@ -76,7 +79,7 @@
         display: block;
         position: absolute;
         top: 100%;
-        right: 0;
+        left: 0;
         z-index: 101;
 
         min-width: 230px;
@@ -85,7 +88,7 @@
         background-color: var(--brand_clr__2);
         box-shadow: var(--header-shadow);
 
-        transform-origin: right;
+        transform-origin: left;
         transform: scaleX(0);
         opacity: 0;
         visibility: hidden;
@@ -97,6 +100,7 @@
       }
       &Link {
         display: block;
+        text-align: left;
 
         font-size: 14px;
         line-height: 1.2;
@@ -106,6 +110,7 @@
         color: #fff;
 
         padding: 8px 16px;
+
         background-color: inherit;
         border-style: none;
         border: 1px solid transparent;
@@ -116,31 +121,4 @@
       }
     }
   }
-}
-.button {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--brand_clr__1);
-
-  padding: 4px 16px;
-  background-color: var(--brand_clr__2);
-
-  border-style: none;
-  border: 1px solid transparent;
-  &:hover {
-    background-color: var(--brand_clr__2-hover);
-  }
-  &:focus,
-  &:active {
-    background-color: var(--brand_clr__2-active);
-    & + .nav__list {
-      opacity: 1;
-      transform: scaleX(1);
-      visibility: visible;
-      pointer-events: all;
-    }
-  }
-}
-.navButton{
-
 }

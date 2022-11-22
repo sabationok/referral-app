@@ -4,7 +4,8 @@
   gap: 8px;
 }
 .ChildrenBtn {
-  display: flex;
+  display: grid;
+  grid-template-columns: 14px min-content 1fr 14px;
   align-items: center;
   gap: 8px;
 
@@ -23,12 +24,12 @@
 
   cursor: pointer;
 
-  background-color: rgba(254, 254, 254, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
 
   transition: all var(--timing-function__main);
   &.isShow {
     border-color: var(--brand_clr__1);
-    & .iconSvg {
+    & .icon {
       transform: rotate(90deg);
     }
   }
@@ -39,12 +40,12 @@
     transition: all var(--timing-function__main);
   }
   .icon {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
   }
   &:hover {
     opacity: 1;
-    box-shadow: 0 0 10px rgba(254, 254, 254, 0.3);
+    box-shadow: 0 0 6px rgba(254, 254, 254, 0.3);
   }
   &:active {
     box-shadow: 0 0 3px rgba(254, 254, 254, 0.3);
@@ -58,23 +59,29 @@
 }
 .info {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1.2fr;
   text-align: left;
   gap: 4px;
 
   flex-grow: 1;
+  font-size: 12px;
 }
 .level {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
 }
 .name {
 }
 .id {
   color: #748aa1;
 }
-.phone {
-  font-size: 12px;
-}
 .listContainer {
+}
+.avatarBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
 }
