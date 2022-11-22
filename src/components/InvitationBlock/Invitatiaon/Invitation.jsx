@@ -40,9 +40,13 @@ const Invitation = () => {
         <div className={s.linkBox}>
           <a
             className={s.refLink}
-            href={MY_REF_LINK}
+            href="/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={ev => {
+              ev.preventDefault();
+              handleCopieBtnClick();
+            }}
           >
             <span className={s.refLinkText}>{MY_REF_LINK}</span>
           </a>
@@ -66,10 +70,7 @@ const Invitation = () => {
               </div>
             }
           >
-            <ButtonIcon
-              
-              iconId={'icon-zoomPlus'}
-            ></ButtonIcon>
+            <ButtonIcon iconId={'icon-zoomPlus'}></ButtonIcon>
           </ModalOpenLink>
           <ButtonIcon
             onClick={handleCopieBtnClick}
