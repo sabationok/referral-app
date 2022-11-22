@@ -143,7 +143,7 @@ const SignUpPage = () => {
             </label>
             <p className={s.agreament}>
               <span>
-                Настискаю кнопку реєстрації, Ви погоджуєтесь із нашою{' '}
+                Настискаючи кнопку реєстрації, Ви погоджуєтесь із нашою <br />
                 <ModalOpenLink
                   className={s.link}
                   modalContent={<PrivacyPolicyBlock />}
@@ -161,8 +161,9 @@ const SignUpPage = () => {
             </p>
             <ButtonText type="submit">SignUp</ButtonText>
             <p className={s.noProfile}>
-              <span>У Вас уже є профіль? Тоді скористуйтесь</span>
+              <span>У Вас уже є профіль? </span>
               <br />
+              <span>Тоді скористуйтесь</span>
               <Link to="/signIn" className={s.link}>
                 "Формою авторизації"
               </Link>
