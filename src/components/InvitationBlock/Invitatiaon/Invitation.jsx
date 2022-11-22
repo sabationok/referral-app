@@ -25,7 +25,7 @@ const Invitation = () => {
     };
     try {
       navigator.share(shareData);
-      toast.success(`Link shared successfully`);
+      // toast.success(`Link shared successfully`);
     } catch (err) {
       toast.error(`Error: ${err}`);
     }
@@ -48,7 +48,15 @@ const Invitation = () => {
           </a>
         </div>
         <div className={s.QRCode}>
-          <MyQrCode text={MY_REF_LINK} size={80} />
+          <ModalOpenLink
+            modalContent={
+              <div className={s.QRCodeBig}>
+                <MyQrCode text={MY_REF_LINK} size={150} />
+              </div>
+            }
+          >
+            <MyQrCode text={MY_REF_LINK} size={80} />
+          </ModalOpenLink>
         </div>
         <div className={s.buttonsWrapper}>
           <ModalOpenLink
@@ -59,7 +67,7 @@ const Invitation = () => {
             }
           >
             <ButtonIcon
-              onClick={handleCopieBtnClick}
+              
               iconId={'icon-zoomPlus'}
             ></ButtonIcon>
           </ModalOpenLink>
@@ -69,7 +77,7 @@ const Invitation = () => {
           ></ButtonIcon>
           <ButtonIcon
             onClick={handleShareBtnClick}
-            iconId={'icon-send'}
+            iconId={'icon-share'}
           ></ButtonIcon>
         </div>
       </div>

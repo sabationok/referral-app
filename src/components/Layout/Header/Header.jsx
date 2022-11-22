@@ -87,7 +87,6 @@ const Header = () => {
             )}
           </li>
         </ul>
-        
       </div>
       {isLoggedIn && (
         <div className={s.userInfo}>

@@ -8,6 +8,7 @@ const UserInfo = () => {
   const { bonuses } = useSelector(selectTransactions);
   const { activeBonuses, blockedBonuses } = bonuses;
   return (
+    
     <ul className={s.userInfoList}>
       <li className={s.item}>
         {admin.isAdmin ? (
