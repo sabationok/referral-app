@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import BonusesCards from './BalanceCardsSlick/BonusesCards';
+import BalanceCards from './BalanceCardsSlick/BalanceCards';
 import Block from 'components/Block/Block';
 import { useDispatch } from 'react-redux';
 import {
@@ -9,9 +9,9 @@ import {
   getAllTransactionsThunk,
 } from 'redux/transactions/transactionsThunks';
 
-import s from './BonusesBlock.module.scss';
+import s from './BalanceBlock.module.scss';
 
-const BonusesBlock = () => {
+const BalanceBlock = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllTransactionsThunk());
@@ -26,10 +26,10 @@ const BonusesBlock = () => {
       iconStartId="icon-wallet"
     >
       <div className={s.BonusesBlock}>
-        <BonusesCards />
+        <BalanceCards />
       </div>
     </Block>
   );
 };
 
-export default BonusesBlock;
+export default BalanceBlock;

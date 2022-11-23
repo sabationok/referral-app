@@ -18,9 +18,9 @@ const SignUpBlock = ({ signInBtn, agreament }) => {
   const dispatch = useDispatch();
   const { referrerId } = useParams();
   const initialFormData = {
-    name: '',
-    phone: '',
-    email: '',
+    name: 'Петро М',
+    phone: '+380674567892',
+    email: 'mail@mail.com',
     password: '',
     repeatPassword: '',
     parentId: referrerId || '',
@@ -33,10 +33,6 @@ const SignUpBlock = ({ signInBtn, agreament }) => {
   }
   function handleFormSubmit(ev) {
     ev.preventDefault();
-    if (formData.repeatPassword !== formData.password) {
-      toast.error('Паролі не співпадають');
-      return;
-    }
     const newUser = {
       name: formData.name,
       phone: formData.phone,
@@ -44,6 +40,12 @@ const SignUpBlock = ({ signInBtn, agreament }) => {
       password: formData.password,
       parentId: Number(referrerId) || Number(formData.parentId),
     };
+    if (formData.repeatPassword !== formData.password) {
+      console.table(formData)
+      console.table(initialFormData)
+      toast.error('Паролі не співпадають');
+      return;
+    }
     dispatch(userRegisterThunk(newUser));
     setFormData(initialFormData);
   }
@@ -71,6 +73,8 @@ const SignUpBlock = ({ signInBtn, agreament }) => {
             id="name"
             type="text"
             placeholder="І'мя"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             onChange={handleChangeInput}
           />
@@ -83,7 +87,9 @@ const SignUpBlock = ({ signInBtn, agreament }) => {
             name="phone"
             id="phone"
             type="text"
-            placeholder="+380"
+            placeholder="+3801234567"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             onChange={handleChangeInput}
           />
@@ -118,7 +124,7 @@ const SignUpBlock = ({ signInBtn, agreament }) => {
             spanClass={s.span}
             inputClass={s.input}
             labelValue="Повторіть пароль"
-            InputValue={formData.repeatPassword}
+            inputValue={formData.repeatPassword}
             name="repeatPassword"
             id="repeatPassword"
             type="password"
@@ -131,7 +137,7 @@ const SignUpBlock = ({ signInBtn, agreament }) => {
             spanClass={s.span}
             inputClass={s.input}
             labelValue="Хто запросив? (ID)"
-            InputValue={formData.parentId}
+            inputValue={formData.parentId}
             name="parentId"
             id="parentId"
             type="text"

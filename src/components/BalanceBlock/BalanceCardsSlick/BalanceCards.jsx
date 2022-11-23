@@ -4,12 +4,12 @@ import Slider from 'react-slick';
 
 import ActiveBonusesCard from '../Cards/ActiveBalaceCard';
 import BlockedBonusesCard from '../Cards/BlockedBalanceCard';
-import TransactionsList from '../TransactionsList/TransactionsList';
+// import TransactionsList from '../TransactionsList/TransactionsList';
 
 
-import s from './BonusesCards.module.scss';
+import s from './BalanceCards.module.scss';
 
-export default class BonusesCards extends Component {
+export default class BalanceCards extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,7 +62,7 @@ export default class BonusesCards extends Component {
           <TransactionsList />
           <TransactionsList />
         </Slider> */}
-        <TransactionsList />
+        {/* <TransactionsList /> */}
       </div>
     );
   }

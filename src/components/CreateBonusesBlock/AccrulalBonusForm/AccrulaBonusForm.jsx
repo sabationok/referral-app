@@ -51,12 +51,13 @@ const AccrulaBonusForm = () => {
           labelClass={s.label}
           spanClass={s.span}
           inputClass={s.input}
-          labelValue="Тип бонусів: 'personal/cashback/referral/extra"
+          labelValue="Тип бонусів"
           InputValue={accrualData.type}
           name="type"
           id="type"
           type="text"
-          placeholder="Bonus type"
+          placeholder="Тип бонусів"
+          title={"Тип бонусів: 'personal, cashback, referral, extra'"}
           required
           onChange={handleChangeInput}
         />
@@ -69,8 +70,9 @@ const AccrulaBonusForm = () => {
           name="amount"
           id="amount"
           type="number"
-          placeholder="Bonus amount"
+          placeholder="Кількість бонусів"
           min={0}
+          // pattern='[0-9]'
           required
           onChange={handleChangeInput}
         />
@@ -84,7 +86,7 @@ const AccrulaBonusForm = () => {
           name="toUser"
           id="toUser"
           type="text"
-          placeholder="User ID"
+          placeholder="ID користувача"
           required
           onChange={handleChangeInput}
         />
@@ -101,9 +103,8 @@ const AccrulaBonusForm = () => {
           required
           onChange={handleChangeInput}
         />
+        <ButtonText type="submit">Create accrual bonus</ButtonText>
       </div>
-
-      <ButtonText type="submit">Create accrual bonus</ButtonText>
     </form>
   );
 };

@@ -28,8 +28,6 @@ const Header = () => {
           <span className={s.logoText}>LOGO</span>
         </div>
         <ul className={s.navList}>
-          {isLoggedIn && <UserInfo />}
-
           <li>
             {!isLoggedIn && (
               <>
@@ -51,52 +49,69 @@ const Header = () => {
             )}
             {isLoggedIn && (
               <>
-                <NavLink
-                  className={s.navLink}
-                  to="main"
-                  rel="noopener noreferrer"
-                >
-                  Головна
-                </NavLink>
-                {admin.isAdmin && (
+                <li>
                   <NavLink
                     className={s.navLink}
-                    to="admin"
+                    to="main"
                     rel="noopener noreferrer"
                   >
-                    Адмін
+                    Головна
                   </NavLink>
-                )}
-                <ModalOpenLink
-                  className={s.navLink}
-                  modalContent={<PrivacyPolicyBlock />}
-                >
-                  Політика конфіденційності
-                </ModalOpenLink>
-                <ModalOpenLink
-                  className={s.navLink}
-                  modalContent={<RullesBlock />}
-                >
-                  Правила сервісу
-                </ModalOpenLink>
-
-                <button className={s.navLink} onClick={handleSignOut}>
-                  Вихід
-                </button>
+                </li>
+                <li>
+                  {admin.isAdmin && (
+                    <NavLink
+                      className={s.navLink}
+                      to="admin"
+                      rel="noopener noreferrer"
+                    >
+                      Адмін
+                    </NavLink>
+                  )}
+                </li>
+                <li>
+                  <ModalOpenLink
+                    className={s.navLink}
+                    modalContent={<PrivacyPolicyBlock />}
+                  >
+                    Політика конфіденційності
+                  </ModalOpenLink>
+                </li>
+                <li>
+                  <ModalOpenLink
+                    className={s.navLink}
+                    modalContent={<RullesBlock />}
+                  >
+                    Правила сервісу
+                  </ModalOpenLink>
+                </li>
               </>
             )}
           </li>
         </ul>
       </div>
       {isLoggedIn && (
-        <div className={s.userInfo}>
-          <span className={admin.isAdmin ? s.adminName : s.userName}>
-            Wellcome! {user?.name}{' '}
-            <span className={s.userId}>{`(id: ${user?.id})`}</span>
-          </span>
-        </div>
+        <>
+          <div className={s.userInfo}>
+            <span className={admin.isAdmin ? s.adminName : s.userName}>
+              Wellcome! {user?.name}{' '}
+              <span className={s.userId}>{`(id: ${user?.id})`}</span>
+            </span>
+          </div>
+
+          <div className={s.menuBox}>
+            <SvgIcon iconId={'icon-person'} size={'32px'} />
+            <ul className={s.profileInfoList}>
+              <li>{isLoggedIn && <UserInfo />}</li>
+              <li>
+                <button className={s.navLink} onClick={handleSignOut}>
+                  Вихід
+                </button>
+              </li>
+            </ul>
+          </div>
+        </>
       )}
-      <SvgIcon iconId={'icon-person'} size={'32px'}/>
     </header>
   );
 };

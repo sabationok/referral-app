@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ModalPortal from './ModalPortal/ModalPortal';
+import SvgIconClose from './SvgIconClose/SvgIconClose';
 import s from './ModalCustom.module.scss';
 
 //* ""handleToggle"" функція яка тоглить стейт модалки
@@ -50,7 +51,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
           <div className={s.Modal}>
             {defaultBtn && (
               <button className={s.closeModal} onClick={handleToggleModal}>
-                Close
+                <SvgIconClose size={'100%'}/>
               </button>
             )}
             {children}

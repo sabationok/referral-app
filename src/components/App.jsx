@@ -3,8 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userCurrentThunk } from 'redux/auth/authThunks';
-
 import { selectUserData } from 'redux/selectors';
+
+import MobileRoute from './DeviceTypeInformer/DeviceTypeController';
+import { NotMobileRoute } from './DeviceTypeInformer/DeviceTypeController';
 // import { useLocation } from 'react-router-dom';
 import Layout from './Layout/Layout';
 
@@ -22,6 +24,9 @@ const PublicRoute = lazy(() => import('./AppRoutes/PublicRoute'));
 const SignInPage = lazy(() => import('./AppPages/SignInPage/SignInPage'));
 const SignUpPage = lazy(() => import('./AppPages/SignUpPage/SignUpPage'));
 const MainPage = lazy(() => import('./AppPages/MainPage/MainPage'));
+const MainPageMobile = lazy(() =>
+  import('./AppPages/MainPageMobile/MainPageMobile')
+);
 const AdminPage = lazy(() => import('./AppPages/AdminPage/AdminPage'));
 const NotFoundPage = lazy(() => import('./AppPages/NotFoundPage/NotFoundPage'));
 
@@ -46,8 +51,14 @@ export const App = () => {
           <Suspense fallback={<AppLoader isLoading={true} />}>
             <Routes>
               <Route path="/" element={<PrivateRoute redirectTo="signIn" />}>
-                <Route index element={<MainPage />} />
-                <Route path="main" element={<MainPage />} />
+                <Route path="/" element={<MobileRoute redirectTo="main" />}>
+                  <Route index element={<MainPageMobile />} />
+                  <Route path="mobile/*" element={<MainPageMobile />} />
+                </Route>
+                <Route path="/" element={<NotMobileRoute redirectTo="mobile" />}>
+                  <Route index element={<MainPage />} />
+                  <Route path="main" element={<MainPage />} />
+                </Route>
               </Route>
 
               <Route path="/" element={<PublicRoute redirectTo="main" />}>

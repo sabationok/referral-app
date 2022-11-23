@@ -9,5 +9,12 @@
   background-color: var(--background_clr__main);
 
   fill: var(--brand_clr__1);
+
+  @media screen and (max-width: 768px) {
+    max-height: 100vh;
+    display: grid;
+    grid-template-rows: min-content minmax(150px, 280px) min-content;
+
+  }
 }
 

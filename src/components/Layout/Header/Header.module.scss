@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  align-items: center;
+
   position: sticky;
   top: 0;
   left: 0;
@@ -7,13 +10,15 @@
   width: 100%;
   height: 56px;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   padding: 0 8px;
   background-color: var(--brand_clr__2);
   box-shadow: var(--header-shadow);
+  @media screen and (max-width: 480px) {
+    gap: 4px;
+  }
+  @media screen and (min-width: 480px) {
+    justify-content: space-between;
+  }
 }
 .logo {
   &Link {
@@ -41,15 +46,17 @@
     cursor: pointer;
   }
 }
-.userName {
+.userInfo {
+  padding: 4px;
   color: #fff;
   & .name {
     color: inherit;
   }
-  .userId {
+  & .userId {
     color: inherit;
   }
 }
+
 .adminName {
   color: var(--brand_clr__1);
   & .name {
@@ -57,6 +64,9 @@
   }
   .userId {
     color: inherit;
+  }
+  @media screen and (max-width: 480) {
+    font-size: 10px;
   }
 }
 .menu {
@@ -66,6 +76,7 @@
 
     &:focus,
     &:hover {
+      & .profileInfoList,
       & .navList {
         opacity: 1;
         transform: scaleX(1);
@@ -73,51 +84,75 @@
         pointer-events: all;
       }
     }
-    & .nav {
-      &List {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 101;
+    & .navList {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 101;
 
-        min-width: 230px;
+      min-width: 230px;
 
-        padding: 9px 1px;
+      padding: 9px 1px;
 
-        transform-origin: left;
-        transform: scaleX(0);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
+      transform-origin: left;
+      transform: scaleX(0);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
 
-        overflow: hidden;
+      overflow: hidden;
 
-        background-color: var(--brand_clr__2);
-        box-shadow: var(--header-shadow);
+      background-color: var(--brand_clr__2);
+      box-shadow: var(--header-shadow);
 
-        transition: all var(--timing-function__main);
-      }
-      &Link {
-        display: block;
-        text-align: left;
+      transition: all var(--timing-function__main);
+    }
 
-        font-size: 14px;
-        line-height: 1.2;
-        letter-spacing: 0.06em;
+    & .profileInfoList {
+      display: block;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 101;
 
-        width: 100%;
-        color: #fff;
+      min-width: 250px;
 
-        padding: 8px 16px;
+      padding: 9px 1px;
 
-        background-color: inherit;
-        border-style: none;
-        border: 1px solid transparent;
-        transition: all var(--timing-function__main);
-        &:hover {
-          background-color: var(--brand_clr__1);
-        }
+      transform-origin: right;
+      transform: scaleX(0);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      overflow: hidden;
+
+      background-color: var(--brand_clr__2);
+      box-shadow: var(--header-shadow);
+
+      transition: all var(--timing-function__main);
+    }
+
+    & .navLink {
+      display: block;
+      text-align: left;
+
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 0.06em;
+
+      width: 100%;
+      color: #fff;
+
+      padding: 8px 16px;
+
+      background-color: inherit;
+      border-style: none;
+      border: 1px solid transparent;
+      transition: all var(--timing-function__main);
+      &:hover {
+        background-color: var(--brand_clr__1);
       }
     }
   }
