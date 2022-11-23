@@ -1,14 +1,15 @@
+import React from 'react';
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userCurrentThunk } from 'redux/auth/authThunks';
 import { selectUserData } from 'redux/selectors';
 
-import MobileRoute from './DeviceTypeInformer/DeviceTypeController';
 import { NotMobileRoute } from './DeviceTypeInformer/DeviceTypeController';
-// import { useLocation } from 'react-router-dom';
+// import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from './Layout/Layout';
+import MobileRoute from './DeviceTypeInformer/DeviceTypeController';
 
 import AppLoader from './AppLoader/AppLoader';
 
@@ -31,7 +32,8 @@ const AdminPage = lazy(() => import('./AppPages/AdminPage/AdminPage'));
 const NotFoundPage = lazy(() => import('./AppPages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  // const location = useLocation()
+  // const location = useLocation();
+  // const navigateTo = useNavigate();
   const dispatch = useDispatch();
   const {
     tokens: { accessToken },
@@ -52,17 +54,20 @@ export const App = () => {
             <Routes>
               <Route path="/" element={<PrivateRoute redirectTo="signIn" />}>
                 <Route path="/" element={<MobileRoute redirectTo="main" />}>
-                  <Route index element={<MainPageMobile />} />
+                  <Route index element={<Navigate to='mobile/wallet' />} />
                   <Route path="mobile/*" element={<MainPageMobile />} />
                 </Route>
-                <Route path="/" element={<NotMobileRoute redirectTo="mobile" />}>
-                  <Route index element={<MainPage />} />
+                <Route
+                  path="/"
+                  element={<NotMobileRoute redirectTo="mobile/wallet" />}
+                >
+                  <Route index element={<Navigate to='main' />} />
                   <Route path="main" element={<MainPage />} />
                 </Route>
               </Route>
 
               <Route path="/" element={<PublicRoute redirectTo="main" />}>
-                <Route index element={<SignInPage />} />
+                <Route index element={<Navigate to='signIn' />} />
                 <Route path="signIn" element={<SignInPage />} />
                 <Route path="signUp">
                   <Route index element={<SignUpPage />} />

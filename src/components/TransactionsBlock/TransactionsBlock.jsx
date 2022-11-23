@@ -19,7 +19,7 @@ const TransactionsBlock = () => {
     <Block
       title="Транзакції"
       subTitle="Усі ваші транзакції у цьому блоці"
-      iconStartId="icon-wallet"
+      iconStartId="icon-transactions"
     >
       <div className={s.TransactionsBlock}>
         <TransactionsList />

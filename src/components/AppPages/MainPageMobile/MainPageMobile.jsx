@@ -26,8 +26,9 @@ const MainPageMobile = () => {
     { path: 'statistics', element: <StatisticsBlock /> },
     { path: 'settings', element: <SetProfileBlock /> },
   ];
+
   return (
-    <div className={s.MainPage}>
+    <div className={s.MainPageMobile}>
       <Routes>
         <Route
           index
@@ -39,6 +40,7 @@ const MainPageMobile = () => {
         />
         {pageMap.map(item => (
           <Route
+            key={item.path}
             path={item.path}
             element={<section className={s.section}>{item.element}</section>}
           />

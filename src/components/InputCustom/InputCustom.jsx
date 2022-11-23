@@ -49,13 +49,13 @@ const InputCustom = ({
           {...others}
         />
         {visibilityBtn && (
-          <batton
+          <button
             type="button"
             className={s.visibilityBtn}
             onClick={handleToggleVisibility}
           >
             <SvgIcon iconId={iconId} />
-          </batton>
+          </button>
         )}
       </span>
     </label>

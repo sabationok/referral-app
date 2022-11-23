@@ -1,5 +1,4 @@
 import React from 'react';
-import sprite from 'img/sprite';
 import s from './SvgIconClose.module.scss';
 const SvgIconClose = ({ iconId, style, size = '', svgClass = '' }) => {
   const styles = {

@@ -48,7 +48,7 @@ const Header = () => {
               </>
             )}
             {isLoggedIn && (
-              <>
+              <ul>
                 <li>
                   <NavLink
                     className={s.navLink}
@@ -85,7 +85,7 @@ const Header = () => {
                     Правила сервісу
                   </ModalOpenLink>
                 </li>
-              </>
+              </ul>
             )}
           </li>
         </ul>

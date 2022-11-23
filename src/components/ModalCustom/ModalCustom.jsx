@@ -31,7 +31,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
     let { code } = evt;
     if (code === 'Escape') {
       handleToggle();
-      setIsOpen(!isOpen);
+      // setIsOpen(!isOpen);
       window.removeEventListener('keydown', handleToggleModalByEsc);
     }
   }
