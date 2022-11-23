@@ -1,19 +1,18 @@
 .AdminPage {
   display: grid;
   grid-auto-columns: 1fr;
-  grid-auto-rows: 250px;
+  grid-auto-rows: auto;
   align-items: center;
   justify-content: center;
   gap: 16px;
 
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.07em;
 
   margin: 8px auto;
 
-  width: 400px;
-
-  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  max-width: 400px;
+  
 }
 

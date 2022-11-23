@@ -14,7 +14,7 @@ import { toast } from 'react-toastify';
 
 import sprite from 'img/sprite';
 import s from './SignUpBlock.module.scss';
-const SignUpBlock = () => {
+const SignUpBlock = ({ signInBtn, agreament }) => {
   const dispatch = useDispatch();
   const { referrerId } = useParams();
   const initialFormData = {
@@ -140,25 +140,30 @@ const SignUpBlock = () => {
             required
             onChange={handleChangeInput}
           />
-          <p className={s.agreament}>
-            <span>
-              Настискаючи кнопку реєстрації, Ви погоджуєтесь із нашою <br />
-              <ModalOpenLink
-                className={s.link}
-                modalContent={<PrivacyPolicyBlock />}
-              >
-                Політикою конфіденційності
-              </ModalOpenLink>{' '}
-              та{' '}
-              <ModalOpenLink className={s.link} modalContent={<RullesBlock />}>
-                Правилами сервісу
-              </ModalOpenLink>
-            </span>
-          </p>
+          {agreament && (
+            <p className={s.agreament}>
+              <span>
+                Настискаючи кнопку реєстрації, Ви погоджуєтесь із нашою <br />
+                <ModalOpenLink
+                  className={s.link}
+                  modalContent={<PrivacyPolicyBlock />}
+                >
+                  Політикою конфіденційності
+                </ModalOpenLink>{' '}
+                та{' '}
+                <ModalOpenLink
+                  className={s.link}
+                  modalContent={<RullesBlock />}
+                >
+                  Правилами сервісу
+                </ModalOpenLink>
+              </span>
+            </p>
+          )}
           <ButtonText type="submit" styleType="ColoredBtn">
             Реєстрація
           </ButtonText>
-          <ButtonLink to="/signIn">Вхід</ButtonLink>
+          {signInBtn && <ButtonLink to="/signIn">Вхід</ButtonLink>}
         </form>
       </Block>
     </>

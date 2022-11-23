@@ -1,6 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
-import AccrulaBonusForm from './AccrulalBonus/AccrulaBonusForm';
+import AccrulaBonusForm from './AccrulalBonusForm/AccrulaBonusForm';
 
 import s from './CreateBonusesBlock.module.scss';
 const CreateBonusesBlock = () => {
@@ -11,9 +11,7 @@ const CreateBonusesBlock = () => {
       iconStartId="icon-settings"
       className={s.block}
     >
-      <div>
-        <AccrulaBonusForm />
-      </div>
+      <AccrulaBonusForm />
     </Block>
   );
 };

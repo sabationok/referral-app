@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   getAllTransactionsThunk,
-  getBlockedBonusesThunk,
-  getActiveBonusesThunk,
   postBonusTransferThunk,
   postBonusAccrualThunk,
+  getBlockedBonusesThunk,
+  getActiveBonusesThunk,
 } from './transactionsThunks';
 const initialState = {
   transactions: [],
