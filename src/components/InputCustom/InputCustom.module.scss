@@ -1,0 +1,20 @@
+.inputBox {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.visibilityBtn {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+
+  transform: translateY(-50%);
+
+  fill: grey;
+
+  background-color: transparent;
+  border-style: none;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+}

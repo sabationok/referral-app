@@ -6,8 +6,12 @@ const ButtonText = ({
   children,
   type = 'button',
   disabled = false,
+  style = {},
+  className = '',
   onClick = null,
+  styleType = 'PrimaryBtn',
 }) => {
+  const classNames = [s.Button, s[styleType], className].join(' ');
   function handleBtnClick() {
     if (onClick) {
       onClick();
@@ -17,12 +21,13 @@ const ButtonText = ({
   }
   return (
     <button
+      style={style}
       type={type}
-      className={s.Button}
+      className={classNames}
       disabled={disabled}
       onClick={handleBtnClick}
     >
-      {children}
+      <span>{children}</span>
     </button>
   );
 };

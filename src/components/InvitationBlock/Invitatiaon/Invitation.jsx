@@ -5,7 +5,6 @@ import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import MyQrCode from '../MyQrCode/MyQrCode';
 import { toast } from 'react-toastify';
-
 import s from './Invitation.module.scss';
 
 const Invitation = () => {

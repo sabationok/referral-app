@@ -9,7 +9,10 @@ const ButtonIcon = ({
   onClick = null,
   iconId = '',
   style = {},
+  className = '',
+  styleType = 'PrimaryBtn',
 }) => {
+  const classNames = [s.Button, s[styleType], className].join(' ');
   function handleBtnClick() {
     if (onClick) {
       onClick();
@@ -20,7 +23,7 @@ const ButtonIcon = ({
   return (
     <button
       type={type}
-      className={s.Button}
+      className={classNames}
       disabled={disabled}
       style={style}
       onClick={handleBtnClick}

@@ -22,7 +22,7 @@ const CreateTransferForm = () => {
     toUser: '',
   };
   const [formData, setFormData] = useState(initialState);
-  const formClass = activeBonuses ? s.form : s.notActiveForm;
+  const formClass = !activeBonuses ? s.activeForm : s.notActiveForm;
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
