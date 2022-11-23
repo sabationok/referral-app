@@ -25,6 +25,7 @@ const PublicRoute = lazy(() => import('./AppRoutes/PublicRoute'));
 const SignInPage = lazy(() => import('./AppPages/SignInPage/SignInPage'));
 const SignUpPage = lazy(() => import('./AppPages/SignUpPage/SignUpPage'));
 const MainPage = lazy(() => import('./AppPages/MainPage/MainPage'));
+const WellcomePage = lazy(() => import('./AppPages/WellcomePage/WellcomePage'));
 const MainPageMobile = lazy(() =>
   import('./AppPages/MainPageMobile/MainPageMobile')
 );
@@ -54,20 +55,20 @@ export const App = () => {
             <Routes>
               <Route path="/" element={<PrivateRoute redirectTo="signIn" />}>
                 <Route path="/" element={<MobileRoute redirectTo="main" />}>
-                  <Route index element={<Navigate to='mobile/wallet' />} />
+                  <Route index element={<Navigate to="mobile/wallet" />} />
                   <Route path="mobile/*" element={<MainPageMobile />} />
                 </Route>
                 <Route
                   path="/"
                   element={<NotMobileRoute redirectTo="mobile/wallet" />}
                 >
-                  <Route index element={<Navigate to='main' />} />
+                  <Route index element={<Navigate to="main" />} />
                   <Route path="main" element={<MainPage />} />
                 </Route>
               </Route>
 
               <Route path="/" element={<PublicRoute redirectTo="main" />}>
-                <Route index element={<Navigate to='signIn' />} />
+                <Route index element={<WellcomePage />} />
                 <Route path="signIn" element={<SignInPage />} />
                 <Route path="signUp">
                   <Route index element={<SignUpPage />} />
