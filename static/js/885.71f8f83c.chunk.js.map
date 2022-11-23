@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/885.71f8f83c.chunk.js","mappings":"6IAQA,UANqB,WACnB,OACE,yCAEH,C","sources":["components/AppPages/WellcomePage/WellcomePage.jsx"],"sourcesContent":["import React from 'react'\n\nconst WellcomePage = () => {\n  return (\n    <div>WellcomePage</div>\n  )\n}\n\nexport default WellcomePage"],"names":[],"sourceRoot":""}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreferral_app=self.webpackChunkreferral_app||[]).push([[885],{8885:function(e,r,a){a.r(r);a(2791);var l=a(184);r.default=function(){return(0,l.jsx)("div",{children:"WellcomePage"})}}}]);
+//# sourceMappingURL=885.71f8f83c.chunk.js.map
