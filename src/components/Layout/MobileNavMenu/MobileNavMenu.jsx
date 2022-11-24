@@ -36,14 +36,13 @@ const MobileNavMenu = () => {
   }
   return (
     <>
-      <div
-        className={menuBackDropClass}
-        onClick={handleToggleMenu}
-      >
+      <div className={menuBackDropClass} onClick={handleToggleMenu}>
         <div className={s.MobileNavMenu}>
           <ButtonIcon
             iconId="icon-menuBurger"
             onClick={handleToggleMenu}
+            size="56px"
+            styles={{ boxShadow: '0 0 15px rgba(170,170,170,0.5)' }}
             styleType={buttonStyleType}
           />
 
@@ -52,7 +51,7 @@ const MobileNavMenu = () => {
               navLinks.map(el => (
                 <li key={el.to} className={s.navItem}>
                   <NavLink to={`mobile/${el.to}`} className={s.navLink}>
-                    <SvgIcon iconId={el.iconId} size="24px" />
+                    <SvgIcon iconId={el.iconId} size="60%" />
                   </NavLink>
                 </li>
               ))}

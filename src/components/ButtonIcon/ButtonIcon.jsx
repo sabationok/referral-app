@@ -8,7 +8,8 @@ const ButtonIcon = ({
   disabled = false,
   onClick = null,
   iconId = '',
-  style = {},
+  styles = {},
+  size = '',
   className = '',
   styleType = 'PrimaryBtn',
 }) => {
@@ -20,6 +21,11 @@ const ButtonIcon = ({
     }
     return;
   }
+  let style = {
+    width: size,
+    height: size,
+    ...styles,
+  };
   return (
     <button
       type={type}

@@ -31,7 +31,7 @@
   &.isShow {
     border-color: var(--brand_clr__1);
     & .icon {
-      transform: rotate(90deg);
+      transform: rotate(0deg);
     }
   }
   .iconSvg {
@@ -43,6 +43,7 @@
   .icon {
     width: 14px;
     height: 14px;
+    transform: rotate(90deg);
   }
   &:hover {
     opacity: 1;

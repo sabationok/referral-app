@@ -1,21 +1,17 @@
 .app {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 56px 1fr auto;
+  grid-template-rows: 56px 1fr 0;
   gap: 8px;
 
   width: 100%;
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100vh;
 
   color: #fff;
   fill: var(--brand_clr__1);
 
-  background-color: var(--background_clr__main);
-
   @media screen and (min-width: 768px) {
     display: block;
-    min-height: 100vh;
-    max-height: fit-content;
+    height: fit-content;
   }
 }

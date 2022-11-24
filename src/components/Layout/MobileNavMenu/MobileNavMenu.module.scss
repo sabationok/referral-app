@@ -1,13 +1,6 @@
-.MobileNavMenu {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-
-  padding: 8px;
-}
 .menuBackDrop,
 .menuBackDropOpen {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   z-index: 80;
@@ -26,13 +19,20 @@
     transform: scale(1);
   }
 }
+.MobileNavMenu {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+
+  padding: 8px;
+}
 .navList {
   position: absolute;
   bottom: 100%;
   right: 0;
   display: grid;
-  grid-template-columns: repeat(3, 50px);
-  grid-auto-rows: 50px;
+  grid-template-columns: repeat(3, 56px);
+  grid-auto-rows: 56px;
   gap: 4px;
 
   align-items: center;
@@ -72,7 +72,7 @@
     font-weight: 300;
     text-transform: capitalize;
   }
-  &:hover{
+  &:hover {
     background-color: rgba(254, 254, 254, 0.2);
   }
 }
