@@ -10,21 +10,21 @@ const BlockedBalanceCard = () => {
     <div className={s.cardContainer}>
       <div className={s.cardBlocked}>
         <div className={s.card}>
-          <span>Blocked Bonuses</span>
+          <span>Заблоковані бонуси</span>
           <div className={s.totalBalance}>
             <span>{bonuses?.total || '0.00'}</span>
           </div>
           <div className={s.balanceStat}>
             <div className={s.wrapper}>
-              <span className={s.title}>{'cashback'}</span>
+              <span className={s.title}>{'Cashback'}</span>
               <span className={s.value}>{bonuses?.cashback || '0.00'}</span>
             </div>
             <div className={s.wrapper}>
-              <span className={s.title}>{'referral'}</span>
+              <span className={s.title}>{'Referral'}</span>
               <span className={s.value}>{bonuses?.referral || '0.00'}</span>
             </div>
             <div className={s.wrapper}>
-              <span className={s.title}>{'extra'}</span>
+              <span className={s.title}>{'Extra'}</span>
               <span className={s.value}>{bonuses?.extra || '0.00'}</span>
             </div>
           </div>

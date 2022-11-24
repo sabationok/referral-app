@@ -4,11 +4,12 @@ import { getAllRefChildrenThunk } from 'redux/referrals/referralsThunks';
 import { selectChildrensInfo } from 'redux/selectors';
 
 import ChildrensList from 'components/ChildrensBlock/ChildrensList/ChildrensList';
+import ChildrenFilter from './ChildrenFilter/ChildrenFilter';
 import Block from 'components/Block/Block';
 
 import s from './ChildrensBlock.module.scss';
 
-const ChildrensBlock = () => {
+const ChildrensBlock = ({ filter = true }) => {
   const dispatch = useDispatch();
   const { childrensList } = useSelector(selectChildrensInfo);
 
@@ -23,6 +24,7 @@ const ChildrensBlock = () => {
         iconStartId="icon-persons"
       >
         <div className={s.childrensBlock}>
+          <ChildrenFilter />
           <ChildrensList arr={childrensList} level={1} />
         </div>
       </Block>

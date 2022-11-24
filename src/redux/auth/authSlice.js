@@ -17,6 +17,7 @@ const initialState = {
     banReason: null,
     role: null,
     children: null,
+    isAdmin: null,
   },
   admin: {
     name: null,
@@ -75,7 +76,6 @@ export const userAuthSlice = createSlice({
       state.tokens = initialState.tokens;
       state.admin = initialState.admin;
       state.isLoggedIn = payload.isLoggedIn;
-      console.log(payload);
     },
     [userLogOutThunk.rejected]: (state, action) => {
       state.isLoading = true;

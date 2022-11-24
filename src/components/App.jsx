@@ -86,7 +86,7 @@ export const App = () => {
           </Suspense>
         </Layout>
       </div>
-      <DeviceTypeInformer />
+      {/* <DeviceTypeInformer /> */}
       <ToastContainer
         position="bottom-left"
         autoClose={3000}

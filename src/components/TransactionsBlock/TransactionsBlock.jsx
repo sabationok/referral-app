@@ -6,10 +6,11 @@ import {
   getActiveBonusesThunk,
   getBlockedBonusesThunk,
 } from 'redux/transactions/transactionsThunks';
-import TransactionsList from 'components/BalanceBlock/TransactionsList/TransactionsList';
+import TransactionsList from 'components/TransactionsList/TransactionsList';
+import TransactionsFilter from 'components/TransactionsList/TransactionsFilter/TransactionsFilter';
 import s from './TransactionsBlock.module.scss';
 
-const TransactionsBlock = () => {
+const TransactionsBlock = ({ filter = true }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBlockedBonusesThunk());
@@ -22,6 +23,7 @@ const TransactionsBlock = () => {
       iconStartId="icon-transactions"
     >
       <div className={s.TransactionsBlock}>
+        {filter && <TransactionsFilter />}
         <TransactionsList />
       </div>
     </Block>

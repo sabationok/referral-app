@@ -8,7 +8,7 @@ const InputCustom = ({
   inputClass = '',
   name = '',
   id = '',
-  inputValue,
+  inputValue = '',
   labelValue = '',
   placeholder = '',
   type = 'text',
@@ -35,14 +35,14 @@ const InputCustom = ({
   }, [isVisible, type]);
   return (
     <label className={labelClass} htmlFor={id}>
-      <span className={spanClass}>{labelValue}</span>
+      {labelValue && <span className={spanClass}>{labelValue}</span>}
       <span className={s.inputBox}>
         <input
           className={inputClass}
           name={name}
           type={inputType}
           id={id}
-          value={inputValue && inputValue}
+          value={inputValue}
           placeholder={placeholder}
           required={required}
           onChange={onChange}

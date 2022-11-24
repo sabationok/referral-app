@@ -33,21 +33,21 @@ const Transaction = ({ transaction }) => {
 
   return (
     <div className={transactionStyleClass}>
-      <span className={[s.col1, s.title].join(' ')}>Date/Time</span>
+      <span className={[s.col1, s.title].join(' ')}>Дата і Час</span>
       <span className={[s.col2, s.createdAt].join(' ')}>
         <span className={s.date}>{`${day}.${month}.${year}`}</span>{' '}
         <span className={s.time}>{`${hours}:${minutes}:${seconds}`}</span>
       </span>
-      <span className={[s.col1, s.title].join(' ')}>Amount</span>
+      <span className={[s.col1, s.title].join(' ')}>Кількість</span>
       <span className={[s.col2, s.amount].join(' ')}>
         <span>{amount > 0 ? '+' : '-'}</span>
         <span>{numberWithSpaces(amount)}</span>
       </span>
-      <span className={[s.col1, s.title].join(' ')}>Status</span>
+      <span className={[s.col1, s.title].join(' ')}>Статус</span>
       <span className={[s.col2, s.amountStatus].join(' ')}>{amountStatus}</span>
-      <span className={[s.col1, s.title].join(' ')}>Type</span>
+      <span className={[s.col1, s.title].join(' ')}>Тип</span>
       <span className={[s.col2, s.type].join(' ')}>{type}</span>
-      <span className={[s.col1, s.title].join(' ')}>Note</span>
+      <span className={[s.col1, s.title].join(' ')}>Коментар</span>
       <span className={[s.col2, s.note].join(' ')} title={notes}>
         {notes}
       </span>

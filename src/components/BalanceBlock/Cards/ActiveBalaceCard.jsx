@@ -10,7 +10,7 @@ const ActiveBalanceCard = () => {
     <div className={s.cardContainer}>
       <div className={s.cardActive}>
         <div className={s.card}>
-          <span>Active Bonuses</span>
+          <span>Активні бонуси</span>
           <div className={s.totalBalance}>
             <span>{activeBalance}</span>
           </div>

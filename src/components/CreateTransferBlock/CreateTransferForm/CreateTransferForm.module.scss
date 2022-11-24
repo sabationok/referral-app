@@ -16,7 +16,13 @@
   grid-auto-rows: 50px 1fr;
   gap: 8px;
 
+  font-size: 14px;
+  
   padding-bottom: 8px;
+
+  @media screen and (max-width: 768px) {
+    grid-auto-rows: 70px 1fr;
+  }
 }
 .labelId,
 .labelAmount,
@@ -41,7 +47,6 @@
   font-size: 12px;
   font-weight: 400;
   padding: 2px 6px;
-  
 }
 .custominput {
   width: 100%;

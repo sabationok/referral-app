@@ -1,39 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUserData } from 'redux/selectors';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { NavLink } from 'react-router-dom';
 import s from './MobileNavMenu.module.scss';
 const MobileNavMenu = () => {
+  const { admin } = useSelector(selectUserData);
+
   const navLinks = [
-    { iconId: 'icon-wallet', to: 'wallet' },
-    { iconId: 'icon-transactions', to: 'transactions' },
-    { iconId: 'icon-cardOk', to: 'payBack' },
-    { iconId: 'icon-share', to: 'share' },
-    { iconId: 'icon-present', to: 'transfer' },
-    { iconId: 'icon-feadback', to: 'feadback' },
-    { iconId: 'icon-persons', to: 'referrals' },
-    { iconId: 'icon-partners', to: 'partners' },
-    { iconId: 'icon-settings', to: 'settings' },
-    { iconId: 'icon-stat', to: 'statistics' },
+    { iconId: 'icon-wallet', title: 'Баланс', to: 'wallet' },
+    { iconId: 'icon-transactions', title: 'Транзакції', to: 'transactions' },
+    { iconId: 'icon-cardOk', title: 'Виплата', to: 'payBack' },
+    { iconId: 'icon-present', title: 'Переказ', to: 'transfer' },
+    { iconId: 'icon-share', title: 'Поділитись', to: 'share' },
+    { iconId: 'icon-persons', title: 'Мережа', to: 'referrals' },
+    { iconId: 'icon-stat', title: 'Статистика', to: 'statistics' },
+    { iconId: 'icon-partners', title: 'Партнери', to: 'partners' },
+    { iconId: 'icon-feadback', title: 'Відгук', to: 'feadback' },
+    { iconId: 'icon-settings', title: 'Налаштування', to: 'settings' },
   ];
+  const navLinksAdmin = [{ iconId: 'icon-admin',title: 'Адмін', to: 'admin' }];
 
   const [isOpen, setIsOpen] = useState(false);
-  let menuBackDropClass = isOpen ? s.menuBackDropOpen : s.menuBackDrop;
+  const menuBackDropClass = isOpen ? s.menuBackDropOpen : s.menuBackDrop;
   const buttonStyleType = isOpen ? 'ColoredBtn' : 'PrimaryBtn';
 
   function handleToggleMenu() {
     setIsOpen(!isOpen);
-    console.log('handleToggleMenu');
     window.addEventListener('keydown', handleCloseByEscape);
   }
   function handleCloseByEscape(ev) {
     let { code } = ev;
     if (code === 'Escape') {
       setIsOpen(false);
-      console.log('handleCloseByEscape');
       window.removeEventListener('keydown', handleCloseByEscape);
     }
   }
+
   return (
     <>
       <div className={menuBackDropClass} onClick={handleToggleMenu}>
@@ -52,6 +56,26 @@ const MobileNavMenu = () => {
                 <li key={el.to} className={s.navItem}>
                   <NavLink to={`mobile/${el.to}`} className={s.navLink}>
                     <SvgIcon iconId={el.iconId} size="60%" />
+                    <span className={s.linkTitle}>{el.title}</span>
+                  </NavLink>
+                </li>
+              ))}
+            {/* {isOpen &&
+              admin.isAdmin &&(
+                <li  className={s.navItem}>
+                  <NavLink to='./admin' className={s.navLink}>
+                    <SvgIcon iconId='icon-admin' size="60%" />
+                    <span className={s.linkTitle}>Aadmin</span>
+                  </NavLink>
+                </li>
+              )} */}
+            {isOpen &&
+              admin.isAdmin &&
+              navLinksAdmin.map(el => (
+                <li key={el.to} className={s.navItem}>
+                  <NavLink to={el.to} className={s.navLink}>
+                    <SvgIcon iconId={el.iconId} size="60%" />
+                    <span className={s.linkTitle}>{el.title}</span>
                   </NavLink>
                 </li>
               ))}

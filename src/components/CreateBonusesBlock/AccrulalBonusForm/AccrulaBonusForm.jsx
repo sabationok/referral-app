@@ -10,9 +10,9 @@ const AccrulaBonusForm = () => {
   const dispatch = useDispatch();
   const accrulaInitialSate = {
     type: 'personal',
-    amount: null,
+    amount: 0,
     notes: '',
-    toUser: '27',
+    toUser: 27,
   };
   const [accrualData, setAccrualData] = useState(accrulaInitialSate);
 
@@ -52,7 +52,7 @@ const AccrulaBonusForm = () => {
           spanClass={s.span}
           inputClass={s.input}
           labelValue="Тип бонусів"
-          InputValue={accrualData.type}
+          inputValue={accrualData.type}
           name="type"
           id="type"
           type="text"
@@ -66,7 +66,7 @@ const AccrulaBonusForm = () => {
           spanClass={s.span}
           inputClass={s.input}
           labelValue="Кількість бонусів"
-          InputValue={accrualData.amount}
+          inputValue={accrualData.amount}
           name="amount"
           id="amount"
           type="number"
@@ -82,7 +82,7 @@ const AccrulaBonusForm = () => {
           spanClass={s.span}
           inputClass={s.input}
           labelValue="ID користувача"
-          InputValue={accrualData.toUser}
+          inputValue={accrualData.toUser}
           name="toUser"
           id="toUser"
           type="text"
@@ -95,7 +95,7 @@ const AccrulaBonusForm = () => {
           spanClass={s.span}
           inputClass={s.input}
           labelValue="Коментар"
-          InputValue={accrualData.notes}
+          inputValue={accrualData.notes}
           name="notes"
           id="notes"
           type="text"
