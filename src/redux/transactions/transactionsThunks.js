@@ -13,7 +13,6 @@ export const getAllTransactionsThunk = createAsyncThunk(
       const response = await userApi.get(`/transaction/all`);
       return response.data;
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -59,7 +58,7 @@ export const postBonusTransferThunk = createAsyncThunk(
         `/transaction/transfer`,
         transferData
       );
-      toast.success(`Створено нову транзакцію, ${response.data.amount}`);
+      toast.success(`Створено нову транзакцію, ${response.data.amount}, тип:${response.data.type}`);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -76,7 +75,7 @@ export const postBonusAccrualThunk = createAsyncThunk(
     try {
       const response = await userApi.post(`/transaction/Accrual`, accrualData);
       toast.success(
-        `Створено нову транзакцію ${response.data.amount}`
+        `Створено нову транзакцію ${response.data.amount}, тип:${response.data.type}`
       );
       return response.data;
     } catch (error) {

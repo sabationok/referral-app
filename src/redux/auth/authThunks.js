@@ -14,7 +14,6 @@ export const userRegisterThunk = createAsyncThunk(
       toast.info(`Тепер Ви моеже увійти до системи.".`);
       return response.data;
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data?.message);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -29,8 +28,7 @@ export const userLogInThunk = createAsyncThunk(
       toast.success(`Вітаємо у системі.`);
       return response.data;
     } catch (error) {
-      console.log(error);
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -42,10 +40,9 @@ export const userLogOutThunk = createAsyncThunk(
     try {
       // await userApi.post(`/users/logout`);
       token.unset();
-      toast.success(`Вдалого дня.`);
+      toast.success(`До зустрічі. Вдалого Вам дня.`);
       return { isLoggedIn: false };
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -67,7 +64,6 @@ export const userCurrentThunk = createAsyncThunk(
       // );
       return { user: response.data, admin: adminUser };
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }

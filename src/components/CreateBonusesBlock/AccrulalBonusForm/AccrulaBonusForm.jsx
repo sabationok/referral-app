@@ -72,7 +72,7 @@ const AccrulaBonusForm = () => {
           type="number"
           placeholder="Кількість бонусів"
           min={0}
-          // pattern='[0-9]'
+          pattern="[0-9]"
           required
           onChange={handleChangeInput}
         />
@@ -103,7 +103,7 @@ const AccrulaBonusForm = () => {
           required
           onChange={handleChangeInput}
         />
-        <ButtonText type="submit">Create accrual bonus</ButtonText>
+        <ButtonText type="submit">Створити бонуси</ButtonText>
       </div>
     </form>
   );
