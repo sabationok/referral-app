@@ -15,7 +15,7 @@ import AppLoader from './AppLoader/AppLoader';
 
 import { ToastContainer } from 'react-toastify';
 
-import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
+// import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
 import scss from './App.module.scss';
 
